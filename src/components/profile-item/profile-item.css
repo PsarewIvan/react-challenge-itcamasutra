@@ -1,0 +1,19 @@
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-item__count {
+  font-size: 1.14rem;
+  font-weight: 600;
+  line-height: 1.75;
+  color: #626c72;
+  text-align: center;
+}
+
+.profile-item__name {
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #bbbbdc;
+}

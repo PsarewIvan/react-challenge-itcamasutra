@@ -1,0 +1,15 @@
+.content__search {
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e7edf2;
+}
+
+.content__message {
+  padding: 30px 25px 0;
+}
+
+.content__feed {
+  padding: 30px 25px 30px;
+}

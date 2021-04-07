@@ -1,0 +1,10 @@
+.app__wrapper {
+  display: grid;
+  grid-template-columns: 320px auto;
+}
+
+.app__header {
+}
+
+.app__content {
+}
