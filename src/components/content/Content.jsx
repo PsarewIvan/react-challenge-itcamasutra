@@ -1,6 +1,6 @@
 import SearchInput from '../search-input/Search-input';
 import MessageInput from '../message-input/Message-input';
-import Feed from '../feed/Feed';
+import Profile from '../Profile/Profile';
 import './content.css';
 
 const Content = () => {
@@ -13,7 +13,7 @@ const Content = () => {
         <MessageInput />
       </div>
       <div className="content__feed">
-        <Feed />
+        <Profile />
       </div>
     </main>
   );

@@ -1,5 +1,5 @@
 import Logo from '../logo/Logo';
-import Profile from '../profile/Profile';
+import UserCard from '../User-card/User-card';
 import Nav from '../nav/Nav';
 import './header.css';
 
@@ -10,7 +10,7 @@ const Header = () => {
         <Logo />
       </div>
       <div className="header__profile">
-        <Profile />
+        <UserCard />
       </div>
       <div className="header__nav">
         <Nav />
