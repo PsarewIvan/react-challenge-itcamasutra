@@ -12,12 +12,7 @@
   border-bottom: 1px solid #e7edf2;
 }
 
-.content__message {
-  grid-column: 1;
-  padding: 30px 25px 015px;
-}
-
-.content__feed {
+.content__main {
   grid-column: 1;
   padding: 15px 25px 30px;
 }

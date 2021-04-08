@@ -1,6 +1,9 @@
 import SearchInput from '../search-input/Search-input';
-import MessageInput from '../message-input/Message-input';
 import Profile from '../Profile/Profile';
+import Dialogs from '../Dialogs/Dialogs';
+import Feed from '../Feed/Feed';
+import Music from '../Music/Music';
+import Settings from '../Settings/Settings';
 import './content.css';
 
 const Content = () => {
@@ -9,11 +12,12 @@ const Content = () => {
       <div className="content__search">
         <SearchInput />
       </div>
-      <div className="content__message">
-        <MessageInput />
-      </div>
-      <div className="content__feed">
+      <div className="content__main">
         <Profile />
+        <Dialogs />
+        <Feed />
+        <Music />
+        <Settings />
       </div>
     </main>
   );

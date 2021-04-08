@@ -5,6 +5,11 @@
   list-style: none;
 }
 
+.profile__card,
+.profile__message {
+  margin-bottom: 30px;
+}
+
 .profile__list::before {
   content: '';
   display: block;
