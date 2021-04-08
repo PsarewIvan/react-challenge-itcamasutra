@@ -1,11 +1,15 @@
 .header {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .header__logo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 0 0 auto;
   min-height: 385px;
   padding: 50px 16px 16px;
   background-color: #383a45;
@@ -22,6 +26,8 @@
 }
 
 .header__nav {
+  flex: 1 0 auto;
+  height: 100%;
   padding: 90px 16px 30px;
   background-color: #f3f5f7;
 }
