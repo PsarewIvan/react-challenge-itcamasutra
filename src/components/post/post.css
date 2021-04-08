@@ -1,11 +1,26 @@
 .post {
   display: flex;
+  flex-direction: column;
+  width: 600px;
 }
 
 .post:not(:last-child) {
   margin-bottom: 40px;
 }
 
+.post__header {
+  margin-right: auto;
+}
+
+.post__inner {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.post__action {
+  margin-left: 50px;
+}
+
 .post__text {
-  margin: 15px 0 0 20px;
+  margin-top: 15px;
 }

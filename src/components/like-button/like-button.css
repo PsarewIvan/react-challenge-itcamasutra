@@ -1,0 +1,37 @@
+.like-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: #8224e3;
+  cursor: pointer;
+}
+
+.like-button:hover .like-button__text,
+.like-button:focus .like-button__text {
+  text-decoration: underline;
+}
+
+.like-button__wrapper {
+  position: relative;
+}
+
+.like-button__icon {
+  position: absolute;
+  top: -2px;
+  width: 20px;
+}
+
+.like-button__text {
+  margin-left: 24px;
+}
+
+.like-button__count {
+  padding: 0 6px;
+  margin-left: 2px;
+  border-radius: 50px;
+  background-color: rgba(130, 36, 227, 0.1);
+  font-size: 0.85rem;
+  line-height: 1;
+  text-align: center;
+}
