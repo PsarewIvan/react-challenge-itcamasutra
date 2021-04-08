@@ -4,6 +4,7 @@ import Dialogs from '../Dialogs/Dialogs';
 import Feed from '../Feed/Feed';
 import Music from '../Music/Music';
 import Settings from '../Settings/Settings';
+import { Route } from 'react-router-dom';
 import './content.css';
 
 const Content = () => {
@@ -13,11 +14,11 @@ const Content = () => {
         <SearchInput />
       </div>
       <div className="content__main">
-        <Profile />
-        <Dialogs />
-        <Feed />
-        <Music />
-        <Settings />
+        <Route exact path="/" component={Profile} />
+        <Route exact path="/dialogs" component={Dialogs} />
+        <Route exact path="/feed" component={Feed} />
+        <Route exact path="/music" component={Music} />
+        <Route exact path="/settings" component={Settings} />
       </div>
     </main>
   );
