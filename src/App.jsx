@@ -1,7 +1,7 @@
-import Header from './components/header/Header';
-import Content from './components/content/Content';
+import Header from './components/Header/Header';
+import Content from './components/Content/Content';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './app.css';
+import './App.css';
 
 function App() {
   return (

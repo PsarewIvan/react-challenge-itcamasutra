@@ -1,5 +1,5 @@
-import Avatar from '../avatar/Avatar';
-import './message-input.css';
+import Avatar from '../Avatar/Avatar';
+import './Message-input.css';
 
 const MessageInput = () => {
   const NAME = 'John';

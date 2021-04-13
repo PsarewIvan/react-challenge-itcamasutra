@@ -1,6 +1,6 @@
-import Avatar from '../avatar/Avatar';
-import LikeButton from '../like-button/Like-button';
-import './post.css';
+import Avatar from '../Avatar/Avatar';
+import LikeButton from '../Like-button/Like-button';
+import './Post.css';
 
 const Post = (props) => {
   return (

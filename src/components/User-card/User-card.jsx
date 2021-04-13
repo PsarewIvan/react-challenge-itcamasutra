@@ -1,5 +1,5 @@
-import Avatar from '../avatar/Avatar';
-import ProfileItem from '../profile-item/Profile-item';
+import Avatar from '../Avatar/Avatar';
+import ProfileItem from '../Profile-item/Profile-item';
 import './User-card.css';
 
 const UserCard = () => {

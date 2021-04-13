@@ -1,11 +1,11 @@
-import SearchInput from '../search-input/Search-input';
+import SearchInput from '../Search-input/Search-input';
 import Profile from '../Profile/Profile';
 import Dialogs from '../Dialogs/Dialogs';
 import Feed from '../Feed/Feed';
 import Music from '../Music/Music';
 import Settings from '../Settings/Settings';
 import { Route } from 'react-router-dom';
-import './content.css';
+import './Content.css';
 
 const Content = () => {
   return (

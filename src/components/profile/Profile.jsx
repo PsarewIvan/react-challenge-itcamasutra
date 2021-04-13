@@ -1,5 +1,5 @@
-import MessageInput from '../message-input/Message-input';
-import Post from '../post/Post';
+import MessageInput from '../Message-input/Message-input';
+import Post from '../Post/Post';
 import './Profile.css';
 
 const Profile = () => {

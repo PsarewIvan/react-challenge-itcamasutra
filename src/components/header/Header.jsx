@@ -1,7 +1,7 @@
-import Logo from '../logo/Logo';
+import Logo from '../Logo/Logo';
 import UserCard from '../User-card/User-card';
-import Nav from '../nav/Nav';
-import './header.css';
+import Nav from '../Nav/Nav';
+import './Header.css';
 
 const Header = () => {
   return (

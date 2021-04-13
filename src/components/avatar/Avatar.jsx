@@ -1,5 +1,5 @@
 import image from './img/avatar.jpeg';
-import './avatar.css';
+import './Avatar.css';
 
 const Avatar = (props) => {
   return (
