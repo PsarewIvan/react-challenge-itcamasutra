@@ -13,6 +13,6 @@
 }
 
 .content__main {
-  grid-column: 1;
+  grid-column: 1 / 4;
   padding: 15px 25px 30px;
 }

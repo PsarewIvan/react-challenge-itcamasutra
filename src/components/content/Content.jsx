@@ -15,7 +15,7 @@ const Content = () => {
       </div>
       <div className="content__main">
         <Route exact strict path="/" component={Profile} />
-        <Route exact path="/communication" component={Communication} />
+        <Route path="/communication" component={Communication} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/music" component={Music} />
         <Route exact path="/settings" component={Settings} />
