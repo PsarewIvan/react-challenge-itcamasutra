@@ -1,6 +1,6 @@
 import SearchInput from '../Search-input/Search-input';
 import Profile from '../Profile/Profile';
-import Dialogs from '../Dialogs/Dialogs';
+import Communication from '../Communication/Communication';
 import Feed from '../Feed/Feed';
 import Music from '../Music/Music';
 import Settings from '../Settings/Settings';
@@ -14,8 +14,8 @@ const Content = () => {
         <SearchInput />
       </div>
       <div className="content__main">
-        <Route exact path="/" component={Profile} />
-        <Route exact path="/dialogs" component={Dialogs} />
+        <Route exact strict path="/" component={Profile} />
+        <Route exact path="/communication" component={Communication} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/music" component={Music} />
         <Route exact path="/settings" component={Settings} />
