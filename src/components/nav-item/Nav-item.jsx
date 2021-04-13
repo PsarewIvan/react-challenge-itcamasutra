@@ -2,13 +2,16 @@ import { NavLink } from 'react-router-dom';
 import './Nav-item.css';
 
 const NavItem = (props) => {
+  const Icon = props.icon;
+
   return (
     <li className="nav-item">
       <NavLink
         className="nav-item__link"
-        activeClassName="nav-link__active"
+        activeClassName="nav-item__link--active"
         to={props.href}
       >
+        <Icon className="nav-item__icon" aria-hidden="true" />
         {props.name}
       </NavLink>
     </li>
