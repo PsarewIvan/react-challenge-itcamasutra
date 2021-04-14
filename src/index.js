@@ -21,6 +21,10 @@ const mockData = {
     { id: 2, message: 'Second post', likeCount: '1' },
     { id: 3, message: 'Another post', likeCount: '10' },
   ],
+  profileItems: [
+    { id: 1, name: 'Friends', number: '1' },
+    { id: 2, name: 'Groups', number: '3' },
+  ],
 };
 
 ReactDOM.render(

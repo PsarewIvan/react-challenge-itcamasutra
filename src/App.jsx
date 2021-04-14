@@ -8,7 +8,7 @@ function App(props) {
     <Router>
       <div className="app__wrapper">
         <div className="app__header">
-          <Header />
+          <Header profileItems={props.data.profileItems}/>
         </div>
         <div className="app__content">
           <Content
