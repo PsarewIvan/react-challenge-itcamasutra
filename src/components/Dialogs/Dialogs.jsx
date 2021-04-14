@@ -1,17 +1,10 @@
 import DialogItem from './../Dialog-item/Dialog-item';
 import './Dialogs.css';
 
-const dialogs = [
-  { id: 1, name: 'John Doe' },
-  { id: 2, name: 'Anna Bell' },
-  { id: 3, name: 'Lori Chase' },
-  { id: 4, name: 'Ken Lee' },
-];
-
-const Dialogs = () => {
-  const dialogItems = dialogs.map((dialog) => {
+const Dialogs = (props) => {
+  const dialogItems = props.dialogs.map((dialog) => {
     return (
-      <li className="dialogs__element">
+      <li className="dialogs__element" key={`dialogs-element-${dialog.id}`}>
         <DialogItem name={dialog.name} id={dialog.id} />
       </li>
     );

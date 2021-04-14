@@ -7,18 +7,28 @@ import Settings from '../Settings/Settings';
 import { Route } from 'react-router-dom';
 import './Content.css';
 
-const Content = () => {
+const Content = (props) => {
   return (
     <main className="content">
       <div className="content__search">
         <SearchInput />
       </div>
       <div className="content__main">
-        <Route exact strict path="/" component={Profile} />
-        <Route path="/communication" component={Communication} />
-        <Route exact path="/feed" component={Feed} />
-        <Route exact path="/music" component={Music} />
-        <Route exact path="/settings" component={Settings} />
+        <Route
+          exact
+          strict
+          path="/"
+          render={() => <Profile posts={props.posts} />}
+        />
+        <Route
+          path="/communication"
+          render={() => (
+            <Communication messages={props.messages} dialogs={props.dialogs} />
+          )}
+        />
+        <Route exact path="/feed" render={() => <Feed />} />
+        <Route exact path="/music" render={() => <Music />} />
+        <Route exact path="/settings" render={() => <Settings />} />
       </div>
     </main>
   );

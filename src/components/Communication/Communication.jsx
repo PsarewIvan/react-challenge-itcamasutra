@@ -2,14 +2,14 @@ import DialogMessages from './../Dialog-messages/Dialog-messages';
 import Dialogs from './../Dialogs/Dialogs';
 import './Communication.css';
 
-const Communication = () => {
+const Communication = (props) => {
   return (
     <div className="communication">
       <div className="communication__messages">
-        <DialogMessages />
+        <DialogMessages messages={props.messages} />
       </div>
       <div className="communication__dialogs">
-        <Dialogs />
+        <Dialogs dialogs={props.dialogs} />
       </div>
     </div>
   );

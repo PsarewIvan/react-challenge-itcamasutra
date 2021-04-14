@@ -3,7 +3,7 @@ import Content from './components/Content/Content';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="app__wrapper">
@@ -11,7 +11,11 @@ function App() {
           <Header />
         </div>
         <div className="app__content">
-          <Content />
+          <Content
+            messages={props.data.messages}
+            dialogs={props.data.dialogs}
+            posts={props.data.posts}
+          />
         </div>
       </div>
     </Router>
