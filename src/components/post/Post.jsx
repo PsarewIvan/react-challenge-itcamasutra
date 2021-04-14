@@ -4,17 +4,17 @@ import './Post.css';
 
 const Post = (props) => {
   return (
-    <li className="post">
+    <div className="post">
       <div className="post__header">
         <Avatar type="post" />
       </div>
       <div className="post__inner">
-        <p className="post__text">{props.text}</p>
+        <p className="post__text">{props.message}</p>
       </div>
       <div className="post__action">
         <LikeButton />
       </div>
-    </li>
+    </div>
   );
 };
 
