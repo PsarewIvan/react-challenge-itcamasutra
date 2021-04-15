@@ -1,5 +1,9 @@
 import { renderApp } from './../render';
 
+const constants = {
+  MESSAGE_PLACEHOLDER: 'Write a message...',
+};
+
 const mockData = {
   currentUserId: 1,
   messages: [
@@ -7,6 +11,8 @@ const mockData = {
     { id: 2, message: 'Second message' },
     { id: 3, message: 'Another message' },
   ],
+  userMessageText: '',
+  messagePlaceholder: constants.MESSAGE_PLACEHOLDER,
   users: [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Sam Sam' },
@@ -34,14 +40,21 @@ const mockData = {
   ],
 };
 
-const addMessage = (message) => {
+const addMessage = () => {
   const newId = mockData.messages[mockData.messages.length - 1].id + 1;
+  const newMessageText = mockData.userMessageText;
   const newMessage = {
     id: newId,
-    message: message,
+    message: newMessageText,
   };
   mockData.messages.push(newMessage);
-  renderApp(mockData, addMessage);
+  mockData.userMessageText = '';
+  renderApp(mockData, addMessage, changeNewMessage);
 };
 
-export { mockData, addMessage };
+const changeNewMessage = (message) => {
+  mockData.userMessageText = message;
+  renderApp(mockData, addMessage, changeNewMessage);
+};
+
+export { mockData, addMessage, changeNewMessage };

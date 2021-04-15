@@ -35,6 +35,9 @@ const Content = (props) => {
               currentUserId={props.currentUserId}
               users={props.users}
               addMessage={props.addMessage}
+              changeNewMessage={props.changeNewMessage}
+              userMessageText={props.userMessageText}
+              messagePlaceholder={props.messagePlaceholder}
             />
           )}
         />

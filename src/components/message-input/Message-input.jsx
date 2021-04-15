@@ -5,7 +5,10 @@ const MessageInput = (props) => {
   const input = React.createRef();
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.addMessage(input.current.value);
+    props.addMessage();
+  };
+  const handleTextareaInput = () => {
+    props.changeNewMessage(input.current.value);
   };
 
   return (
@@ -14,8 +17,10 @@ const MessageInput = (props) => {
         className="message-input__input"
         type="text"
         name="post"
-        placeholder="Write a message..."
+        placeholder={props.messagePlaceholder}
+        value={props.userMessageText}
         ref={input}
+        onInput={handleTextareaInput}
       ></textarea>
       <button
         className="message-input__button"
