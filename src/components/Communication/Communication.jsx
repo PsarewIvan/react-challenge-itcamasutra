@@ -6,7 +6,10 @@ const Communication = (props) => {
   return (
     <div className="communication">
       <div className="communication__messages">
-        <DialogMessages messages={props.messages} />
+        <DialogMessages
+          messages={props.messages}
+          currentUserId={props.currentUserId}
+        />
       </div>
       <div className="communication__dialogs">
         <Dialogs dialogs={props.dialogs} />

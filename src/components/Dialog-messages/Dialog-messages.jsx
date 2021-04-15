@@ -3,12 +3,19 @@ import './Dialog-messages.css';
 
 const DialogMessages = (props) => {
   const messagesElement = props.messages.map((message) => {
+    let classMod = '';
+    if (message.id === props.currentUserId) {
+      classMod = 'dialog-messages__message--self';
+    }
     return (
       <li
-        className="dialog-messages__message"
+        className={`dialog-messages__message ${classMod}`}
         key={`dialog-message-${message.id}`}
       >
-        <UserMessage message={message.message} />
+        <UserMessage
+          message={message.message}
+          currentUserId={props.currentUserId}
+        />
       </li>
     );
   });

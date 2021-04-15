@@ -5,7 +5,9 @@ const Avatar = (props) => {
   return (
     <div
       className={
-        props.type ? 'avatar__wrapper avatar__wrapper--post' : 'avatar__wrapper'
+        props.type === 'post'
+          ? 'avatar__wrapper avatar__wrapper--post'
+          : 'avatar__wrapper'
       }
     >
       <a className="avatar__link-img" href="/mock-link">

@@ -23,7 +23,11 @@ const Content = (props) => {
         <Route
           path="/communication"
           render={() => (
-            <Communication messages={props.messages} dialogs={props.dialogs} />
+            <Communication
+              messages={props.messages}
+              dialogs={props.dialogs}
+              currentUserId={props.currentUserId}
+            />
           )}
         />
         <Route exact path="/feed" render={() => <Feed />} />
