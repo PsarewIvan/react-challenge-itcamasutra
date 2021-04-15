@@ -1,3 +1,5 @@
+import { renderApp } from './../render';
+
 const mockData = {
   currentUserId: 1,
   messages: [
@@ -39,6 +41,7 @@ const addMessage = (message) => {
     message: message,
   };
   mockData.messages.push(newMessage);
+  renderApp(mockData, addMessage);
 };
 
 export { mockData, addMessage };
