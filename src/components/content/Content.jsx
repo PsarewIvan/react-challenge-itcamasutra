@@ -34,6 +34,7 @@ const Content = (props) => {
               dialogs={props.dialogs}
               currentUserId={props.currentUserId}
               users={props.users}
+              addMessage={props.addMessage}
             />
           )}
         />

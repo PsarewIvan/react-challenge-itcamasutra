@@ -32,4 +32,13 @@ const mockData = {
   ],
 };
 
-export default mockData;
+const addMessage = (message) => {
+  const newId = mockData.messages[mockData.messages.length - 1].id + 1;
+  const newMessage = {
+    id: newId,
+    message: message,
+  };
+  mockData.messages.push(newMessage);
+};
+
+export { mockData, addMessage };

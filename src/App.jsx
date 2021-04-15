@@ -21,6 +21,7 @@ function App(props) {
             messages={props.data.messages}
             dialogs={props.data.dialogs}
             posts={props.data.posts}
+            addMessage={props.addMessage}
           />
         </div>
       </div>

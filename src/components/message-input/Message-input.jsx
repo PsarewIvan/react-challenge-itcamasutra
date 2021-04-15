@@ -1,11 +1,11 @@
 import React from 'react';
 import './Message-input.css';
 
-const MessageInput = () => {
+const MessageInput = (props) => {
   const input = React.createRef();
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    console.log(input.current.value);
+    props.addMessage(input.current.value);
   };
 
   return (
