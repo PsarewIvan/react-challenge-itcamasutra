@@ -2,9 +2,9 @@ import './Message-input.css';
 
 const MessageInput = () => {
   return (
-    <form className="message-input__wrapper" name="message-input">
+    <form className="message-input" name="message-input">
       <textarea
-        className="message-input__post"
+        className="message-input__input"
         type="text"
         name="post"
         placeholder="Write a message..."

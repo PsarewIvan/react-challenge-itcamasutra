@@ -16,7 +16,7 @@ const Communication = (props) => {
       <div className="communication__dialogs">
         <Dialogs dialogs={props.dialogs} />
       </div>
-      <div className="communication__input-message">
+      <div className="communication__message-input">
         <MessageInput />
       </div>
     </div>
