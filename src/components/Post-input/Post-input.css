@@ -1,0 +1,15 @@
+.post-input__wrapper {
+  display: flex;
+  padding: 40px 25px 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 90px rgb(58 46 68 / 8%);
+}
+
+.post-input__post {
+  margin-left: 10px;
+}
+
+.post-input__button {
+  margin-left: 10px;
+}

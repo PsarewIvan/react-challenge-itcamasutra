@@ -1,8 +1,8 @@
 import Avatar from '../Avatar/Avatar';
 import LikeButton from '../Like-button/Like-button';
-import './Post.css';
+import './Posts.css';
 
-const Post = (props) => {
+const Posts = (props) => {
   return (
     <div className="post">
       <div className="post__header">
@@ -22,4 +22,4 @@ const Post = (props) => {
   );
 };
 
-export default Post;
+export default Posts;

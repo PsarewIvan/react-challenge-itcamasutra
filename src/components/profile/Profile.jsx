@@ -1,12 +1,12 @@
-import MessageInput from '../Message-input/Message-input';
-import Post from '../Post/Post';
+import PostInput from '../Post-input/Post-input';
+import Posts from '../Posts/Posts';
 import './Profile.css';
 
 const Profile = (props) => {
   const postElement = props.posts.map((post) => {
     return (
       <li className="profile__li" key={`posts-${post.id}`}>
-        <Post
+        <Posts
           message={post.message}
           likeCount={post.likeCount}
           users={props.users}
@@ -20,7 +20,7 @@ const Profile = (props) => {
     <div className="profile">
       <div className="profile__card">Profile Card</div>
       <div className="profile__message">
-        <MessageInput users={props.users} currentUserId={props.currentUserId} />
+        <PostInput users={props.users} currentUserId={props.currentUserId} />
       </div>
       <ul className="profile__list">{postElement}</ul>
     </div>
