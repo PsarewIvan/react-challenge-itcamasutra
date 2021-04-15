@@ -1,22 +1,13 @@
-import Avatar from '../Avatar/Avatar';
 import './Message-input.css';
 
-const MessageInput = (props) => {
-  const NAME = 'John';
+const MessageInput = () => {
   return (
-    <form className="message-input__wrapper" name="user-post">
-      <div className="message-input__avatar">
-        <Avatar
-          type="post"
-          users={props.users}
-          currentUserId={props.currentUserId}
-        />
-      </div>
+    <form className="message-input__wrapper" name="message-input">
       <textarea
         className="message-input__post"
         type="text"
         name="post"
-        placeholder={`What's new, ${NAME}?`}
+        placeholder="Write a message..."
       ></textarea>
       <button className="message-input__button" type="submit">
         Send
