@@ -14,7 +14,7 @@ const UserCard = (props) => {
   return (
     <div className="user-card">
       <div className="user-card__avatar">
-        <Avatar />
+        <Avatar users={props.users} currentUserId={props.currentUserId} />
       </div>
       <div className="user-card__connection">
         <ul className="user-card__connection-list">{profileItems}</ul>

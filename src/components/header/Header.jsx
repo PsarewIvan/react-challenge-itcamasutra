@@ -10,7 +10,11 @@ const Header = (props) => {
         <Logo />
       </div>
       <div className="header__profile">
-        <UserCard profileItems={props.profileItems} />
+        <UserCard
+          profileItems={props.profileItems}
+          users={props.users}
+          currentUserId={props.currentUserId}
+        />
       </div>
       <div className="header__nav">
         <Nav />

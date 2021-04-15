@@ -3,6 +3,7 @@ import './Dialog-messages.css';
 
 const DialogMessages = (props) => {
   const messagesElement = props.messages.map((message) => {
+    let isCurrentUserMessage = props.currentUserId === message.id;
     let classMod = '';
     if (message.id === props.currentUserId) {
       classMod = 'dialog-messages__message--self';
@@ -14,6 +15,8 @@ const DialogMessages = (props) => {
       >
         <UserMessage
           message={message.message}
+          currentUser={isCurrentUserMessage}
+          users={props.users}
           currentUserId={props.currentUserId}
         />
       </li>

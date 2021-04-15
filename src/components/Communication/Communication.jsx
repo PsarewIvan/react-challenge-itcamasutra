@@ -9,6 +9,7 @@ const Communication = (props) => {
         <DialogMessages
           messages={props.messages}
           currentUserId={props.currentUserId}
+          users={props.users}
         />
       </div>
       <div className="communication__dialogs">

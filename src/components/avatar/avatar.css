@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.avatar__wrapper--post {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 .avatar__link-img {
   position: relative;
   margin-bottom: 12px;
@@ -60,7 +65,11 @@
   text-decoration: underline;
 }
 
-.avatar__wrapper--post .avatar__link,
+.avatar__wrapper--post .avatar__link {
+  margin-left: 10px;
+  font-size: 0.857rem;
+}
+
 .avatar__wrapper--post .avatar__status {
   display: none;
 }

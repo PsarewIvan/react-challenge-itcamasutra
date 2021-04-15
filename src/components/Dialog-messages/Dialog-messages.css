@@ -3,3 +3,7 @@
   margin: 0;
   list-style: none;
 }
+
+.dialog-messages__message:not(:last-child) {
+  margin-bottom: 20px;
+}

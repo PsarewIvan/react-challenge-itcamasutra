@@ -5,6 +5,16 @@ const mockData = {
     { id: 2, message: 'Second message' },
     { id: 3, message: 'Another message' },
   ],
+  users: [
+    { id: 1, name: 'John Doe' },
+    { id: 2, name: 'Sam Sam' },
+    { id: 3, name: 'Admin' },
+    { id: 4, name: 'Alexander Alexandrovich' },
+    { id: 5, name: 'Superman' },
+    { id: 6, name: 'Batman' },
+    { id: 7, name: 'Ken Lee' },
+    { id: 8, name: 'Lori Chase' },
+  ],
   dialogs: [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Anna Bell' },

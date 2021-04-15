@@ -1,0 +1,17 @@
+.user-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-message__avatar {
+  width: max-content;
+}
+
+.user-message__message-wrapper {
+  padding: 0 0 0 50px;
+}
+
+.user-message__message {
+  padding: 0;
+  margin: -20px 0 0;
+}

@@ -18,7 +18,13 @@ const Content = (props) => {
           exact
           strict
           path="/"
-          render={() => <Profile posts={props.posts} />}
+          render={() => (
+            <Profile
+              posts={props.posts}
+              users={props.users}
+              currentUserId={props.currentUserId}
+            />
+          )}
         />
         <Route
           path="/communication"
@@ -27,6 +33,7 @@ const Content = (props) => {
               messages={props.messages}
               dialogs={props.dialogs}
               currentUserId={props.currentUserId}
+              users={props.users}
             />
           )}
         />
