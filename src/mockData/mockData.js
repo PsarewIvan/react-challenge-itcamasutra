@@ -1,4 +1,6 @@
-import { renderApp } from './../render';
+let renderApp = () => {
+  console.log('rerender');
+};
 
 const constants = {
   MESSAGE_PLACEHOLDER: 'Write a message...',
@@ -57,4 +59,8 @@ const changeNewMessage = (message) => {
   renderApp(mockData, addMessage, changeNewMessage);
 };
 
-export { mockData, addMessage, changeNewMessage };
+const subscribe = (observer) => {
+  renderApp = observer;
+};
+
+export { mockData, addMessage, changeNewMessage, subscribe };
