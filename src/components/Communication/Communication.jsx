@@ -18,10 +18,9 @@ const Communication = (props) => {
       </div>
       <div className="communication__message-input">
         <MessageInput
-          addMessage={props.addMessage}
-          changeNewMessage={props.changeNewMessage}
           userMessageText={props.userMessageText}
           messagePlaceholder={props.messagePlaceholder}
+          dispatch={props.dispatch}
         />
       </div>
     </div>

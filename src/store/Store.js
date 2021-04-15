@@ -42,24 +42,25 @@ class Store {
     this._callObserver();
   }
 
+  dispatch(action) {
+    if (action.type === 'CHANGE-NEW-MESSAGE') {
+      this._changeNewMessage(action.newMessage);
+    }
+    if (action.type === 'ADD-MESSAGE') {
+      this._addMessage();
+    }
+  }
+
   _callObserver() {
-    this._observer(
-      this.state,
-      this.addMessage.bind(this),
-      this.changeNewMessage.bind(this)
-    );
+    this._observer(this.state, this.dispatch.bind(this));
   }
 
-  get state() {
-    return this._state;
-  }
-
-  changeNewMessage(message) {
+  _changeNewMessage(message) {
     this._state.userMessageText = message;
     this._callObserver();
   }
 
-  addMessage() {
+  _addMessage() {
     const newId = this._state.messages[this._state.messages.length - 1].id + 1;
     const newMessageText = this._state.userMessageText;
     const newMessage = {
@@ -69,6 +70,10 @@ class Store {
     this._state.messages.push(newMessage);
     this._state.userMessageText = '';
     this._callObserver();
+  }
+
+  get state() {
+    return this._state;
   }
 }
 

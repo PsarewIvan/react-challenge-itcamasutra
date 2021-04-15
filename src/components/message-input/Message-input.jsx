@@ -5,10 +5,13 @@ const MessageInput = (props) => {
   const input = React.createRef();
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.addMessage();
+    props.dispatch({ type: 'ADD-MESSAGE' });
   };
   const handleTextareaInput = () => {
-    props.changeNewMessage(input.current.value);
+    props.dispatch({
+      type: 'CHANGE-NEW-MESSAGE',
+      newMessage: input.current.value,
+    });
   };
 
   return (

@@ -5,14 +5,10 @@ import Store from './store/Store';
 import 'normalize.css';
 import './index.css';
 
-const renderApp = (state, addMessage, changeNewMessage) => {
+const renderApp = (state, dispatch) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App
-        data={state}
-        addMessage={addMessage}
-        changeNewMessage={changeNewMessage}
-      />
+      <App data={state} dispatch={dispatch} />
     </React.StrictMode>,
     document.getElementById('root')
   );

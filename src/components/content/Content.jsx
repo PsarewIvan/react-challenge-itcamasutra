@@ -34,10 +34,9 @@ const Content = (props) => {
               dialogs={props.dialogs}
               currentUserId={props.currentUserId}
               users={props.users}
-              addMessage={props.addMessage}
-              changeNewMessage={props.changeNewMessage}
               userMessageText={props.userMessageText}
               messagePlaceholder={props.messagePlaceholder}
+              dispatch={props.dispatch}
             />
           )}
         />
