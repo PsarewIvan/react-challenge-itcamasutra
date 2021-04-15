@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {
-  mockData,
-  addMessage,
-  changeNewMessage,
-  subscribe,
-} from './mockData/mockData';
+import Store from './store/Store';
 import 'normalize.css';
 import './index.css';
 
@@ -23,5 +18,4 @@ const renderApp = (state, addMessage, changeNewMessage) => {
   );
 };
 
-renderApp(mockData, addMessage, changeNewMessage);
-subscribe(renderApp);
+new Store(renderApp);
