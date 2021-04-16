@@ -1,5 +1,5 @@
-import UserMessage from './../User-message/User-message';
-import './Dialog-messages.css';
+import UserMessage from '../UserMessage/UserMessage';
+import './DialogMessages.css';
 
 const DialogMessages = (props) => {
   const messagesElement = props.messages.map((message) => {

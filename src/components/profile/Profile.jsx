@@ -1,4 +1,4 @@
-import PostInput from '../Post-input/Post-input';
+import PostInput from '../PostInput/PostInput';
 import Posts from '../Posts/Posts';
 import './Profile.css';
 

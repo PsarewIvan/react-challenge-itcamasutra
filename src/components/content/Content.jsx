@@ -1,4 +1,4 @@
-import SearchInput from '../Search-input/Search-input';
+import SearchInput from '../SearchInput/SearchInput';
 import Profile from '../Profile/Profile';
 import Communication from '../Communication/Communication';
 import Feed from '../Feed/Feed';

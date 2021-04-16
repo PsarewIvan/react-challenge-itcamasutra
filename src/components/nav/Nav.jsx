@@ -1,4 +1,4 @@
-import NavItem from '../Nav-item/Nav-item';
+import NavItem from '../NavItem/NavItem';
 import './Nav.css';
 import { ReactComponent as Profile } from './img/profile.svg';
 import { ReactComponent as Message } from './img/message.svg';

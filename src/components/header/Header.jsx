@@ -1,5 +1,5 @@
 import Logo from '../Logo/Logo';
-import UserCard from '../User-card/User-card';
+import UserCard from '../UserCard/UserCard';
 import Nav from '../Nav/Nav';
 import './Header.css';
 

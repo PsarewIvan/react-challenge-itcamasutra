@@ -3,7 +3,7 @@ import {
   addPostCreator,
   changePostMessageCreator,
 } from '../../redux/profile-reducer';
-import './Post-input.css';
+import './PostInput.css';
 
 const PostInput = (props) => {
   let currentUserName = '';

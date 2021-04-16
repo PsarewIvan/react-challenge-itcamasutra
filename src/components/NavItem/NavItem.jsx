@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './Nav-item.css';
+import './NavItem.css';
 
 const NavItem = (props) => {
   const Icon = props.icon;

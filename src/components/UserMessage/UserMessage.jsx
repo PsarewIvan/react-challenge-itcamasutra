@@ -1,5 +1,5 @@
-import Avatar from './../Avatar/Avatar';
-import './User-message.css';
+import Avatar from '../Avatar/Avatar';
+import './UserMessage.css';
 
 const UserMassage = (props) => {
   let classMod = '';

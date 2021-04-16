@@ -3,7 +3,7 @@ import {
   addMessageCreator,
   changeNewMessageCreator,
 } from '../../redux/communication-reducer';
-import './Message-input.css';
+import './MessageInput.css';
 
 const MessageInput = (props) => {
   const handleButtonClick = (evt) => {

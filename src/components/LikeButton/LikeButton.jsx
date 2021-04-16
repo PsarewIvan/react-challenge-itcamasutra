@@ -1,4 +1,4 @@
-import './Like-button.css';
+import './LikeButton.css';
 import icon from './img/like.svg';
 
 const LikeButton = (props) => {

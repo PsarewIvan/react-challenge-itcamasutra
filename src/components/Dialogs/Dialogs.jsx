@@ -1,4 +1,4 @@
-import DialogItem from './../Dialog-item/Dialog-item';
+import DialogItem from '../DialogItem/DialogItem';
 import './Dialogs.css';
 
 const Dialogs = (props) => {

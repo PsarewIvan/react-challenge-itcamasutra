@@ -1,6 +1,6 @@
 import Avatar from '../Avatar/Avatar';
-import ProfileItem from '../Profile-item/Profile-item';
-import './User-card.css';
+import ProfileItem from '../ProfileItem/ProfileItem';
+import './UserCard.css';
 
 const UserCard = (props) => {
   const profileItems = props.profileItems.map((item) => {

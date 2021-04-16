@@ -1,6 +1,6 @@
-import DialogMessages from './../Dialog-messages/Dialog-messages';
+import DialogMessages from './../DialogMessages/DialogMessages';
 import Dialogs from './../Dialogs/Dialogs';
-import MessageInput from './../Message-input/Message-input';
+import MessageInput from '../MessageInput/MessageInput';
 import './Communication.css';
 
 const Communication = (props) => {
