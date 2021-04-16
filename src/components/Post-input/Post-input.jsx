@@ -20,10 +20,10 @@ const PostInput = (props) => {
   };
 
   return (
-    <form className="post-input__wrapper" name="user-post">
+    <form className="post-input" name="user-post">
       <div className="post-input__avatar">
         <Avatar
-          type="post"
+          type="post-input"
           users={props.users}
           currentUserId={props.currentUserId}
         />

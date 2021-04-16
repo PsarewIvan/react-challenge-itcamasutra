@@ -8,14 +8,17 @@ const Avatar = (props) => {
       currentUser = user;
     }
   });
+
+  let classMod = 'avatar';
+  if (props.type === 'post-input') {
+    classMod = `${classMod} ${classMod}--post-input`;
+  }
+  if (props.type === 'post') {
+    classMod = `${classMod} ${classMod}--post`;
+  }
+
   return (
-    <div
-      className={
-        props.type === 'post'
-          ? 'avatar__wrapper avatar__wrapper--post'
-          : 'avatar__wrapper'
-      }
-    >
+    <div className={classMod}>
       <a className="avatar__link-img" href="/mock-link">
         <img className="avatar__img" src={image} alt="avatar" />
       </a>

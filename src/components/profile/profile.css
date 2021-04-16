@@ -5,9 +5,31 @@
   list-style: none;
 }
 
-.profile__card,
+.profile__card {
+  margin-bottom: 30px;
+}
+
 .profile__message {
   margin-bottom: 30px;
+  background: #fff;
+  position: relative;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 90px rgb(58 46 68 / 5%);
+}
+
+.profile__message::before {
+  content: '';
+  background: #fff;
+  height: 95%;
+  border-radius: 12px;
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  margin: auto;
+  bottom: -13px;
+  z-index: -1;
+  box-shadow: 0 20px 90px rgb(58 46 68 / 4%);
 }
 
 .profile__list::before {
