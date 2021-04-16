@@ -1,0 +1,26 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.post:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.post__header {
+  margin-right: auto;
+}
+
+.post__inner {
+  margin: -30px 0 20px 50px;
+}
+
+.post__action {
+  margin-left: 50px;
+}
+
+.post__text {
+  max-width: 500px;
+  margin: 15px 0 0;
+}

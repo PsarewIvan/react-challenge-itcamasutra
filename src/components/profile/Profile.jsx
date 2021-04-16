@@ -3,19 +3,6 @@ import Posts from '../Posts/Posts';
 import './Profile.css';
 
 const Profile = (props) => {
-  const postElement = props.posts.map((post) => {
-    return (
-      <li className="profile__li" key={`posts-${post.id}`}>
-        <Posts
-          message={post.message}
-          likeCount={post.likeCount}
-          users={props.users}
-          currentUserId={props.currentUserId}
-        />
-      </li>
-    );
-  });
-
   return (
     <div className="profile">
       <div className="profile__card">Profile Card</div>
@@ -28,7 +15,13 @@ const Profile = (props) => {
           dispatch={props.dispatch}
         />
       </div>
-      <ul className="profile__list">{postElement}</ul>
+      <div className="profile__posts">
+        <Posts
+          users={props.users}
+          currentUserId={props.currentUserId}
+          posts={props.posts}
+        />
+      </div>
     </div>
   );
 };

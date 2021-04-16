@@ -1,24 +1,24 @@
-import Avatar from '../Avatar/Avatar';
-import LikeButton from '../Like-button/Like-button';
+import Post from '../Post/Post';
 import './Posts.css';
 
 const Posts = (props) => {
-  return (
-    <div className="post">
-      <div className="post__header">
-        <Avatar
-          type="post"
+  const postElement = props.posts.map((post) => {
+    return (
+      <li className="posts__element" key={`posts-${post.id}`}>
+        <Post
+          message={post.message}
+          likeCount={post.likeCount}
           users={props.users}
           currentUserId={props.currentUserId}
         />
-      </div>
-      <div className="post__inner">
-        <p className="post__text">{props.message}</p>
-      </div>
-      <div className="post__action">
-        <LikeButton likeCount={props.likeCount} />
-      </div>
-    </div>
+      </li>
+    );
+  });
+
+  return (
+    <ul className="posts">
+      {postElement}
+    </ul>
   );
 };
 
