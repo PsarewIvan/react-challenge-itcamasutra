@@ -16,6 +16,8 @@ function App(props) {
         <Content
           currentUserId={props.data.profile.currentUserId}
           users={props.data.users}
+          userPostText={props.data.profile.userPostText}
+          postPlaceholder={props.data.profile.postPlaceholder}
           messages={props.data.communication.messages}
           dialogs={props.data.communication.dialogs}
           posts={props.data.profile.posts}

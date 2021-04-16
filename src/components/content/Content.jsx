@@ -23,6 +23,9 @@ const Content = (props) => {
               posts={props.posts}
               users={props.users}
               currentUserId={props.currentUserId}
+              userPostText={props.userPostText}
+              postPlaceholder={props.postPlaceholder}
+              dispatch={props.dispatch}
             />
           )}
         />

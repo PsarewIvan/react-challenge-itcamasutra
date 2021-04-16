@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  addMessageActionCreator,
-  changeNewMessageActionCreator,
+  addMessageCreator,
+  changeNewMessageCreator,
 } from './../../store/Store';
 import './Message-input.css';
 
 const MessageInput = (props) => {
-  const input = React.createRef();
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.dispatch(addMessageActionCreator());
+    props.dispatch(addMessageCreator());
   };
-  const handleTextareaInput = () => {
-    props.dispatch(changeNewMessageActionCreator(input.current.value));
+
+  const handleTextareaInput = (evt) => {
+    props.dispatch(changeNewMessageCreator(evt.target.value));
   };
 
   return (
@@ -23,7 +23,6 @@ const MessageInput = (props) => {
         name="post"
         placeholder={props.messagePlaceholder}
         value={props.userMessageText}
-        ref={input}
         onInput={handleTextareaInput}
       ></textarea>
       <button

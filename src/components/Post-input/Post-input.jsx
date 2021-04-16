@@ -1,4 +1,5 @@
 import Avatar from '../Avatar/Avatar';
+import { addPostCreator, changePostMessageCreator } from './../../store/Store';
 import './Post-input.css';
 
 const PostInput = (props) => {
@@ -8,6 +9,15 @@ const PostInput = (props) => {
       currentUserName = user.name.split(' ')[0];
     }
   });
+
+  const handleButtonClick = (evt) => {
+    evt.preventDefault();
+    props.dispatch(addPostCreator());
+  };
+
+  const handleTextareaInput = (evt) => {
+    props.dispatch(changePostMessageCreator(evt.target.value));
+  };
 
   return (
     <form className="post-input__wrapper" name="user-post">
@@ -22,9 +32,15 @@ const PostInput = (props) => {
         className="post-input__post"
         type="text"
         name="post"
-        placeholder={`What's new, ${currentUserName}?`}
+        value={props.userPostText}
+        placeholder={`${props.postPlaceholder}${currentUserName}?`}
+        onInput={handleTextareaInput}
       ></textarea>
-      <button className="post-input__button" type="submit">
+      <button
+        className="post-input__button"
+        type="submit"
+        onClick={handleButtonClick}
+      >
         Send
       </button>
     </form>

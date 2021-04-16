@@ -1,6 +1,9 @@
 const CHANGE_NEW_MESSAGE = 'CHANGE-NEW-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 
+const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
+const ADD_POST = 'ADD-POST';
+
 class Store {
   constructor(observer) {
     this._state = {
@@ -25,6 +28,8 @@ class Store {
           { id: 1, name: 'Friends', number: '1' },
           { id: 2, name: 'Groups', number: '3' },
         ],
+        userPostText: '',
+        postPlaceholder: "What's new, ",
         posts: [
           { id: 1, message: 'First post', likeCount: '5' },
           { id: 2, message: 'Second post', likeCount: '1' },
@@ -48,33 +53,41 @@ class Store {
 
   dispatch(action) {
     if (action.type === CHANGE_NEW_MESSAGE) {
-      this._changeNewMessage(action.newMessage);
+      this._state.communication.userMessageText = action.newMessage;
     }
+
     if (action.type === ADD_MESSAGE) {
-      this._addMessage();
+      const newId =
+        this._state.communication.messages[this.messagesLength - 1].id + 1;
+      const newMessageText = this._state.communication.userMessageText;
+      const newMessage = {
+        id: newId,
+        message: newMessageText,
+      };
+      this._state.communication.messages.push(newMessage);
+      this._state.communication.userMessageText = '';
     }
+
+    if (action.type === CHANGE_POST_MESSAGE) {
+      this._state.profile.userPostText = action.newMessage;
+    }
+
+    if (action.type === ADD_POST) {
+      const newId = this._state.profile.posts[this.postsLength - 1].id + 1;
+      const newMessageText = this._state.profile.userPostText;
+      const newMessage = {
+        id: newId,
+        message: newMessageText,
+      };
+      this._state.profile.posts.push(newMessage);
+      this._state.profile.userPostText = '';
+    }
+
+    this._callObserver();
   }
 
   _callObserver() {
     this._observer(this.state, this.dispatch.bind(this));
-  }
-
-  _changeNewMessage(message) {
-    this._state.communication.userMessageText = message;
-    this._callObserver();
-  }
-
-  _addMessage() {
-    const newId =
-      this._state.communication.messages[this.messagesLength - 1].id + 1;
-    const newMessageText = this._state.communication.userMessageText;
-    const newMessage = {
-      id: newId,
-      message: newMessageText,
-    };
-    this._state.communication.messages.push(newMessage);
-    this._state.communication.userMessageText = '';
-    this._callObserver();
   }
 
   get state() {
@@ -84,19 +97,42 @@ class Store {
   get messagesLength() {
     return this._state.communication.messages.length;
   }
+
+  get postsLength() {
+    return this._state.profile.posts.length;
+  }
 }
 
-const changeNewMessageActionCreator = (message) => {
+const changeNewMessageCreator = (message) => {
   return {
     type: CHANGE_NEW_MESSAGE,
     newMessage: message,
   };
 };
 
-const addMessageActionCreator = () => {
+const addMessageCreator = () => {
   return {
     type: ADD_MESSAGE,
   };
 };
 
-export { Store, changeNewMessageActionCreator, addMessageActionCreator };
+const changePostMessageCreator = (message) => {
+  return {
+    type: CHANGE_POST_MESSAGE,
+    newMessage: message,
+  };
+};
+
+const addPostCreator = () => {
+  return {
+    type: ADD_POST,
+  };
+};
+
+export {
+  Store,
+  changeNewMessageCreator,
+  addMessageCreator,
+  changePostMessageCreator,
+  addPostCreator,
+};
