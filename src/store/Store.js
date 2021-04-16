@@ -3,9 +3,6 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 
 class Store {
   constructor(observer) {
-    this._constants = {
-      MESSAGE_PLACEHOLDER: 'Write a message...',
-    };
     this._state = {
       currentUserId: 1,
       messages: [
@@ -14,7 +11,7 @@ class Store {
         { id: 3, message: 'Another message' },
       ],
       userMessageText: '',
-      messagePlaceholder: this._constants.MESSAGE_PLACEHOLDER,
+      messagePlaceholder: 'Write a message...',
       users: [
         { id: 1, name: 'John Doe' },
         { id: 2, name: 'Sam Sam' },
