@@ -1,39 +1,35 @@
-import React from 'react';
+import MessageInput from './MessageInput';
+import { Context } from './../../MyContext';
 import {
   addMessageCreator,
   changeNewMessageCreator,
 } from '../../redux/communication-reducer';
-import './MessageInput.css';
 
-const MessageInput = (props) => {
-  const handleButtonClick = (evt) => {
-    evt.preventDefault();
-    props.dispatch(addMessageCreator());
-  };
-
-  const handleTextareaInput = (evt) => {
-    props.dispatch(changeNewMessageCreator(evt.target.value));
-  };
-
+const MessageInputContainer = () => {
   return (
-    <form className="message-input" name="message-input">
-      <textarea
-        className="message-input__input"
-        type="text"
-        name="post"
-        placeholder={props.messagePlaceholder}
-        value={props.userMessageText}
-        onInput={handleTextareaInput}
-      ></textarea>
-      <button
-        className="message-input__button"
-        type="submit"
-        onClick={handleButtonClick}
-      >
-        Send
-      </button>
-    </form>
+    <Context.Consumer>
+      {(store) => {
+        const state = store.getState().communication;
+
+        const handleButtonClick = () => {
+          store.dispatch(addMessageCreator());
+        };
+
+        const handleTextareaInput = (message) => {
+          store.dispatch(changeNewMessageCreator(message));
+        };
+
+        return (
+          <MessageInput
+            messagePlaceholder={state.messagePlaceholder}
+            userMessageText={state.userMessageText}
+            addMessage={handleButtonClick}
+            changeMessage={handleTextareaInput}
+          />
+        );
+      }}
+    </Context.Consumer>
   );
 };
 
-export default MessageInput;
+export default MessageInputContainer;

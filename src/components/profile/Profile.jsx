@@ -1,4 +1,4 @@
-import PostInput from '../PostInput/PostInput';
+import PostInputContainer from '../PostInput/PostInputContainer';
 import Posts from '../Posts/Posts';
 import './Profile.css';
 
@@ -7,13 +7,7 @@ const Profile = (props) => {
     <div className="profile">
       <div className="profile__card">Profile Card</div>
       <div className="profile__message">
-        <PostInput
-          users={props.users}
-          currentUserId={props.currentUserId}
-          userPostText={props.userPostText}
-          postPlaceholder={props.postPlaceholder}
-          dispatch={props.dispatch}
-        />
+        <PostInputContainer />
       </div>
       <div className="profile__posts">
         <Posts

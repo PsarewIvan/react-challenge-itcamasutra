@@ -1,18 +1,13 @@
-import React from 'react';
-import {
-  addMessageCreator,
-  changeNewMessageCreator,
-} from '../../redux/communication-reducer';
 import './MessageInput.css';
 
 const MessageInput = (props) => {
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   const handleTextareaInput = (evt) => {
-    props.dispatch(changeNewMessageCreator(evt.target.value));
+    props.changeMessage(evt.target.value);
   };
 
   return (

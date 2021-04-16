@@ -1,25 +1,14 @@
 import Avatar from '../Avatar/Avatar';
-import {
-  addPostCreator,
-  changePostMessageCreator,
-} from '../../redux/profile-reducer';
 import './PostInput.css';
 
 const PostInput = (props) => {
-  let currentUserName = '';
-  props.users.forEach((user) => {
-    if (user.id === props.currentUserId) {
-      currentUserName = user.name.split(' ')[0];
-    }
-  });
-
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.dispatch(addPostCreator());
+    props.addPost();
   };
 
   const handleTextareaInput = (evt) => {
-    props.dispatch(changePostMessageCreator(evt.target.value));
+    props.changePostMessage(evt.target.value);
   };
 
   return (
@@ -36,7 +25,7 @@ const PostInput = (props) => {
         type="text"
         name="post"
         value={props.userPostText}
-        placeholder={`${props.postPlaceholder}${currentUserName}?`}
+        placeholder={`${props.postPlaceholder}${props.currentUserName}?`}
         onInput={handleTextareaInput}
       ></textarea>
       <button
