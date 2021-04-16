@@ -2,7 +2,7 @@ import Avatar from '../Avatar/Avatar';
 import {
   addPostCreator,
   changePostMessageCreator,
-} from './../../store/post-reducer';
+} from '../../redux/profile-reducer';
 import './Post-input.css';
 
 const PostInput = (props) => {

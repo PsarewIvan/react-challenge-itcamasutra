@@ -1,5 +1,5 @@
-import { messageReducer } from './message-reducer';
-import { postReducer } from './post-reducer';
+import { messageReducer } from './communication-reducer';
+import { postReducer } from './profile-reducer';
 
 class Store {
   constructor(observer) {
