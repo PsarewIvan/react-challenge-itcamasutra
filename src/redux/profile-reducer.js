@@ -27,6 +27,7 @@ const profileReducer = (state = initialState, action) => {
       const newMessage = {
         id: newId,
         message: newMessageText,
+        likeCount: 0,
       };
       state.posts.push(newMessage);
       state.userPostText = '';
