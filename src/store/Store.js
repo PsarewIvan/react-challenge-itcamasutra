@@ -4,14 +4,33 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 class Store {
   constructor(observer) {
     this._state = {
-      currentUserId: 1,
-      messages: [
-        { id: 1, message: 'First message' },
-        { id: 2, message: 'Second message' },
-        { id: 3, message: 'Another message' },
-      ],
-      userMessageText: '',
-      messagePlaceholder: 'Write a message...',
+      communication: {
+        userMessageText: '',
+        messagePlaceholder: 'Write a message...',
+        dialogs: [
+          { id: 1, name: 'John Doe' },
+          { id: 2, name: 'Anna Bell' },
+          { id: 3, name: 'Lori Chase' },
+          { id: 4, name: 'Ken Lee' },
+        ],
+        messages: [
+          { id: 1, message: 'First message' },
+          { id: 2, message: 'Second message' },
+          { id: 3, message: 'Another message' },
+        ],
+      },
+      profile: {
+        currentUserId: 1,
+        profileItems: [
+          { id: 1, name: 'Friends', number: '1' },
+          { id: 2, name: 'Groups', number: '3' },
+        ],
+        posts: [
+          { id: 1, message: 'First post', likeCount: '5' },
+          { id: 2, message: 'Second post', likeCount: '1' },
+          { id: 3, message: 'Another post', likeCount: '10' },
+        ],
+      },
       users: [
         { id: 1, name: 'John Doe' },
         { id: 2, name: 'Sam Sam' },
@@ -21,21 +40,6 @@ class Store {
         { id: 6, name: 'Batman' },
         { id: 7, name: 'Ken Lee' },
         { id: 8, name: 'Lori Chase' },
-      ],
-      dialogs: [
-        { id: 1, name: 'John Doe' },
-        { id: 2, name: 'Anna Bell' },
-        { id: 3, name: 'Lori Chase' },
-        { id: 4, name: 'Ken Lee' },
-      ],
-      posts: [
-        { id: 1, message: 'First post', likeCount: '5' },
-        { id: 2, message: 'Second post', likeCount: '1' },
-        { id: 3, message: 'Another post', likeCount: '10' },
-      ],
-      profileItems: [
-        { id: 1, name: 'Friends', number: '1' },
-        { id: 2, name: 'Groups', number: '3' },
       ],
     };
     this._observer = observer;
@@ -56,24 +60,29 @@ class Store {
   }
 
   _changeNewMessage(message) {
-    this._state.userMessageText = message;
+    this._state.communication.userMessageText = message;
     this._callObserver();
   }
 
   _addMessage() {
-    const newId = this._state.messages[this._state.messages.length - 1].id + 1;
-    const newMessageText = this._state.userMessageText;
+    const newId =
+      this._state.communication.messages[this.messagesLength - 1].id + 1;
+    const newMessageText = this._state.communication.userMessageText;
     const newMessage = {
       id: newId,
       message: newMessageText,
     };
-    this._state.messages.push(newMessage);
-    this._state.userMessageText = '';
+    this._state.communication.messages.push(newMessage);
+    this._state.communication.userMessageText = '';
     this._callObserver();
   }
 
   get state() {
     return this._state;
+  }
+
+  get messagesLength() {
+    return this._state.communication.messages.length;
   }
 }
 

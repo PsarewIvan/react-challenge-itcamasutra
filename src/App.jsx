@@ -7,20 +7,20 @@ function App(props) {
     <div className="app__wrapper">
       <div className="app__header">
         <Header
-          profileItems={props.data.profileItems}
+          profileItems={props.data.profile.profileItems}
           users={props.data.users}
-          currentUserId={props.data.currentUserId}
+          currentUserId={props.data.profile.currentUserId}
         />
       </div>
       <div className="app__content">
         <Content
-          currentUserId={props.data.currentUserId}
+          currentUserId={props.data.profile.currentUserId}
           users={props.data.users}
-          messages={props.data.messages}
-          dialogs={props.data.dialogs}
-          posts={props.data.posts}
-          userMessageText={props.data.userMessageText}
-          messagePlaceholder={props.data.messagePlaceholder}
+          messages={props.data.communication.messages}
+          dialogs={props.data.communication.dialogs}
+          posts={props.data.profile.posts}
+          userMessageText={props.data.communication.userMessageText}
+          messagePlaceholder={props.data.communication.messagePlaceholder}
           dispatch={props.dispatch}
         />
       </div>
