@@ -1,3 +1,6 @@
+const CHANGE_NEW_MESSAGE = 'CHANGE-NEW-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+
 class Store {
   constructor(observer) {
     this._constants = {
@@ -43,10 +46,10 @@ class Store {
   }
 
   dispatch(action) {
-    if (action.type === 'CHANGE-NEW-MESSAGE') {
+    if (action.type === CHANGE_NEW_MESSAGE) {
       this._changeNewMessage(action.newMessage);
     }
-    if (action.type === 'ADD-MESSAGE') {
+    if (action.type === ADD_MESSAGE) {
       this._addMessage();
     }
   }
@@ -77,4 +80,17 @@ class Store {
   }
 }
 
-export default Store;
+const changeNewMessageActionCreator = (message) => {
+  return {
+    type: CHANGE_NEW_MESSAGE,
+    newMessage: message,
+  };
+};
+
+const addMessageActionCreator = () => {
+  return {
+    type: ADD_MESSAGE,
+  };
+};
+
+export { Store, changeNewMessageActionCreator, addMessageActionCreator };

@@ -1,17 +1,18 @@
 import React from 'react';
+import {
+  addMessageActionCreator,
+  changeNewMessageActionCreator,
+} from './../../store/Store';
 import './Message-input.css';
 
 const MessageInput = (props) => {
   const input = React.createRef();
   const handleButtonClick = (evt) => {
     evt.preventDefault();
-    props.dispatch({ type: 'ADD-MESSAGE' });
+    props.dispatch(addMessageActionCreator());
   };
   const handleTextareaInput = () => {
-    props.dispatch({
-      type: 'CHANGE-NEW-MESSAGE',
-      newMessage: input.current.value,
-    });
+    props.dispatch(changeNewMessageActionCreator(input.current.value));
   };
 
   return (
