@@ -1,5 +1,8 @@
 import Avatar from '../Avatar/Avatar';
-import { addPostCreator, changePostMessageCreator } from './../../store/Store';
+import {
+  addPostCreator,
+  changePostMessageCreator,
+} from './../../store/post-reducer';
 import './Post-input.css';
 
 const PostInput = (props) => {

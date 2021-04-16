@@ -2,7 +2,7 @@ import React from 'react';
 import {
   addMessageCreator,
   changeNewMessageCreator,
-} from './../../store/Store';
+} from './../../store/message-reducer';
 import './Message-input.css';
 
 const MessageInput = (props) => {

@@ -1,8 +1,5 @@
-const CHANGE_NEW_MESSAGE = 'CHANGE-NEW-MESSAGE';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-
-const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
-const ADD_POST = 'ADD-POST';
+import { messageReducer } from './message-reducer';
+import { postReducer } from './post-reducer';
 
 class Store {
   constructor(observer) {
@@ -52,36 +49,8 @@ class Store {
   }
 
   dispatch(action) {
-    if (action.type === CHANGE_NEW_MESSAGE) {
-      this._state.communication.userMessageText = action.newMessage;
-    }
-
-    if (action.type === ADD_MESSAGE) {
-      const newId =
-        this._state.communication.messages[this.messagesLength - 1].id + 1;
-      const newMessageText = this._state.communication.userMessageText;
-      const newMessage = {
-        id: newId,
-        message: newMessageText,
-      };
-      this._state.communication.messages.push(newMessage);
-      this._state.communication.userMessageText = '';
-    }
-
-    if (action.type === CHANGE_POST_MESSAGE) {
-      this._state.profile.userPostText = action.newMessage;
-    }
-
-    if (action.type === ADD_POST) {
-      const newId = this._state.profile.posts[this.postsLength - 1].id + 1;
-      const newMessageText = this._state.profile.userPostText;
-      const newMessage = {
-        id: newId,
-        message: newMessageText,
-      };
-      this._state.profile.posts.push(newMessage);
-      this._state.profile.userPostText = '';
-    }
+    messageReducer(action, this.state.communication);
+    postReducer(action, this.state.profile);
 
     this._callObserver();
   }
@@ -103,36 +72,4 @@ class Store {
   }
 }
 
-const changeNewMessageCreator = (message) => {
-  return {
-    type: CHANGE_NEW_MESSAGE,
-    newMessage: message,
-  };
-};
-
-const addMessageCreator = () => {
-  return {
-    type: ADD_MESSAGE,
-  };
-};
-
-const changePostMessageCreator = (message) => {
-  return {
-    type: CHANGE_POST_MESSAGE,
-    newMessage: message,
-  };
-};
-
-const addPostCreator = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-
-export {
-  Store,
-  changeNewMessageCreator,
-  addMessageCreator,
-  changePostMessageCreator,
-  addPostCreator,
-};
+export default Store;
