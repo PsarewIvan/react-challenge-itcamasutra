@@ -11,9 +11,9 @@ const Header = (props) => {
       </div>
       <div className="header__profile">
         <UserCard
-          profileItems={props.profileItems}
-          users={props.users}
-          currentUserId={props.currentUserId}
+          userName={props.userName}
+          userStatus={props.userStatus}
+          userConnections={props.userConnections}
         />
       </div>
       <div className="header__nav">

@@ -1,16 +1,12 @@
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Content from './components/Content/Content';
 import './App.css';
 
-function App(props) {
+function App() {
   return (
     <div className="app__wrapper">
       <div className="app__header">
-        <Header
-          profileItems={props.state.profile.profileItems}
-          users={props.state.users}
-          currentUserId={props.state.profile.currentUserId}
-        />
+        <HeaderContainer />
       </div>
       <div className="app__content">
         <Content />

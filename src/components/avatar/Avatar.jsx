@@ -2,13 +2,6 @@ import image from './img/avatar.jpeg';
 import './Avatar.css';
 
 const Avatar = (props) => {
-  let currentUser;
-  props.users.forEach((user) => {
-    if (user.id === props.currentUserId) {
-      currentUser = user;
-    }
-  });
-
   let classMod = 'avatar';
   if (props.type === 'post-input') {
     classMod = `${classMod} ${classMod}--post-input`;
@@ -23,9 +16,9 @@ const Avatar = (props) => {
         <img className="avatar__img" src={image} alt="avatar" />
       </a>
       <a className="avatar__link" href="/mock-link">
-        {currentUser.name}
+        {props.userName}
       </a>
-      <span className="avatar__status">Member</span>
+      <span className="avatar__status">{props.userStatus}</span>
     </div>
   );
 };
