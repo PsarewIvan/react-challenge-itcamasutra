@@ -7,21 +7,13 @@ import App from './App';
 import 'normalize.css';
 import './index.css';
 
-const renderApp = (state) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Router>
-        <Provider store={store}>
-          <App state={state} dispatch={store.dispatch} />
-        </Provider>
-      </Router>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-};
-
-renderApp(store.getState());
-
-store.subscribe(() => {
-  renderApp(store.getState());
-});
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <Provider store={store}>
+        <App state={store.getState()} dispatch={store.dispatch} />
+      </Provider>
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
