@@ -7,7 +7,7 @@ import Settings from '../Settings/Settings';
 import { Route } from 'react-router-dom';
 import './Content.css';
 
-const Content = (props) => {
+const Content = () => {
   return (
     <main className="content">
       <div className="content__search">

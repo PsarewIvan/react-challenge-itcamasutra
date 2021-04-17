@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-        <App state={store.getState()} dispatch={store.dispatch} />
+        <App state={store.getState()} />
       </Provider>
     </Router>
   </React.StrictMode>,

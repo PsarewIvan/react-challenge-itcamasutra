@@ -13,18 +13,7 @@ function App(props) {
         />
       </div>
       <div className="app__content">
-        <Content
-          currentUserId={props.state.profile.currentUserId}
-          users={props.state.users}
-          userPostText={props.state.profile.userPostText}
-          postPlaceholder={props.state.profile.postPlaceholder}
-          messages={props.state.communication.messages}
-          dialogs={props.state.communication.dialogs}
-          posts={props.state.profile.posts}
-          userMessageText={props.state.communication.userMessageText}
-          messagePlaceholder={props.state.communication.messagePlaceholder}
-          dispatch={props.dispatch}
-        />
+        <Content />
       </div>
     </div>
   );
