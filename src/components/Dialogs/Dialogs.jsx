@@ -12,7 +12,7 @@ const Dialogs = (props) => {
 
   return (
     <div className="dialogs">
-      <h5 className="dialogs__title">Members</h5>
+      <h5 className="dialogs__title">Dialogs</h5>
       <ul className="dialogs__list">{dialogItems}</ul>
     </div>
   );
