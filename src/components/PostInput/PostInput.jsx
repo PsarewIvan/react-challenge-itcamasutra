@@ -2,6 +2,14 @@ import Avatar from '../Avatar/Avatar';
 import './PostInput.css';
 
 const PostInput = (props) => {
+  let currentUserName = '';
+  props.users.forEach((user) => {
+    if (user.id === props.currentUserId) {
+      const userName = user.name;
+      currentUserName = userName.split(' ')[0];
+    }
+  });
+
   const handleButtonClick = (evt) => {
     evt.preventDefault();
     props.addPost();
@@ -25,7 +33,7 @@ const PostInput = (props) => {
         type="text"
         name="post"
         value={props.userPostText}
-        placeholder={`${props.postPlaceholder}${props.currentUserName}?`}
+        placeholder={`${props.postPlaceholder}${currentUserName}?`}
         onInput={handleTextareaInput}
       ></textarea>
       <button

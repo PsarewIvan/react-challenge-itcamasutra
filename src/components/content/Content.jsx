@@ -1,6 +1,6 @@
 import SearchInput from '../SearchInput/SearchInput';
-import Profile from '../Profile/Profile';
-import Communication from '../Communication/Communication';
+import ProfileContainer from '../Profile/ProfileContainer';
+import CommunicationContainer from '../Communication/CommunicationContainer';
 import Feed from '../Feed/Feed';
 import Music from '../Music/Music';
 import Settings from '../Settings/Settings';
@@ -14,34 +14,10 @@ const Content = (props) => {
         <SearchInput />
       </div>
       <div className="content__main">
-        <Route
-          exact
-          strict
-          path="/"
-          render={() => (
-            <Profile
-              posts={props.posts}
-              users={props.users}
-              currentUserId={props.currentUserId}
-              userPostText={props.userPostText}
-              postPlaceholder={props.postPlaceholder}
-              dispatch={props.dispatch}
-            />
-          )}
-        />
+        <Route exact strict path="/" render={() => <ProfileContainer />} />
         <Route
           path="/communication"
-          render={() => (
-            <Communication
-              messages={props.messages}
-              dialogs={props.dialogs}
-              currentUserId={props.currentUserId}
-              users={props.users}
-              userMessageText={props.userMessageText}
-              messagePlaceholder={props.messagePlaceholder}
-              dispatch={props.dispatch}
-            />
-          )}
+          render={() => <CommunicationContainer />}
         />
         <Route exact path="/feed" render={() => <Feed />} />
         <Route exact path="/music" render={() => <Music />} />

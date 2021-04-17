@@ -1,4 +1,4 @@
-import MessageInput from './MessageInput';
+import Communication from './Communication';
 import { connect } from 'react-redux';
 import {
   addMessageCreator,
@@ -6,11 +6,13 @@ import {
 } from '../../redux/communication-reducer';
 
 const mapStateToProps = (state) => {
-  const communication = state.communication;
-
   return {
-    messagePlaceholder: communication.messagePlaceholder,
-    userMessageText: communication.userMessageText,
+    messages: state.communication.messages,
+    dialogs: state.communication.dialogs,
+    currentUserId: state.profile.currentUserId,
+    users: state.users,
+    userMessageText: state.communication.userMessageText,
+    messagePlaceholder: state.communication.messagePlaceholder,
   };
 };
 
@@ -28,9 +30,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const MessageInputContainer = connect(
+const CommunicationContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MessageInput);
+)(Communication);
 
-export default MessageInputContainer;
+export default CommunicationContainer;
