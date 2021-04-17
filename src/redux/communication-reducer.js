@@ -18,23 +18,26 @@ const initialState = {
 };
 
 const communicationReducer = (state = initialState, action) => {
-  const newState = { ...state };
   switch (action.type) {
     case CHANGE_NEW_MESSAGE:
-      newState.userMessageText = action.newMessage;
-      return newState;
-    case ADD_MESSAGE:
-      const newId = newState.messages[newState.messages.length - 1].id + 1;
-      const newMessageText = newState.userMessageText;
-      const newMessage = {
-        id: newId,
-        message: newMessageText,
+      return {
+        ...state,
+        userMessageText: action.newMessage,
       };
-      newState.messages.push(newMessage);
-      newState.userMessageText = '';
-      return newState;
+
+    case ADD_MESSAGE:
+      const newMessage = {
+        id: state.messages[state.messages.length - 1].id + 1,
+        message: state.userMessageText,
+      };
+      return {
+        ...state,
+        messages: [...state.messages, newMessage],
+        userMessageText: '',
+      };
+
     default:
-      return newState;
+      return state;
   }
 };
 
