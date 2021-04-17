@@ -1,35 +1,36 @@
 import MessageInput from './MessageInput';
-import { Context } from './../../MyContext';
+import { connect } from 'react-redux';
 import {
   addMessageCreator,
   changeNewMessageCreator,
 } from '../../redux/communication-reducer';
 
-const MessageInputContainer = () => {
-  return (
-    <Context.Consumer>
-      {(store) => {
-        const state = store.getState().communication;
+const mapStateToProps = (state) => {
+  const communication = state.communication;
 
-        const handleButtonClick = () => {
-          store.dispatch(addMessageCreator());
-        };
-
-        const handleTextareaInput = (message) => {
-          store.dispatch(changeNewMessageCreator(message));
-        };
-
-        return (
-          <MessageInput
-            messagePlaceholder={state.messagePlaceholder}
-            userMessageText={state.userMessageText}
-            addMessage={handleButtonClick}
-            changeMessage={handleTextareaInput}
-          />
-        );
-      }}
-    </Context.Consumer>
-  );
+  return {
+    messagePlaceholder: communication.messagePlaceholder,
+    userMessageText: communication.userMessageText,
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  const handleButtonClick = () => {
+    dispatch(addMessageCreator());
+  };
+
+  const handleTextareaInput = (message) => {
+    dispatch(changeNewMessageCreator(message));
+  };
+  return {
+    addMessage: handleButtonClick,
+    changeMessage: handleTextareaInput,
+  };
+};
+
+const MessageInputContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MessageInput);
 
 export default MessageInputContainer;

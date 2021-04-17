@@ -1,45 +1,44 @@
 import PostInput from './PostInput';
-import { Context } from './../../MyContext';
+import { connect } from 'react-redux';
 import {
   addPostCreator,
   changePostMessageCreator,
 } from '../../redux/profile-reducer';
 
-const PostInputContainer = () => {
-  return (
-    <Context.Consumer>
-      {(store) => {
-        const profile = store.getState().profile;
-        const users = store.getState().users;
-        let currentUserName = '';
+const mapStateToProps = (state) => {
+  const users = state.users;
+  const profile = state.profile;
 
-        users.forEach((user) => {
-          if (user.id === profile.currentUserId) {
-            currentUserName = user.name.split(' ')[0];
-          }
-        });
+  let currentUserName = '';
+  users.forEach((user) => {
+    if (user.id === profile.currentUserId) {
+      currentUserName = user.name.split(' ')[0];
+    }
+  });
 
-        const handleButtonClick = () => {
-          store.dispatch(addPostCreator());
-        };
-
-        const handleTextareaInput = (message) => {
-          store.dispatch(changePostMessageCreator(message));
-        };
-        return (
-          <PostInput
-            addPost={handleButtonClick}
-            changePostMessage={handleTextareaInput}
-            users={users}
-            currentUserId={profile.currentUserId}
-            userPostText={profile.userPostText}
-            postPlaceholder={profile.postPlaceholder}
-            currentUserName={currentUserName}
-          />
-        );
-      }}
-    </Context.Consumer>
-  );
+  return {
+    users: users,
+    currentUserId: profile.currentUserId,
+    userPostText: profile.userPostText,
+    postPlaceholder: profile.postPlaceholder,
+    currentUserName: currentUserName,
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: () => {
+      dispatch(addPostCreator());
+    },
+    changePostMessage: (message) => {
+      dispatch(changePostMessageCreator(message));
+    },
+  };
+};
+
+const PostInputContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostInput);
 
 export default PostInputContainer;
