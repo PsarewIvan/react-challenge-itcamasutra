@@ -9,8 +9,8 @@ const initialState = [
   { id: 8, name: 'Lori Chase' },
 ];
 
-const userReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   return state;
 };
 
-export { userReducer };
+export { usersReducer };
