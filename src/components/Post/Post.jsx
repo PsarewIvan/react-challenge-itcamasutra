@@ -6,11 +6,7 @@ const Post = (props) => {
   return (
     <div className="post">
       <div className="post__header">
-        <Avatar
-          type="post"
-          users={props.users}
-          currentUserId={props.currentUserId}
-        />
+        <Avatar type="post" userName={props.userName} />
       </div>
       <div className="post__inner">
         <p className="post__text">{props.message}</p>

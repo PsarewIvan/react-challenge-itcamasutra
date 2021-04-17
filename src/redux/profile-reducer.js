@@ -2,11 +2,7 @@ const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
 const ADD_POST = 'ADD-POST';
 
 const initialState = {
-  currentUserId: 1,
-  profileItems: [
-    { id: 1, name: 'Friends', number: '1' },
-    { id: 2, name: 'Groups', number: '3' },
-  ],
+  currentUserName: 'John Doe',
   userPostText: '',
   postPlaceholder: "What's new, ",
   posts: [

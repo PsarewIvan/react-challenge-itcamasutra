@@ -8,18 +8,13 @@ const Posts = (props) => {
         <Post
           message={post.message}
           likeCount={post.likeCount}
-          users={props.users}
-          currentUserId={props.currentUserId}
+          userName={props.userName}
         />
       </li>
     );
   });
 
-  return (
-    <ul className="posts">
-      {postElement}
-    </ul>
-  );
+  return <ul className="posts">{postElement}</ul>;
 };
 
 export default Posts;

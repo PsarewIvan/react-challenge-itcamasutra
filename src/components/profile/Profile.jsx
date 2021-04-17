@@ -8,8 +8,7 @@ const Profile = (props) => {
       <div className="profile__card">Profile Card</div>
       <div className="profile__message">
         <PostInput
-          users={props.users}
-          currentUserId={props.currentUserId}
+          userName={props.userName}
           userPostText={props.userPostText}
           postPlaceholder={props.postPlaceholder}
           changePostMessage={props.changePostMessage}
@@ -17,11 +16,7 @@ const Profile = (props) => {
         />
       </div>
       <div className="profile__posts">
-        <Posts
-          users={props.users}
-          currentUserId={props.currentUserId}
-          posts={props.posts}
-        />
+        <Posts userName={props.userName} posts={props.posts} />
       </div>
     </div>
   );
