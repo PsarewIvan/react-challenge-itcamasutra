@@ -8,7 +8,7 @@ const reducers = combineReducers({
   header: headerReducer,
   communication: communicationReducer,
   profile: profileReducer,
-  users: usersReducer,
+  usersPage: usersReducer,
 });
 
 const store = createStore(reducers);
