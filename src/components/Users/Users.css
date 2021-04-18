@@ -1,3 +1,23 @@
 .users__sort {
   margin-bottom: 24px;
 }
+
+.users__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.users__user {
+  padding: 1.7rem;
+  border-radius: 12px;
+  box-shadow: 15px 15px 20px rgb(58 46 68 / 4%);
+  transition: box-shadow 0.2s;
+}
+
+.users__user:hover {
+  box-shadow: 15px 15px 30px rgb(58 46 68 / 10%);
+}
