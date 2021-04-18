@@ -1,5 +1,6 @@
 import User from './../User/User';
 import UsersSort from './../UsersSort/UsersSort';
+import './Users.css';
 
 const Users = (props) => {
   return (

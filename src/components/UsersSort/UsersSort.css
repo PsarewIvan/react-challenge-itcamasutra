@@ -1,0 +1,35 @@
+.users-sort {
+  display: flex;
+}
+
+.users-sort__button {
+  display: flex;
+  align-items: baseline;
+  padding: 0 9px 8px;
+  border: none;
+  background-color: transparent;
+  color: #29292d;
+  transition: 0.5s;
+}
+
+.users-sort__button:hover {
+  color: #8224e3;
+}
+
+.users-sort__button--active {
+  border-bottom: 2px solid #8224e3;
+  font-weight: 600;
+  color: #8224e3;
+}
+
+.users-sort__count {
+  background: transparent;
+  border: 1px solid #e7edf2;
+  border-radius: 20px;
+  display: inline;
+  font-size: 12px;
+  margin-left: 2px;
+  padding: 3px 6px;
+  text-align: center;
+  vertical-align: middle;
+}
