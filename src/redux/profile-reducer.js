@@ -1,5 +1,5 @@
 const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
-const ADD_POST = 'ADD-POST';
+const ADD_POST = 'ADD_POST';
 
 const initialState = {
   currentUserName: 'John Doe',
