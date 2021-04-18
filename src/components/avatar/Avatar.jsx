@@ -19,6 +19,7 @@ const Avatar = (props) => {
         {props.userName}
       </a>
       <span className="avatar__status">{props.userStatus}</span>
+      <span className="avatar__active">{props.lastActive}</span>
     </div>
   );
 };
