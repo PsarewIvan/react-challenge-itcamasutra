@@ -1,6 +1,7 @@
 import SearchInput from '../SearchInput/SearchInput';
 import ProfileContainer from '../Profile/ProfileContainer';
 import CommunicationContainer from '../Communication/CommunicationContainer';
+import UsersContainer from '../Users/UsersContainer';
 import Feed from '../Feed/Feed';
 import Music from '../Music/Music';
 import Settings from '../Settings/Settings';
@@ -19,6 +20,7 @@ const Content = () => {
           path="/communication"
           render={() => <CommunicationContainer />}
         />
+        <Route path="/users" render={() => <UsersContainer />} />
         <Route exact path="/feed" render={() => <Feed />} />
         <Route exact path="/music" render={() => <Music />} />
         <Route exact path="/settings" render={() => <Settings />} />
