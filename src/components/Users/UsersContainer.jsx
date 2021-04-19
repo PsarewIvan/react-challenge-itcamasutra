@@ -2,12 +2,12 @@ import React from 'react';
 import * as axios from 'axios';
 import Users from './Users';
 import {
-  followCreator,
-  unFollowCreator,
-  setUsersCreator,
-  setTotalPageCountCreator,
-  changeCurrentPageCreator,
-  toggleIsFetchingCreator,
+  follow,
+  unFollow,
+  setUsers,
+  setTotalPageCount,
+  changeCurrentPage,
+  toggleIsFetching,
 } from './../../redux/users-reducer';
 import { connect } from 'react-redux';
 
@@ -19,34 +19,6 @@ const mapStateToProps = (state) => {
     friendsCount: state.usersPage.friendsCount,
     users: state.usersPage.users,
     isFetching: state.usersPage.isFetching,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followCreator(userId));
-    },
-
-    unFollow: (userId) => {
-      dispatch(unFollowCreator(userId));
-    },
-
-    setUsers: (users) => {
-      dispatch(setUsersCreator(users));
-    },
-
-    setNumberOfPages: (totalCount) => {
-      dispatch(setTotalPageCountCreator(totalCount));
-    },
-
-    changeCurrentPage: (pageNumber) => {
-      dispatch(changeCurrentPageCreator(pageNumber));
-    },
-
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingCreator(isFetching));
-    },
   };
 };
 
@@ -63,7 +35,7 @@ class UsersContainer extends React.Component {
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
-        this.props.setNumberOfPages(response.data.totalCount);
+        this.props.setTotalPageCount(response.data.totalCount);
         this.props.setUsers(response.data.items);
       });
   }
@@ -89,4 +61,11 @@ class UsersContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+  follow,
+  unFollow,
+  setUsers,
+  setTotalPageCount,
+  changeCurrentPage,
+  toggleIsFetching,
+})(UsersContainer);

@@ -63,28 +63,28 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-const followCreator = (id) => ({ type: FOLLOW, id });
-const unFollowCreator = (id) => ({ type: UN_FOLLOW, id });
-const setUsersCreator = (users) => ({ type: SET_USERS, users });
-const setTotalPageCountCreator = (totalCount) => ({
+const follow = (id) => ({ type: FOLLOW, id });
+const unFollow = (id) => ({ type: UN_FOLLOW, id });
+const setUsers = (users) => ({ type: SET_USERS, users });
+const setTotalPageCount = (totalCount) => ({
   type: SET_TOTAL_USER_COUNT,
   totalCount,
 });
-const changeCurrentPageCreator = (currentPage) => ({
+const changeCurrentPage = (currentPage) => ({
   type: CHANGE_CURRENT_PAGE,
   currentPage,
 });
-const toggleIsFetchingCreator = (isFetching) => ({
+const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching,
 });
 
 export {
   usersReducer,
-  followCreator,
-  unFollowCreator,
-  setUsersCreator,
-  setTotalPageCountCreator,
-  changeCurrentPageCreator,
-  toggleIsFetchingCreator,
+  follow,
+  unFollow,
+  setUsers,
+  setTotalPageCount,
+  changeCurrentPage,
+  toggleIsFetching,
 };
