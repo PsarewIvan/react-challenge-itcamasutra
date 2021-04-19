@@ -3,7 +3,12 @@ import UserConnection from '../UserConnection/UserConnection';
 import './UserCard.css';
 
 const UserCard = (props) => {
-  const profileItems = props.userConnections.map((item) => {
+  const userConnections = [
+    { id: 1, name: 'Friends', count: 4 },
+    { id: 2, name: 'Groups', count: 1 },
+  ];
+
+  const profileItems = userConnections.map((item) => {
     return (
       <li className="user-card__connection-li" key={`user-card-${item.id}`}>
         <UserConnection name={item.name} number={item.count} />
@@ -18,6 +23,7 @@ const UserCard = (props) => {
           userName={props.userName}
           userStatus={props.userStatus}
           lastActive={props.lastActive}
+          photos={props.photos}
         />
       </div>
       <div className="user-card__connection">
