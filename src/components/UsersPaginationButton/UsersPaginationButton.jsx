@@ -4,6 +4,7 @@ const UsersPagination = (props) => {
   const handleButtonClick = () => {
     props.changePage(props.number);
   };
+  const isThisCurrentPageButton = props.currentPage === props.number;
 
   return (
     <button
@@ -11,6 +12,7 @@ const UsersPagination = (props) => {
         props.currentPage === props.number &&
         'users-pagination-button--selected'
       }`}
+      disabled={isThisCurrentPageButton ? true : false}
       onClick={handleButtonClick}
     >
       {props.number}

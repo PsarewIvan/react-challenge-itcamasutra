@@ -7,6 +7,7 @@ import {
   setUsersCreator,
   setTotalPageCountCreator,
   changeCurrentPageCreator,
+  toggleIsFetchingCreator,
 } from './../../redux/users-reducer';
 import { connect } from 'react-redux';
 
@@ -17,6 +18,7 @@ const mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     friendsCount: state.usersPage.friendsCount,
     users: state.usersPage.users,
+    isFetching: state.usersPage.isFetching,
   };
 };
 
@@ -41,6 +43,10 @@ const mapDispatchToProps = (dispatch) => {
     changeCurrentPage: (pageNumber) => {
       dispatch(changeCurrentPageCreator(pageNumber));
     },
+
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingCreator(isFetching));
+    },
   };
 };
 
@@ -50,11 +56,13 @@ class UsersContainer extends React.Component {
   }
 
   serverRequest(pageNumber) {
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false);
         this.props.setNumberOfPages(response.data.totalCount);
         this.props.setUsers(response.data.items);
       });
@@ -75,6 +83,7 @@ class UsersContainer extends React.Component {
         users={this.props.users}
         follow={this.props.follow}
         unFollow={this.props.unFollow}
+        isFetching={this.props.isFetching}
       />
     );
   }

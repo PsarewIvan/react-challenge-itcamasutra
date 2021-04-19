@@ -2,6 +2,7 @@ import React from 'react';
 import User from './../User/User';
 import UsersSort from './../UsersSort/UsersSort';
 import UsersPaginationButton from './../UsersPaginationButton/UsersPaginationButton';
+import loader from './../../assets/img/loader.svg';
 import './Users.css';
 
 const Users = (props) => {
@@ -29,6 +30,12 @@ const Users = (props) => {
     ));
   };
 
+  const loaderRender = () => {
+    if (props.isFetching) {
+      return <img src={loader} alt="Loading users..." />;
+    }
+  };
+
   return (
     <div className="users">
       <div className="users__sort">
@@ -38,6 +45,7 @@ const Users = (props) => {
         />
       </div>
       <div className="users__pagination">{buttonsRender()}</div>
+      <div>{loaderRender()}</div>
       <ul className="users__list">
         {props.users.map((user) => (
           <li className="users__user" key={user.id}>
