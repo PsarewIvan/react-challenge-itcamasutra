@@ -9,7 +9,15 @@ const Users = (props) => {
     const pageCount = Math.ceil(props.totalCount / props.pageSize);
     const buttons = [];
     for (let i = 1; i <= pageCount; i++) {
-      buttons.push(i);
+      if (
+        i === 1 ||
+        i === props.currentPage - 1 ||
+        i === props.currentPage ||
+        i === props.currentPage + 1 ||
+        i === pageCount
+      ) {
+        buttons.push(i);
+      }
     }
     return buttons.map((i) => (
       <UsersPaginationButton
