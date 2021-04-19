@@ -18,6 +18,7 @@ const DialogMessages = (props) => {
           currentUser={isCurrentUserMessage}
           users={props.users}
           currentUserId={props.currentUserId}
+          photos={props.photos}
         />
       </li>
     );

@@ -9,6 +9,7 @@ const Posts = (props) => {
           message={post.message}
           likeCount={post.likeCount}
           userName={props.userName}
+          photos={props.photos}
         />
       </li>
     );

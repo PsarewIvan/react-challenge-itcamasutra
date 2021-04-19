@@ -8,6 +8,10 @@ const initialState = {
     { id: 1, name: 'Friends', count: 1 },
     { id: 2, name: 'Groups', count: 3 },
   ],
+  photos: {
+    small: null,
+    large: null,
+  },
 };
 
 const headerReducer = (state = initialState, action) => {

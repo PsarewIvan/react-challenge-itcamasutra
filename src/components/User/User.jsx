@@ -9,6 +9,7 @@ const User = (props) => {
           userConnections={props.userConnections}
           userName={props.name}
           lastActive={props.lastActive}
+          photos={props.photos}
         />
       </div>
       <div className="user__follow">

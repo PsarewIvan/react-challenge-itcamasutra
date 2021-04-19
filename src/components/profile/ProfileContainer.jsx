@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     userName: state.profile.currentUserName,
     userPostText: state.profile.userPostText,
     postPlaceholder: state.profile.postPlaceholder,
+    photos: state.profile.photos,
   };
 };
 

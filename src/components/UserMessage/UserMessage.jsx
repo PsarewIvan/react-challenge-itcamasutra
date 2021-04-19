@@ -13,6 +13,7 @@ const UserMassage = (props) => {
           type="post"
           users={props.users}
           currentUserId={props.currentUserId}
+          photos={props.photos}
         />
       </div>
       <div className="user-message__message-wrapper">

@@ -15,6 +15,7 @@ const Header = (props) => {
             userName={props.userName}
             userStatus={props.userStatus}
             userConnections={props.userConnections}
+            photos={props.photos}
           />
         </div>
       </div>

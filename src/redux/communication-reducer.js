@@ -15,6 +15,10 @@ const initialState = {
     { id: 2, message: 'Second message' },
     { id: 3, message: 'Another message' },
   ],
+  photos: {
+    small: null,
+    large: null,
+  },
 };
 
 const communicationReducer = (state = initialState, action) => {

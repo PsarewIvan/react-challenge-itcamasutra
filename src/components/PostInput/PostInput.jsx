@@ -14,7 +14,11 @@ const PostInput = (props) => {
   return (
     <form className="post-input" name="user-post">
       <div className="post-input__avatar">
-        <Avatar type="post-input" userName={props.userName} />
+        <Avatar
+          type="post-input"
+          userName={props.userName}
+          photos={props.photos}
+        />
       </div>
       <textarea
         className="post-input__post"

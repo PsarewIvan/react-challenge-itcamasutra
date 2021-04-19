@@ -3,6 +3,10 @@ const ADD_POST = 'ADD_POST';
 
 const initialState = {
   currentUserName: 'John Doe',
+  photos: {
+    small: null,
+    large: null,
+  },
   userPostText: '',
   postPlaceholder: "What's new, ",
   posts: [

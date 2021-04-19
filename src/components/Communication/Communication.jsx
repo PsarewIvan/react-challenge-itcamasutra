@@ -11,6 +11,7 @@ const Communication = (props) => {
           messages={props.messages}
           currentUserId={props.currentUserId}
           users={props.users}
+          photos={props.photos}
         />
       </div>
       <div className="communication__dialogs">

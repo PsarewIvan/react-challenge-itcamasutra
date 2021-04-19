@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     userName: state.header.currentUser.name,
     userStatus: state.header.currentUser.status,
     userConnections: state.header.userConnections,
+    photos: state.header.photos,
   };
 };
 

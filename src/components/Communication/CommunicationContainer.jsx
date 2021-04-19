@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
     users: state.users,
     userMessageText: state.communication.userMessageText,
     messagePlaceholder: state.communication.messagePlaceholder,
+    photos: state.communication.photos,
   };
 };
 
