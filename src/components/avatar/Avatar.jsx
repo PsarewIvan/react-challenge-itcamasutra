@@ -1,4 +1,4 @@
-import image from './img/avatar.jpeg';
+import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './Avatar.css';
 
 const Avatar = (props) => {
@@ -13,7 +13,11 @@ const Avatar = (props) => {
   return (
     <div className={classMod}>
       <a className="avatar__link-img" href="/mock-link">
-        <img className="avatar__img" src={image} alt="avatar" />
+        <img
+          className="avatar__img"
+          src={props.photos.small === null ? userPhoto : props.photos.small}
+          alt="avatar"
+        />
       </a>
       <a className="avatar__link" href="/mock-link">
         {props.userName}

@@ -16,7 +16,7 @@
 }
 
 .avatar__link-img::before {
-  content: url(./img/ring.png);
+  content: url(./../../assets/img/avatar/ring.png);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
