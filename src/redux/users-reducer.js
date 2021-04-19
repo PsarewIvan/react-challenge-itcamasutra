@@ -2,9 +2,7 @@ const FOLLOW = 'FOLLOW';
 const UN_FOLLOW = 'UN_FOLLOW';
 const SET_USERS = 'GET_USERS';
 
-const initialState = { users: [] };
-
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = { users: [] }, action) => {
   switch (action.type) {
     case FOLLOW:
       return {
