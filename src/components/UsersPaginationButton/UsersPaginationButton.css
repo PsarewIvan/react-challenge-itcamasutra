@@ -1,0 +1,6 @@
+.users-pagination-button {
+  margin: 0 5px;
+}
+.users-pagination-button--selected {
+  font-weight: 600;
+}

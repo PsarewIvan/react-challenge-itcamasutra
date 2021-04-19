@@ -1,4 +1,4 @@
-import './UsersPagination.css';
+import './UsersPaginationButton.css';
 
 const UsersPagination = (props) => {
   const handleButtonClick = () => {
@@ -7,8 +7,9 @@ const UsersPagination = (props) => {
 
   return (
     <button
-      className={`user-pagination ${
-        props.currentPage === props.number && 'user-pagination--selected'
+      className={`users-pagination-button ${
+        props.currentPage === props.number &&
+        'users-pagination-button--selected'
       }`}
       onClick={handleButtonClick}
     >
