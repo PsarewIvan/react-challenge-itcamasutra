@@ -1,16 +1,45 @@
 import React from 'react';
 import User from './../User/User';
 import UsersSort from './../UsersSort/UsersSort';
+import UsersPagination from './../UsersPagination/UsersPagination';
 import * as axios from 'axios';
 import './Users.css';
 
 class Users extends React.Component {
   componentDidMount() {
+    this.serverRequest(this.props.currentPage);
+  }
+
+  serverRequest(pageNumber) {
     axios
-      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+      )
       .then((response) => {
+        this.props.setNumberOfPages(response.data.totalCount);
         this.props.setUsers(response.data.items);
       });
+  }
+
+  changeUserPage = (pageNumber) => {
+    this.props.changeCurrentPage(pageNumber);
+    this.serverRequest(pageNumber);
+  };
+
+  buttonsRender() {
+    const pageCount = Math.ceil(this.props.totalCount / this.props.pageSize);
+    const buttons = [];
+    for (let i = 1; i <= pageCount; i++) {
+      buttons.push(i);
+    }
+    return buttons.map((i) => (
+      <UsersPagination
+        number={i}
+        currentPage={this.props.currentPage}
+        changePage={this.changeUserPage}
+        key={i}
+      />
+    ));
   }
 
   render() {
@@ -18,10 +47,11 @@ class Users extends React.Component {
       <div className="users">
         <div className="users__sort">
           <UsersSort
-            friendsCount={this.props.friendsCount}
-            usersCount={this.props.usersCount}
+            friendsCount={'this.props.friendsCount'}
+            usersCount={this.props.totalCount}
           />
         </div>
+        <div className="users__pagination">{this.buttonsRender()}</div>
         <ul className="users__list">
           {this.props.users.map((user) => {
             return (
