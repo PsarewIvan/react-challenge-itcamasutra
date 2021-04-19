@@ -1,9 +1,6 @@
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {
-  addPostCreator,
-  changePostMessageCreator,
-} from '../../redux/profile-reducer';
+import { addPost, changePostMessage } from '../../redux/profile-reducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,17 +12,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addPost: () => {
-      dispatch(addPostCreator());
-    },
-    changePostMessage: (message) => {
-      dispatch(changePostMessageCreator(message));
-    },
-  };
-};
-
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
+const ProfileContainer = connect(mapStateToProps, {
+  addPost,
+  changePostMessage,
+})(Profile);
 
 export default ProfileContainer;

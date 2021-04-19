@@ -10,10 +10,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
-
-export default HeaderContainer;
+export default connect(mapStateToProps)(Header);

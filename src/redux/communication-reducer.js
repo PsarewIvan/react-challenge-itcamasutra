@@ -45,17 +45,17 @@ const communicationReducer = (state = initialState, action) => {
   }
 };
 
-const changeNewMessageCreator = (message) => {
+const changeNewMessage = (message) => {
   return {
     type: CHANGE_NEW_MESSAGE,
     newMessage: message,
   };
 };
 
-const addMessageCreator = () => {
+const addMessage = () => {
   return {
     type: ADD_MESSAGE,
   };
 };
 
-export { communicationReducer, changeNewMessageCreator, addMessageCreator };
+export { communicationReducer, changeNewMessage, addMessage };

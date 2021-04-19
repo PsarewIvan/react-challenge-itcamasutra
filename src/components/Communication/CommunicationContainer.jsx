@@ -1,8 +1,8 @@
 import Communication from './Communication';
 import { connect } from 'react-redux';
 import {
-  addMessageCreator,
-  changeNewMessageCreator,
+  addMessage,
+  changeNewMessage,
 } from '../../redux/communication-reducer';
 
 const mapStateToProps = (state) => {
@@ -17,23 +17,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  const handleButtonClick = () => {
-    dispatch(addMessageCreator());
-  };
-
-  const handleTextareaInput = (message) => {
-    dispatch(changeNewMessageCreator(message));
-  };
-  return {
-    addMessage: handleButtonClick,
-    changeMessage: handleTextareaInput,
-  };
-};
-
-const CommunicationContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Communication);
-
-export default CommunicationContainer;
+export default connect(mapStateToProps, { addMessage, changeNewMessage })(
+  Communication
+);

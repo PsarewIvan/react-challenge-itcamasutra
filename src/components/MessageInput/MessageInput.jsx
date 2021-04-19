@@ -7,7 +7,7 @@ const MessageInput = (props) => {
   };
 
   const handleTextareaInput = (evt) => {
-    props.changeMessage(evt.target.value);
+    props.changeNewMessage(evt.target.value);
   };
 
   return (

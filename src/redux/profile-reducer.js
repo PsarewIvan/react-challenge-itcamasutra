@@ -41,17 +41,17 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-const changePostMessageCreator = (message) => {
+const changePostMessage = (message) => {
   return {
     type: CHANGE_POST_MESSAGE,
     newMessage: message,
   };
 };
 
-const addPostCreator = () => {
+const addPost = () => {
   return {
     type: ADD_POST,
   };
 };
 
-export { profileReducer, changePostMessageCreator, addPostCreator };
+export { profileReducer, changePostMessage, addPost };

@@ -22,7 +22,7 @@ const Communication = (props) => {
           userMessageText={props.userMessageText}
           messagePlaceholder={props.messagePlaceholder}
           addMessage={props.addMessage}
-          changeMessage={props.changeMessage}
+          changeNewMessage={props.changeNewMessage}
         />
       </div>
     </div>
