@@ -1,4 +1,3 @@
-import SearchInput from '../SearchInput/SearchInput';
 import ProfileContainer from '../Profile/ProfileContainer';
 import CommunicationContainer from '../Communication/CommunicationContainer';
 import UsersContainer from '../Users/UsersContainer';
