@@ -11,20 +11,12 @@ import './Content.css';
 const Content = () => {
   return (
     <main className="content">
-      <div className="content__search">
-        <SearchInput />
-      </div>
-      <div className="content__main">
-        <Route exact strict path="/" render={() => <ProfileContainer />} />
-        <Route
-          path="/communication"
-          render={() => <CommunicationContainer />}
-        />
-        <Route path="/users" render={() => <UsersContainer />} />
-        <Route exact path="/feed" render={() => <Feed />} />
-        <Route exact path="/music" render={() => <Music />} />
-        <Route exact path="/settings" render={() => <Settings />} />
-      </div>
+      <Route exact strict path="/" render={() => <ProfileContainer />} />
+      <Route path="/communication" render={() => <CommunicationContainer />} />
+      <Route path="/users" render={() => <UsersContainer />} />
+      <Route exact path="/feed" render={() => <Feed />} />
+      <Route exact path="/music" render={() => <Music />} />
+      <Route exact path="/settings" render={() => <Settings />} />
     </main>
   );
 };
