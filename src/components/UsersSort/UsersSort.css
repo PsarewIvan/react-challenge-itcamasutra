@@ -9,6 +9,7 @@
   border: none;
   background-color: transparent;
   color: #29292d;
+  cursor: pointer;
   transition: 0.5s;
 }
 
