@@ -11,7 +11,7 @@ const Nav = () => {
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <NavItem name="Profile" href="/" icon={Profile} />
+        <NavItem name="Profile" href="/profile" icon={Profile} />
         <NavItem name="Message" href="/content/communication" icon={Message} />
         <NavItem name="Users" href="/content/users" icon={Users} />
         <NavItem name="News" href="/content/feed" icon={News} />
