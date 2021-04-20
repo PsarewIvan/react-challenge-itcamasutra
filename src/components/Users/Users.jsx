@@ -2,7 +2,7 @@ import React from 'react';
 import User from './../User/User';
 import UsersSort from './../UsersSort/UsersSort';
 import UsersPaginationButton from './../UsersPaginationButton/UsersPaginationButton';
-import loader from './../../assets/img/loader.svg';
+import Loader from './../Loader/Loader';
 import './Users.css';
 
 const Users = (props) => {
@@ -32,7 +32,7 @@ const Users = (props) => {
 
   const loaderRender = () => {
     if (props.isFetching) {
-      return <img src={loader} alt="Loading users..." />;
+      return <Loader />;
     }
   };
 
