@@ -1,12 +1,8 @@
-.nav {
-  margin: 0 16px;
-}
-
 .nav__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
-  padding: 0 18px;
+  padding: 0;
   list-style: none;
 }

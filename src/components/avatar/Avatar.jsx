@@ -9,13 +9,20 @@ const Avatar = (props) => {
   if (props.type === 'post') {
     classMod = `${classMod} ${classMod}--post`;
   }
+  if (props.type === 'profile') {
+    classMod = `${classMod} ${classMod}--profile`;
+  }
 
   return (
     <div className={classMod}>
       <a className="avatar__link-img" href="/mock-link">
         <img
           className="avatar__img"
-          src={props.photos.small === null ? userPhoto : props.photos.small}
+          src={
+            !props.photos || props.photos.small === null
+              ? userPhoto
+              : props.photos.small
+          }
           alt="avatar"
         />
       </a>
