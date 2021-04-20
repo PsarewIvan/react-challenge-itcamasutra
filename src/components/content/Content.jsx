@@ -13,14 +13,16 @@ const Content = () => {
       <div className="content__header">
         <HeaderContainer />
       </div>
-      <Route
-        path="/content/communication"
-        render={() => <CommunicationContainer />}
-      />
-      <Route path="/content/users" render={() => <UsersContainer />} />
-      <Route exact path="/content/feed" render={() => <Feed />} />
-      <Route exact path="/content/music" render={() => <Music />} />
-      <Route exact path="/content/settings" render={() => <Settings />} />
+      <div className="content__main">
+        <Route
+          path="/content/communication"
+          render={() => <CommunicationContainer />}
+        />
+        <Route path="/content/users" render={() => <UsersContainer />} />
+        <Route exact path="/content/feed" render={() => <Feed />} />
+        <Route exact path="/content/music" render={() => <Music />} />
+        <Route exact path="/content/settings" render={() => <Settings />} />
+      </div>
     </main>
   );
 };
