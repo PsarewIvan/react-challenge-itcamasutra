@@ -1,12 +1,13 @@
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Content from './components/Content/Content';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div className="app__wrapper">
-      <Route exact strict path="/">
+      <Redirect to="/profile" />
+      <Route path="/profile">
         <main className="app__profile">
           <ProfileContainer />
         </main>
