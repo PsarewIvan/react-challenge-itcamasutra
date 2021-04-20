@@ -1,3 +1,5 @@
+import './ProfileEditButton.css';
+
 const ProfileEditButton = () => {
   return <div className="profile-edit-button">Button</div>;
 };
