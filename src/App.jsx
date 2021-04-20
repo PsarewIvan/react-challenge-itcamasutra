@@ -1,16 +1,21 @@
-import HeaderContainer from './components/Header/HeaderContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import Content from './components/Content/Content';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div className="app__wrapper">
-      <div className="app__header">
-        <HeaderContainer />
-      </div>
-      <div className="app__content">
-        <Content />
-      </div>
+      <Route exact strict path="/">
+        <main className="app__profile">
+          <ProfileContainer />
+        </main>
+      </Route>
+      <Route path="/content">
+        <div className="app__content">
+          <Content />
+        </div>
+      </Route>
     </div>
   );
 }

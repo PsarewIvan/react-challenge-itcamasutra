@@ -1,4 +1,4 @@
-import ProfileContainer from '../Profile/ProfileContainer';
+import HeaderContainer from './../Header/HeaderContainer';
 import CommunicationContainer from '../Communication/CommunicationContainer';
 import UsersContainer from '../Users/UsersContainer';
 import Feed from '../Feed/Feed';
@@ -10,12 +10,17 @@ import './Content.css';
 const Content = () => {
   return (
     <main className="content">
-      <Route exact strict path="/" render={() => <ProfileContainer />} />
-      <Route path="/communication" render={() => <CommunicationContainer />} />
-      <Route path="/users" render={() => <UsersContainer />} />
-      <Route exact path="/feed" render={() => <Feed />} />
-      <Route exact path="/music" render={() => <Music />} />
-      <Route exact path="/settings" render={() => <Settings />} />
+      <div className="content__header">
+        <HeaderContainer />
+      </div>
+      <Route
+        path="/content/communication"
+        render={() => <CommunicationContainer />}
+      />
+      <Route path="/content/users" render={() => <UsersContainer />} />
+      <Route exact path="/content/feed" render={() => <Feed />} />
+      <Route exact path="/content/music" render={() => <Music />} />
+      <Route exact path="/content/settings" render={() => <Settings />} />
     </main>
   );
 };
