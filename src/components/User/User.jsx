@@ -10,6 +10,7 @@ const User = (props) => {
           userName={props.name}
           lastActive={props.lastActive}
           photos={props.photos}
+          id={props.id}
         />
       </div>
       <div className="user__follow">

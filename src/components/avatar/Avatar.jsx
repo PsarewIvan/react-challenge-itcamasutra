@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './Avatar.css';
 
@@ -15,7 +16,7 @@ const Avatar = (props) => {
 
   return (
     <div className={classMod}>
-      <a className="avatar__link-img" href="/mock-link">
+      <NavLink className="avatar__link-img" to={`/profile/${props.id}`}>
         <img
           className="avatar__img"
           src={
@@ -25,7 +26,7 @@ const Avatar = (props) => {
           }
           alt="avatar"
         />
-      </a>
+      </NavLink>
       <a className="avatar__link" href="/mock-link">
         {props.userName}
       </a>

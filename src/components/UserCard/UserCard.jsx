@@ -23,6 +23,7 @@ const UserCard = (props) => {
           userName={props.userName}
           userStatus={props.userStatus}
           lastActive={props.lastActive}
+          id={props.id}
           photos={props.photos}
         />
       </div>
