@@ -1,0 +1,26 @@
+.profile-socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-socials__title {
+  margin: 0 auto 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4f515b;
+  line-height: 1.2;
+}
+
+.profile-socials__title::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  margin: 0 auto;
+  background-color: #8224e3;
+}
