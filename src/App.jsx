@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="app__wrapper">
-      <Route path="/profile">
+      <Route path="/profile/:userId">
         <main className="app__profile">
           <ProfileContainer />
         </main>
