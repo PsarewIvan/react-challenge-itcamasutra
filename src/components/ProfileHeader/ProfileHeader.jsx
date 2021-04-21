@@ -9,21 +9,17 @@ const ProfileHeader = (props) => {
       <div className="profile-header__avatar">
         <img
           className="profile-header__avatar-img"
-          src={
-            !props.photos || props.photos.small === null
-              ? userPhoto
-              : props.photos.large
-          }
+          src={!props.photo ? userPhoto : props.photo}
           alt="User's avatar"
         />
-        <p className="profile-header__user-name">{`props.userName`}</p>
+        <p className="profile-header__user-name">{props.fullName}</p>
       </div>
       <div className="profile-header__about">
-        <ProfileAbout />
+        <ProfileAbout about={props.about} />
       </div>
       <div className="profile-header__edit">
-        <ProfileEditButton />
-        <ProfileEditButton />
+        <ProfileEditButton type="settings" />
+        <ProfileEditButton type="background" />
       </div>
     </div>
   );

@@ -4,14 +4,25 @@ import PostInput from '../PostInput/PostInput';
 import Posts from '../Posts/Posts';
 import ProfileJob from './../ProfileJob/ProfileJob';
 import ProfileSocials from './../ProfileSocials/ProfileSocials';
+import Loader from './../Loader/Loader';
 import './Profile.css';
 
 const Profile = (props) => {
+  const profile = props.profile;
+
+  if (!profile) {
+    return <Loader />;
+  }
+
   return (
     <div className="profile">
       <div className="profile__wrapper-header">
         <div className="profile__header">
-          <ProfileHeader />
+          <ProfileHeader
+            photo={profile.photos.large}
+            about={profile.aboutMe}
+            fullName={profile.fullName}
+          />
         </div>
       </div>
       <div className="profile__nav">
@@ -21,10 +32,13 @@ const Profile = (props) => {
         <div className="profile__main">
           <div className="profile__aside">
             <div className="profile__job">
-              <ProfileJob />
+              <ProfileJob
+                lookingForAJob={profile.lookingForAJob}
+                lookingForAJobDescription={profile.lookingForAJobDescription}
+              />
             </div>
             <div className="profile__socials">
-              <ProfileSocials />
+              <ProfileSocials contacts={profile.contacts} />
             </div>
           </div>
           <div className="profile__content">
