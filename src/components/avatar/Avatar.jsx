@@ -27,9 +27,9 @@ const Avatar = (props) => {
           alt="avatar"
         />
       </NavLink>
-      <a className="avatar__link" href="/mock-link">
+      <NavLink className="avatar__link" to={`/profile/${props.id}`}>
         {props.userName}
-      </a>
+      </NavLink>
       <span className="avatar__status">{props.userStatus}</span>
       <span className="avatar__active">{props.lastActive}</span>
     </div>
