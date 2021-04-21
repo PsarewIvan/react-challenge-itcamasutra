@@ -2,7 +2,7 @@ import './UsersPaginationButton.css';
 
 const UsersPagination = (props) => {
   const handleButtonClick = () => {
-    props.changePage(props.number);
+    props.onChangePage(props.number);
   };
   const isThisCurrentPageButton = props.currentPage === props.number;
 

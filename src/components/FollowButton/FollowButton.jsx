@@ -1,9 +1,9 @@
 const FollowButton = (props) => {
   const handleButtonClick = () => {
     if (props.isFollowed) {
-      props.unFollow(props.id);
+      props.onUnFollow(props.id);
     } else {
-      props.follow(props.id);
+      props.onFollow(props.id);
     }
   };
   return (

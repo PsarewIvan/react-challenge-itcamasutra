@@ -24,7 +24,7 @@ const Users = (props) => {
       <UsersPaginationButton
         number={i}
         currentPage={props.currentPage}
-        changePage={props.changePage}
+        onChangePage={props.onChangePage}
         key={i}
       />
     ));
@@ -56,8 +56,8 @@ const Users = (props) => {
               isFollowed={user.isFollowed}
               photos={user.photos}
               id={user.id}
-              follow={props.follow}
-              unFollow={props.unFollow}
+              onFollow={props.onFollow}
+              onUnFollow={props.onUnFollow}
             />
           </li>
         ))}
