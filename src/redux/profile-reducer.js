@@ -1,12 +1,9 @@
 const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
 const ADD_POST = 'ADD_POST';
+const SET_PROFILE = 'SET_PROFILE';
 
 const initialState = {
-  currentUserName: 'John Doe',
-  photos: {
-    small: null,
-    large: null,
-  },
+  profile: null,
   userPostText: '',
   postPlaceholder: "What's new, ",
   posts: [
@@ -36,22 +33,29 @@ const profileReducer = (state = initialState, action) => {
         userPostText: '',
       };
 
+    case SET_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      };
+
     default:
       return state;
   }
 };
 
-const changePostMessage = (message) => {
-  return {
-    type: CHANGE_POST_MESSAGE,
-    newMessage: message,
-  };
-};
+const changePostMessage = (message) => ({
+  type: CHANGE_POST_MESSAGE,
+  newMessage: message,
+});
 
-const addPost = () => {
-  return {
-    type: ADD_POST,
-  };
-};
+const addPost = () => ({
+  type: ADD_POST,
+});
 
-export { profileReducer, changePostMessage, addPost };
+const setProfile = (profile) => ({
+  type: SET_PROFILE,
+  profile,
+});
+
+export { profileReducer, changePostMessage, addPost, setProfile };
