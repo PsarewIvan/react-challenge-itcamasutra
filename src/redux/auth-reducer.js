@@ -1,7 +1,7 @@
 const CHANGE_EMAIL = 'CHANGE_EMAIL';
 const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
-const CHANGE_USER_ID = 'CHANGE_USER_ID';
+const SET_USER_ID = 'SET_USER_ID';
 
 const initialState = {
   isAuthorized: false,
@@ -26,7 +26,7 @@ const authReducer = (state = initialState, action) => {
     case CHANGE_AUTHORIZE:
       return { ...state, isAuthorized: action.isAuthorized };
 
-    case CHANGE_USER_ID:
+    case SET_USER_ID:
       return { ...state, userId: action.userId };
 
     default:
@@ -46,14 +46,8 @@ const changeAuthorize = (isAuthorized) => {
   return { type: CHANGE_AUTHORIZE, isAuthorized };
 };
 
-const changeUserId = (userId) => {
-  return { type: CHANGE_USER_ID, userId };
+const setUserId = (userId) => {
+  return { type: SET_USER_ID, userId };
 };
 
-export {
-  authReducer,
-  changeEmail,
-  changePassword,
-  changeAuthorize,
-  changeUserId,
-};
+export { authReducer, changeEmail, changePassword, changeAuthorize, setUserId };

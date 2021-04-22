@@ -6,7 +6,7 @@ import {
   changeEmail,
   changePassword,
   changeAuthorize,
-  changeUserId,
+  setUserId,
 } from './../../redux/auth-reducer';
 
 class HomeContainer extends React.Component {
@@ -18,7 +18,7 @@ class HomeContainer extends React.Component {
       .then((response) => {
         if (response.data.resultCode === 0) {
           this.props.changeAuthorize(true);
-          this.props.changeUserId(response.data.data.id);
+          this.props.setUserId(response.data.data.id);
         }
       });
   }
@@ -46,5 +46,5 @@ export default connect(mapStateToProps, {
   changeEmail,
   changePassword,
   changeAuthorize,
-  changeUserId,
+  setUserId,
 })(HomeContainer);
