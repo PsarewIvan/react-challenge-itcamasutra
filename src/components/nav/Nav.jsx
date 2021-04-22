@@ -7,9 +7,13 @@ import { ReactComponent as News } from './img/news.svg';
 import { ReactComponent as Music } from './img/music.svg';
 import { ReactComponent as Settings } from './img/settings.svg';
 
-const Nav = () => {
+const Nav = (props) => {
+  let classMod = '';
+  if (props.type === 'home') {
+    classMod = ' nav--home';
+  }
   return (
-    <nav className="nav">
+    <nav className={`nav${classMod}`}>
       <ul className="nav__list">
         <NavItem name="Profile" href="/profile" icon={Profile} />
         <NavItem name="Message" href="/content/communication" icon={Message} />

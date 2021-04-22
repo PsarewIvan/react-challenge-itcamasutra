@@ -9,7 +9,7 @@ import './Content.css';
 
 const Content = () => {
   return (
-    <main className="content">
+    <div className="content">
       <div className="content__header">
         <HeaderContainer />
       </div>
@@ -23,7 +23,7 @@ const Content = () => {
         <Route exact path="/content/music" render={() => <Music />} />
         <Route exact path="/content/settings" render={() => <Settings />} />
       </div>
-    </main>
+    </div>
   );
 };
 
