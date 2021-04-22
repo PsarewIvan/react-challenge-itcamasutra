@@ -47,7 +47,7 @@ const Users = (props) => {
               userConnections={user.userConnections}
               name={user.name}
               lastActive={user.lastActive}
-              isFollowed={user.isFollowed}
+              followed={user.followed}
               photos={user.photos}
               id={user.id}
               onFollow={props.onFollow}

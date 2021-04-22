@@ -15,7 +15,7 @@ const User = (props) => {
       </div>
       <div className="user__follow">
         <FollowButton
-          isFollowed={props.isFollowed}
+          followed={props.followed}
           id={props.id}
           onFollow={props.onFollow}
           onUnFollow={props.onUnFollow}
