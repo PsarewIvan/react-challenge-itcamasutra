@@ -1,5 +1,5 @@
 import React from 'react';
-import * as axios from 'axios';
+import { UsersAPI, FollowAPI } from './../../api/api';
 import Users from './Users';
 import {
   follow,
@@ -29,23 +29,32 @@ class UsersContainer extends React.Component {
 
   serverRequest(pageNumber) {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setTotalPageCount(response.data.totalCount);
-        this.props.setUsers(response.data.items);
-      });
+    UsersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
+      this.props.toggleIsFetching(false);
+      this.props.setTotalPageCount(data.totalCount);
+      this.props.setUsers(data.items);
+    });
   }
 
   changeUserPage = (pageNumber) => {
     this.props.changeCurrentPage(pageNumber);
     this.serverRequest(pageNumber);
+  };
+
+  follow = (id) => {
+    FollowAPI.follow(id).then((data) => {
+      if (data.resultCode === 0) {
+        this.props.follow(id);
+      }
+    });
+  };
+
+  unFollow = (id) => {
+    FollowAPI.unFollow(id).then((data) => {
+      if (data.resultCode === 0) {
+        this.props.unFollow(id);
+      }
+    });
   };
 
   render() {
@@ -57,8 +66,8 @@ class UsersContainer extends React.Component {
         users={this.props.users}
         isFetching={this.props.isFetching}
         onChangePage={this.changeUserPage}
-        onFollow={this.props.follow}
-        onUnFollow={this.props.unFollow}
+        onFollow={this.follow}
+        onUnFollow={this.unFollow}
       />
     );
   }
