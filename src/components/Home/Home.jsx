@@ -22,6 +22,10 @@ const Home = (props) => {
               passwordAriaText={props.passwordAriaText}
               passwordPlaceholder={props.passwordPlaceholder}
               emailAriaText={props.emailAriaText}
+              emailMessageText={props.emailMessageText}
+              passwordMessageText={props.passwordMessageText}
+              onChangeEmail={props.changeEmail}
+              onChangePassword={props.changePassword}
             />
           </div>
           <div className="home__nav">
