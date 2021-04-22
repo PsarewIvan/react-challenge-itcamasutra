@@ -17,6 +17,7 @@ const User = (props) => {
         <FollowButton
           followed={props.followed}
           id={props.id}
+          followingUsers={props.followingUsers}
           onFollow={props.onFollow}
           onUnFollow={props.onUnFollow}
         />

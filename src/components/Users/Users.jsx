@@ -50,6 +50,7 @@ const Users = (props) => {
               followed={user.followed}
               photos={user.photos}
               id={user.id}
+              followingUsers={props.followingUsers}
               onFollow={props.onFollow}
               onUnFollow={props.onUnFollow}
             />

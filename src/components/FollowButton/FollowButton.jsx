@@ -11,6 +11,7 @@ const FollowButton = (props) => {
       <button
         className="follow-button__button"
         type="button"
+        disabled={props.followingUsers.some((id) => id === props.id)}
         onClick={handleButtonClick}
       >
         {props.followed ? 'Unfollow' : 'Follow'}
