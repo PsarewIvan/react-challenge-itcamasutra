@@ -17,6 +17,8 @@ const Home = (props) => {
           </p>
           <div className="home__login-form">
             <LoginForm
+              isAuthorized={props.isAuthorized}
+              userId={props.userId}
               buttonSubmitText={props.buttonSubmitText}
               emailPlaceholder={props.emailPlaceholder}
               passwordAriaText={props.passwordAriaText}

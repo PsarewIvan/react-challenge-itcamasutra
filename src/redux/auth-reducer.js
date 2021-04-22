@@ -1,7 +1,11 @@
 const CHANGE_EMAIL = 'CHANGE_EMAIL';
 const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
+const CHANGE_USER_ID = 'CHANGE_USER_ID';
 
 const initialState = {
+  isAuthorized: false,
+  userId: null,
   emailAriaText: 'Please type your email',
   emailPlaceholder: 'Email',
   passwordAriaText: 'Please type your password',
@@ -19,6 +23,12 @@ const authReducer = (state = initialState, action) => {
     case CHANGE_PASSWORD:
       return { ...state, passwordMessageText: action.pass };
 
+    case CHANGE_AUTHORIZE:
+      return { ...state, isAuthorized: action.isAuthorized };
+
+    case CHANGE_USER_ID:
+      return { ...state, userId: action.userId };
+
     default:
       return state;
   }
@@ -32,4 +42,18 @@ const changePassword = (pass) => {
   return { type: CHANGE_PASSWORD, pass };
 };
 
-export { authReducer, changeEmail, changePassword };
+const changeAuthorize = (isAuthorized) => {
+  return { type: CHANGE_AUTHORIZE, isAuthorized };
+};
+
+const changeUserId = (userId) => {
+  return { type: CHANGE_USER_ID, userId };
+};
+
+export {
+  authReducer,
+  changeEmail,
+  changePassword,
+  changeAuthorize,
+  changeUserId,
+};

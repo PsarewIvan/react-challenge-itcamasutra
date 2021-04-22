@@ -1,9 +1,28 @@
 import React from 'react';
-import Home from './Home';
+import * as axios from 'axios';
 import { connect } from 'react-redux';
-import { changeEmail, changePassword } from './../../redux/auth-reducer';
+import Home from './Home';
+import {
+  changeEmail,
+  changePassword,
+  changeAuthorize,
+  changeUserId,
+} from './../../redux/auth-reducer';
 
 class HomeContainer extends React.Component {
+  componentDidMount() {
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        if (response.data.resultCode === 0) {
+          this.props.changeAuthorize(true);
+          this.props.changeUserId(response.data.data.id);
+        }
+      });
+  }
+
   render() {
     return <Home {...this.props} />;
   }
@@ -11,6 +30,8 @@ class HomeContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    isAuthorized: state.auth.isAuthorized,
+    userId: state.auth.userId,
     buttonSubmitText: state.auth.buttonSubmitText,
     emailPlaceholder: state.auth.emailPlaceholder,
     passwordAriaText: state.auth.passwordAriaText,
@@ -21,6 +42,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { changeEmail, changePassword })(
-  HomeContainer
-);
+export default connect(mapStateToProps, {
+  changeEmail,
+  changePassword,
+  changeAuthorize,
+  changeUserId,
+})(HomeContainer);
