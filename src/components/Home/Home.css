@@ -1,5 +1,4 @@
 .home {
-  min-height: 100vh;
   background-attachment: fixed;
   background-image: url(./img/home.jpeg);
   background-repeat: no-repeat;
@@ -16,6 +15,7 @@
 }
 
 .home__wrapper {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,4 +44,8 @@
 
 .home__login-form {
   margin-bottom: 50px;
+}
+
+.home__nav {
+  margin-top: auto;
 }
