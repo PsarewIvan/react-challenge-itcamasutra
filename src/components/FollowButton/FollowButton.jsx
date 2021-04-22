@@ -1,9 +1,40 @@
+import * as axios from 'axios';
+
 const FollowButton = (props) => {
   const handleButtonClick = () => {
-    if (props.isFollowed) {
-      props.onUnFollow(props.id);
+    if (props.followed) {
+      axios
+        .delete(
+          `https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+          {
+            withCredentials: true,
+            headers: {
+              'API-KEY': 'cf50e140-3ca8-491e-83e9-6e5e48b9e22e',
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.resultCode === 0) {
+            props.onUnFollow(props.id);
+          }
+        });
     } else {
-      props.onFollow(props.id);
+      axios
+        .post(
+          `https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+          {},
+          {
+            withCredentials: true,
+            headers: {
+              'API-KEY': 'cf50e140-3ca8-491e-83e9-6e5e48b9e22e',
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.resultCode === 0) {
+            props.onFollow(props.id);
+          }
+        });
     }
   };
   return (
@@ -13,7 +44,7 @@ const FollowButton = (props) => {
         type="button"
         onClick={handleButtonClick}
       >
-        {props.isFollowed ? 'Unfollow' : 'Follow'}
+        {props.followed ? 'Unfollow' : 'Follow'}
       </button>
     </div>
   );
