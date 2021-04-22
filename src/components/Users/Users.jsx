@@ -6,7 +6,7 @@ import Loader from './../Loader/Loader';
 import './Users.css';
 
 const Users = (props) => {
-  const buttonsRender = () => {
+  const paginationRender = () => {
     const pageCount = Math.ceil(props.totalCount / props.pageSize);
     const buttons = [];
     for (let i = 1; i <= pageCount; i++) {
@@ -30,12 +30,6 @@ const Users = (props) => {
     ));
   };
 
-  const loaderRender = () => {
-    if (props.isFetching) {
-      return <Loader />;
-    }
-  };
-
   return (
     <div className="users">
       <div className="users__sort">
@@ -44,8 +38,8 @@ const Users = (props) => {
           usersCount={props.totalCount}
         />
       </div>
-      <div className="users__pagination">{buttonsRender()}</div>
-      <div>{loaderRender()}</div>
+      <div className="users__pagination">{paginationRender()}</div>
+      <div>{props.isFetching ? <Loader /> : null}</div>
       <ul className="users__list">
         {props.users.map((user) => (
           <li className="users__user" key={user.id}>
