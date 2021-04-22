@@ -12,15 +12,46 @@ const Nav = (props) => {
   if (props.type === 'home') {
     classMod = ' nav--home';
   }
+
   return (
     <nav className={`nav${classMod}`}>
       <ul className="nav__list">
-        <NavItem name="Profile" href="/profile" icon={Profile} />
-        <NavItem name="Message" href="/content/communication" icon={Message} />
-        <NavItem name="Users" href="/content/users" icon={Users} />
-        <NavItem name="News" href="/content/feed" icon={News} />
-        <NavItem name="Music" href="/content/music" icon={Music} />
-        <NavItem name="Settings" href="/content/settings" icon={Settings} />
+        <NavItem
+          name="Profile"
+          href="/profile"
+          icon={Profile}
+          type={props.type}
+        />
+        <NavItem
+          name="Message"
+          href="/content/communication"
+          icon={Message}
+          type={props.type}
+        />
+        <NavItem
+          name="Users"
+          href="/content/users"
+          icon={Users}
+          type={props.type}
+        />
+        <NavItem
+          name="News"
+          href="/content/feed"
+          icon={News}
+          type={props.type}
+        />
+        <NavItem
+          name="Music"
+          href="/content/music"
+          icon={Music}
+          type={props.type}
+        />
+        <NavItem
+          name="Settings"
+          href="/content/settings"
+          icon={Settings}
+          type={props.type}
+        />
       </ul>
     </nav>
   );

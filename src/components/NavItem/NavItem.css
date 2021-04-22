@@ -33,3 +33,13 @@
 .nav-item__link--active .nav-item__icon g {
   fill: #8224e3;
 }
+
+/* Home */
+
+.nav-item--home .nav-item__link {
+  color: #fff;
+}
+
+.nav-item--home .nav-item__icon g {
+  fill: #fff;
+}
