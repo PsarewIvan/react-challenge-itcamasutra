@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-challenge-itcamasutra/static/css/main.1edb1951.chunk.css",
-    "main.js": "/react-challenge-itcamasutra/static/js/main.26918343.chunk.js",
-    "main.js.map": "/react-challenge-itcamasutra/static/js/main.26918343.chunk.js.map",
+    "main.js": "/react-challenge-itcamasutra/static/js/main.3f64962c.chunk.js",
+    "main.js.map": "/react-challenge-itcamasutra/static/js/main.3f64962c.chunk.js.map",
     "runtime-main.js": "/react-challenge-itcamasutra/static/js/runtime-main.d3332ed9.js",
     "runtime-main.js.map": "/react-challenge-itcamasutra/static/js/runtime-main.d3332ed9.js.map",
     "static/css/2.679831fc.chunk.css": "/react-challenge-itcamasutra/static/css/2.679831fc.chunk.css",
@@ -33,6 +33,6 @@
     "static/css/2.679831fc.chunk.css",
     "static/js/2.a358b98c.chunk.js",
     "static/css/main.1edb1951.chunk.css",
-    "static/js/main.26918343.chunk.js"
+    "static/js/main.3f64962c.chunk.js"
   ]
 }
