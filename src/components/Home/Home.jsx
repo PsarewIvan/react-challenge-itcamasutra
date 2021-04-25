@@ -26,8 +26,8 @@ const Home = (props) => {
               emailAriaText={props.emailAriaText}
               emailMessageText={props.emailMessageText}
               passwordMessageText={props.passwordMessageText}
-              onChangeEmail={props.changeEmail}
-              onChangePassword={props.changePassword}
+              onChangeEmailText={props.changeEmailText}
+              onChangePasswordText={props.changePasswordText}
             />
           </div>
           <div className="home__nav">

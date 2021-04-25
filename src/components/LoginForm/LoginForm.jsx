@@ -3,11 +3,11 @@ import './LoginForm.css';
 
 const LoginForm = (props) => {
   const handleEmailInput = (evt) => {
-    props.onChangeEmail(evt.target.value);
+    props.onChangeEmailText(evt.target.value);
   };
 
   const handlePasswordInput = (evt) => {
-    props.onChangePassword(evt.target.value);
+    props.onChangePasswordText(evt.target.value);
   };
 
   let renderForm;

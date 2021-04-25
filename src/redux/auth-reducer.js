@@ -36,11 +36,11 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-const changeEmail = (email) => {
+const changeEmailText = (email) => {
   return { type: CHANGE_EMAIL, email };
 };
 
-const changePassword = (pass) => {
+const changePasswordText = (pass) => {
   return { type: CHANGE_PASSWORD, pass };
 };
 
@@ -52,7 +52,7 @@ const setUserId = (userId) => {
   return { type: SET_USER_ID, userId };
 };
 
-// thunk
+// thunks
 
 const authMe = () => {
   return (dispatch) => {
@@ -65,4 +65,4 @@ const authMe = () => {
   };
 };
 
-export { authReducer, changeEmail, changePassword, authMe };
+export { authReducer, changeEmailText, changePasswordText, authMe };

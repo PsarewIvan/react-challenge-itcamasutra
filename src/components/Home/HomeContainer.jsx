@@ -1,6 +1,9 @@
 import Home from './Home';
 import { connect } from 'react-redux';
-import { changeEmail, changePassword } from './../../redux/auth-reducer';
+import {
+  changeEmailText,
+  changePasswordText,
+} from './../../redux/auth-reducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,6 +20,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  changeEmail,
-  changePassword,
+  changeEmailText,
+  changePasswordText,
 })(Home);
