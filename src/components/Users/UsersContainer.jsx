@@ -1,14 +1,10 @@
 import React from 'react';
-import { UsersAPI, FollowAPI } from './../../api/api';
 import Users from './Users';
 import {
-  follow,
-  unFollow,
-  setUsers,
-  setTotalPageCount,
   changeCurrentPage,
-  toggleIsFetching,
-  toggleFollowingUsers,
+  followUser,
+  unfollowUser,
+  getUsers,
 } from './../../redux/users-reducer';
 import { connect } from 'react-redux';
 
@@ -25,42 +21,13 @@ const mapStateToProps = (state) => {
 };
 
 class UsersContainer extends React.Component {
-  follow = (id) => {
-    this.props.toggleFollowingUsers(true, id);
-    FollowAPI.follow(id).then((data) => {
-      if (data.resultCode === 0) {
-        this.props.follow(id);
-        this.props.toggleFollowingUsers(false, id);
-      }
-    });
-  };
-
-  unFollow = (id) => {
-    this.props.toggleFollowingUsers(true, id);
-    FollowAPI.unFollow(id).then((data) => {
-      if (data.resultCode === 0) {
-        this.props.unFollow(id);
-        this.props.toggleFollowingUsers(false, id);
-      }
-    });
-  };
-
-  serverRequest(pageNumber) {
-    this.props.toggleIsFetching(true);
-    UsersAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-      this.props.toggleIsFetching(false);
-      this.props.setTotalPageCount(data.totalCount);
-      this.props.setUsers(data.items);
-    });
-  }
-
   changeUserPage = (pageNumber) => {
     this.props.changeCurrentPage(pageNumber);
-    this.serverRequest(pageNumber);
+    this.props.getUsers(pageNumber, this.props.pageSize);
   };
 
   componentDidMount() {
-    this.serverRequest(this.props.currentPage);
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   render() {
@@ -73,19 +40,16 @@ class UsersContainer extends React.Component {
         isFetching={this.props.isFetching}
         followingUsers={this.props.followingUsers}
         onChangePage={this.changeUserPage}
-        onFollow={this.follow}
-        onUnFollow={this.unFollow}
+        onFollow={this.props.followUser}
+        onUnFollow={this.props.unfollowUser}
       />
     );
   }
 }
 
 export default connect(mapStateToProps, {
-  follow,
-  unFollow,
-  setUsers,
-  setTotalPageCount,
   changeCurrentPage,
-  toggleIsFetching,
-  toggleFollowingUsers,
+  followUser,
+  unfollowUser,
+  getUsers,
 })(UsersContainer);
