@@ -18,14 +18,12 @@ const mapStateToProps = (state) => {
 };
 
 class ProfileContainer extends React.Component {
-  componentDidMount() {
+  updateProfile() {
     const userId = this.props.match.params.userId;
     this.props.setUserProfile(userId);
   }
-
-  componentDidUpdate() {
-    const userId = this.props.match.params.userId;
-    this.props.setUserProfile(userId);
+  componentDidMount() {
+    this.updateProfile();
   }
 
   render() {
