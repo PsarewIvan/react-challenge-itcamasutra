@@ -1,3 +1,5 @@
+import {ProfileAPI} from './../api/api';
+
 const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
 const ADD_POST = 'ADD_POST';
 const SET_PROFILE = 'SET_PROFILE';
@@ -58,4 +60,14 @@ const setProfile = (profile) => ({
   profile,
 });
 
-export { profileReducer, changePostMessage, addPost, setProfile };
+// thunks
+
+const setUserProfile = (userId) => {
+  return (dispatch) => {
+    ProfileAPI.getProfileInfo(userId).then((data) => {
+      dispatch(setProfile(data));
+    });
+  };
+};
+
+export { profileReducer, changePostMessage, addPost, setUserProfile };
