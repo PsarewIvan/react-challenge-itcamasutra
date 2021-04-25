@@ -1,17 +1,11 @@
 import React from 'react';
 import App from './App';
 import { connect } from 'react-redux';
-import { changeAuthorize, setUserId } from './redux/auth-reducer';
-import { AuthAPI } from './api/api';
+import { authMe } from './redux/auth-reducer';
 
 class AppContainer extends React.Component {
   componentDidMount() {
-    AuthAPI.getCurrentUser().then((data) => {
-      if (data.resultCode === 0) {
-        this.props.changeAuthorize(true);
-        this.props.setUserId(data.data.id);
-      }
-    });
+    this.props.authMe();
   }
 
   render() {
@@ -19,4 +13,4 @@ class AppContainer extends React.Component {
   }
 }
 
-export default connect(null, { changeAuthorize, setUserId })(AppContainer);
+export default connect(null, { authMe })(AppContainer);

@@ -1,3 +1,5 @@
+import { AuthAPI } from './../api/api';
+
 const CHANGE_EMAIL = 'CHANGE_EMAIL';
 const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
@@ -50,4 +52,17 @@ const setUserId = (userId) => {
   return { type: SET_USER_ID, userId };
 };
 
-export { authReducer, changeEmail, changePassword, changeAuthorize, setUserId };
+// thunk
+
+const authMe = () => {
+  return (dispatch) => {
+    AuthAPI.authMe().then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(changeAuthorize(true));
+        dispatch(setUserId(data.data.id));
+      }
+    });
+  };
+};
+
+export { authReducer, changeEmail, changePassword, authMe };

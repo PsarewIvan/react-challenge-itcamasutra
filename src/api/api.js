@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 });
 
 const AuthAPI = {
-  getCurrentUser() {
+  authMe() {
     return axiosInstance.get(`auth/me`).then((response) => response.data);
   },
 };
