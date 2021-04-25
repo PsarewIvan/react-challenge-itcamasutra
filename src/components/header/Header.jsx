@@ -1,6 +1,6 @@
 import Logo from '../Logo/Logo';
 import UserCard from '../UserCard/UserCard';
-import Nav from '../Nav/Nav';
+import NavContainer from '../Nav/NavContainer';
 import './Header.css';
 
 const Header = (props) => {
@@ -20,7 +20,7 @@ const Header = (props) => {
         </div>
       </div>
       <div className="header__nav">
-        <Nav />
+        <NavContainer />
       </div>
     </header>
   );

@@ -1,11 +1,11 @@
 import NavItem from '../NavItem/NavItem';
 import './Nav.css';
-import { ReactComponent as Profile } from './img/profile.svg';
-import { ReactComponent as Message } from './img/message.svg';
-import { ReactComponent as Users } from './img/users.svg';
-import { ReactComponent as News } from './img/news.svg';
-import { ReactComponent as Music } from './img/music.svg';
-import { ReactComponent as Settings } from './img/settings.svg';
+import { ReactComponent as ProfileIcon } from './img/profile.svg';
+import { ReactComponent as MessageIcon } from './img/message.svg';
+import { ReactComponent as UsersIcon } from './img/users.svg';
+import { ReactComponent as NewsIcon } from './img/news.svg';
+import { ReactComponent as MusicIcon } from './img/music.svg';
+import { ReactComponent as SettingsIcon } from './img/settings.svg';
 
 const Nav = (props) => {
   let classMod = '';
@@ -16,40 +16,44 @@ const Nav = (props) => {
   return (
     <nav className={`nav${classMod}`}>
       <ul className="nav__list">
-        <NavItem
-          name="Profile"
-          href="/profile"
-          icon={Profile}
-          type={props.type}
-        />
-        <NavItem
-          name="Message"
-          href="/content/communication"
-          icon={Message}
-          type={props.type}
-        />
+        {props.isAuthorized ? (
+          <>
+            <NavItem
+              name="Profile"
+              href={`/profile/${props.userId}`}
+              icon={ProfileIcon}
+              type={props.type}
+            />
+            <NavItem
+              name="Message"
+              href="/content/communication"
+              icon={MessageIcon}
+              type={props.type}
+            />
+          </>
+        ) : null}
         <NavItem
           name="Users"
           href="/content/users"
-          icon={Users}
+          icon={UsersIcon}
           type={props.type}
         />
         <NavItem
           name="News"
           href="/content/feed"
-          icon={News}
+          icon={NewsIcon}
           type={props.type}
         />
         <NavItem
           name="Music"
           href="/content/music"
-          icon={Music}
+          icon={MusicIcon}
           type={props.type}
         />
         <NavItem
           name="Settings"
           href="/content/settings"
-          icon={Settings}
+          icon={SettingsIcon}
           type={props.type}
         />
       </ul>

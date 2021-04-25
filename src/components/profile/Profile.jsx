@@ -1,5 +1,5 @@
 import ProfileHeader from './../ProfileHeader/ProfileHeader';
-import Nav from './../Nav/Nav';
+import NavContainer from './../Nav/NavContainer';
 import PostInput from '../PostInput/PostInput';
 import Posts from '../Posts/Posts';
 import ProfileJob from './../ProfileJob/ProfileJob';
@@ -26,7 +26,7 @@ const Profile = (props) => {
         </div>
       </div>
       <div className="profile__nav">
-        <Nav />
+        <NavContainer />
       </div>
       <div className="profile__main-wrapper">
         <div className="profile__main">

@@ -1,6 +1,6 @@
 import Logo from './../Logo/Logo';
 import LoginForm from './../LoginForm/LoginForm';
-import Nav from './../Nav/Nav';
+import NavContainer from './../Nav/NavContainer';
 import './Home.css';
 
 const Home = (props) => {
@@ -31,7 +31,7 @@ const Home = (props) => {
             />
           </div>
           <div className="home__nav">
-            <Nav type="home" />
+            <NavContainer type="home" />
           </div>
         </div>
       </div>
