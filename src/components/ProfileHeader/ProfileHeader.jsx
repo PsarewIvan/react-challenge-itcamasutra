@@ -1,6 +1,6 @@
 import ProfileAbout from './../ProfileAbout/ProfileAbout';
 import ProfileEditButton from './../ProfileEditButton/ProfileEditButton';
-import userPhoto from './img/avatar.jpeg';
+import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './ProfileHeader.css';
 
 const ProfileHeader = (props) => {
