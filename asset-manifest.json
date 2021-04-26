@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/react-challenge-itcamasutra/static/css/main.1edb1951.chunk.css",
-    "main.js": "/react-challenge-itcamasutra/static/js/main.fbaa553a.chunk.js",
-    "main.js.map": "/react-challenge-itcamasutra/static/js/main.fbaa553a.chunk.js.map",
+    "main.css": "/react-challenge-itcamasutra/static/css/main.0229223f.chunk.css",
+    "main.js": "/react-challenge-itcamasutra/static/js/main.117a6c63.chunk.js",
+    "main.js.map": "/react-challenge-itcamasutra/static/js/main.117a6c63.chunk.js.map",
     "runtime-main.js": "/react-challenge-itcamasutra/static/js/runtime-main.d3332ed9.js",
     "runtime-main.js.map": "/react-challenge-itcamasutra/static/js/runtime-main.d3332ed9.js.map",
     "static/css/2.679831fc.chunk.css": "/react-challenge-itcamasutra/static/css/2.679831fc.chunk.css",
-    "static/js/2.a358b98c.chunk.js": "/react-challenge-itcamasutra/static/js/2.a358b98c.chunk.js",
-    "static/js/2.a358b98c.chunk.js.map": "/react-challenge-itcamasutra/static/js/2.a358b98c.chunk.js.map",
+    "static/js/2.f286fc32.chunk.js": "/react-challenge-itcamasutra/static/js/2.f286fc32.chunk.js",
+    "static/js/2.f286fc32.chunk.js.map": "/react-challenge-itcamasutra/static/js/2.f286fc32.chunk.js.map",
     "index.html": "/react-challenge-itcamasutra/index.html",
     "static/css/2.679831fc.chunk.css.map": "/react-challenge-itcamasutra/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.1edb1951.chunk.css.map": "/react-challenge-itcamasutra/static/css/main.1edb1951.chunk.css.map",
-    "static/js/2.a358b98c.chunk.js.LICENSE.txt": "/react-challenge-itcamasutra/static/js/2.a358b98c.chunk.js.LICENSE.txt",
+    "static/css/main.0229223f.chunk.css.map": "/react-challenge-itcamasutra/static/css/main.0229223f.chunk.css.map",
+    "static/js/2.f286fc32.chunk.js.LICENSE.txt": "/react-challenge-itcamasutra/static/js/2.f286fc32.chunk.js.LICENSE.txt",
     "static/media/avatar.9161463d.jpeg": "/react-challenge-itcamasutra/static/media/avatar.9161463d.jpeg",
-    "static/media/avatar.d47462e9.jpeg": "/react-challenge-itcamasutra/static/media/avatar.d47462e9.jpeg",
     "static/media/background.75017b26.svg": "/react-challenge-itcamasutra/static/media/background.75017b26.svg",
     "static/media/edit.398bf333.svg": "/react-challenge-itcamasutra/static/media/edit.398bf333.svg",
     "static/media/Profile.css": "/react-challenge-itcamasutra/static/media/header-cover.1011c6a2.jpeg",
@@ -31,8 +30,8 @@
   "entrypoints": [
     "static/js/runtime-main.d3332ed9.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.a358b98c.chunk.js",
-    "static/css/main.1edb1951.chunk.css",
-    "static/js/main.fbaa553a.chunk.js"
+    "static/js/2.f286fc32.chunk.js",
+    "static/css/main.0229223f.chunk.css",
+    "static/js/main.117a6c63.chunk.js"
   ]
 }
