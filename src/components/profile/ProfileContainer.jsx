@@ -7,6 +7,7 @@ import {
   changePostMessage,
   setUserProfile,
 } from '../../redux/profile-reducer';
+import withAuthRedirect from './../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
   return {
@@ -35,4 +36,4 @@ export default connect(mapStateToProps, {
   addPost,
   changePostMessage,
   setUserProfile,
-})(withRouter(ProfileContainer));
+})(withRouter(withAuthRedirect(ProfileContainer)));
