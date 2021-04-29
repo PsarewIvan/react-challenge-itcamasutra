@@ -1,10 +1,11 @@
 import Communication from './Communication';
+import withAuthRedirect from './../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import {
   addMessage,
   changeNewMessage,
 } from '../../redux/communication-reducer';
-import withAuthRedirect from './../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +19,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addMessage, changeNewMessage })(
-  withAuthRedirect(Communication)
-);
+export default compose(
+  connect(mapStateToProps, { addMessage, changeNewMessage }),
+  withAuthRedirect
+)(Communication);

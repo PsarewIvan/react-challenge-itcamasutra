@@ -1,5 +1,6 @@
-import React from 'react';
 import Profile from './Profile';
+import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
@@ -32,8 +33,12 @@ class ProfileContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, {
-  addPost,
-  changePostMessage,
-  setUserProfile,
-})(withRouter(withAuthRedirect(ProfileContainer)));
+export default compose(
+  connect(mapStateToProps, {
+    addPost,
+    changePostMessage,
+    setUserProfile,
+  }),
+  withRouter,
+  withAuthRedirect
+)(ProfileContainer);
