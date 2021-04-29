@@ -16,22 +16,18 @@ const Nav = (props) => {
   return (
     <nav className={`nav${classMod}`}>
       <ul className="nav__list">
-        {props.isAuthorized ? (
-          <>
-            <NavItem
-              name="Profile"
-              href={`/profile/${props.userId}`}
-              icon={ProfileIcon}
-              type={props.type}
-            />
-            <NavItem
-              name="Message"
-              href="/content/communication"
-              icon={MessageIcon}
-              type={props.type}
-            />
-          </>
-        ) : null}
+        <NavItem
+          name="Profile"
+          href={`/profile/${props.userId}`}
+          icon={ProfileIcon}
+          type={props.type}
+        />
+        <NavItem
+          name="Message"
+          href="/content/communication"
+          icon={MessageIcon}
+          type={props.type}
+        />
         <NavItem
           name="Users"
           href="/content/users"
