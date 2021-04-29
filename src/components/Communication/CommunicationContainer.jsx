@@ -4,6 +4,7 @@ import {
   addMessage,
   changeNewMessage,
 } from '../../redux/communication-reducer';
+import withAuthRedirect from './../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,5 +19,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { addMessage, changeNewMessage })(
-  Communication
+  withAuthRedirect(Communication)
 );
