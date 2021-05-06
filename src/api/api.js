@@ -26,6 +26,18 @@ const ProfileAPI = {
   getProfileInfo(id) {
     return axiosInstance.get(`profile/${id}`).then((response) => response.data);
   },
+
+  getProfileStatus(id) {
+    return axiosInstance
+      .get(`profile/status/${id}`)
+      .then((response) => response);
+  },
+
+  updateProfileStatus(status) {
+    return axiosInstance
+      .put(`profile/status`, { status })
+      .then((response) => response);
+  },
 };
 
 const FollowAPI = {
@@ -37,6 +49,10 @@ const FollowAPI = {
     return axiosInstance
       .delete(`follow/${id}`)
       .then((response) => response.data);
+  },
+
+  isFollow(id) {
+    return axiosInstance.get(`follow/${id}`).then((response) => response);
   },
 };
 
