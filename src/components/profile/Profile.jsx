@@ -9,7 +9,6 @@ import './Profile.css';
 
 const Profile = (props) => {
   const profile = props.profile;
-  console.log(props);
 
   if (!profile) {
     return <Loader />;
