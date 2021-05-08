@@ -1,11 +1,13 @@
-import {ProfileAPI} from './../api/api';
+import { ProfileAPI } from './../api/api';
 
 const CHANGE_POST_MESSAGE = 'CHANGE_POST_MESSAGE';
 const ADD_POST = 'ADD_POST';
 const SET_PROFILE = 'SET_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 const initialState = {
   profile: null,
+  status: '',
   userPostText: '',
   postPlaceholder: "What's new, ",
   posts: [
@@ -41,6 +43,12 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
 
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
+
     default:
       return state;
   }
@@ -60,9 +68,14 @@ const setProfile = (profile) => ({
   profile,
 });
 
+const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
+
 // thunks
 
-const setUserProfile = (userId) => {
+const getUserProfile = (userId) => {
   return (dispatch) => {
     ProfileAPI.getProfileInfo(userId).then((data) => {
       dispatch(setProfile(data));
@@ -70,4 +83,27 @@ const setUserProfile = (userId) => {
   };
 };
 
-export { profileReducer, changePostMessage, addPost, setUserProfile };
+const updateUserStatus = (status) => {
+  return (dispatch) => {
+    ProfileAPI.updateProfileStatus(status).then((_response) => {
+      dispatch(setStatus(status));
+    });
+  };
+};
+
+const getUserStatus = (id) => {
+  return (dispatch) => {
+    ProfileAPI.getProfileStatus(id).then((data) => {
+      dispatch(setStatus(data));
+    });
+  };
+};
+
+export {
+  profileReducer,
+  changePostMessage,
+  addPost,
+  getUserProfile,
+  updateUserStatus,
+  getUserStatus,
+};
