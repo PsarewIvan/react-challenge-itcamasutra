@@ -7,8 +7,14 @@
     width: max-content;
   }
 
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__post {
-    min-height: 6rem;
+    width: 100%;
+    min-height: 7rem;
     padding: 10px 15px 8px;
     background: transparent;
     border: 1px solid #e7edf2;
@@ -17,7 +23,7 @@
   }
 
   &__button {
-    grid-column: 2 / 3;
+    margin-top: 20px;
     margin-left: auto;
     height: 30px;
     min-height: initial;
