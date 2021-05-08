@@ -16,19 +16,7 @@ const Home = (props) => {
             This is Itcamasutra Social Network
           </p>
           <div className="home__login-form">
-            <LoginForm
-              isAuthorized={props.isAuthorized}
-              userId={props.userId}
-              buttonSubmitText={props.buttonSubmitText}
-              emailPlaceholder={props.emailPlaceholder}
-              passwordAriaText={props.passwordAriaText}
-              passwordPlaceholder={props.passwordPlaceholder}
-              emailAriaText={props.emailAriaText}
-              emailMessageText={props.emailMessageText}
-              passwordMessageText={props.passwordMessageText}
-              onChangeEmailText={props.changeEmailText}
-              onChangePasswordText={props.changePasswordText}
-            />
+            <LoginForm />
           </div>
           <div className="home__nav">
             <NavContainer type="home" />
