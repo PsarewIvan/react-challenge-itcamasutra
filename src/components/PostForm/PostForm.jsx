@@ -9,10 +9,11 @@ const onSubmit = async (values) => {
   window.alert(JSON.stringify(values, 0, 2));
 };
 
-const PostFinalForm = () => {
+const PostFinalForm = (props) => {
   return (
     <Form
       onSubmit={onSubmit}
+      userName={props.userName}
       render={(props) => {
         return (
           <form className="post-form__form" onSubmit={props.handleSubmit}>
@@ -42,7 +43,7 @@ const PostForm = (props) => {
           photos={props.photos}
         />
       </div>
-      <PostFinalForm />
+      <PostFinalForm userName={props.userName} />
     </div>
   );
 };
