@@ -1,52 +1,68 @@
 import { NavLink } from 'react-router-dom';
-import './LoginForm.css';
+import { Form, Field } from 'react-final-form';
+import Loader from './../Loader/Loader';
+import './LoginForm.scss';
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const onSubmit = async (values) => {
+  await sleep(300);
+  window.alert(JSON.stringify(values, 0, 2));
+};
 
 const LoginForm = (props) => {
-  const handleEmailInput = (evt) => {
-    props.onChangeEmailText(evt.target.value);
-  };
-
-  const handlePasswordInput = (evt) => {
-    props.onChangePasswordText(evt.target.value);
-  };
-
   let renderForm;
-  if (!props.isAuthorized) {
+  if (props.isAuthorized === null) {
+    renderForm = <Loader />;
+  }
+  if (props.isAuthorized === false) {
     renderForm = (
-      <form className="login-form" method="get" action="/mock-action/">
-        <input
-          className="login-form__input"
-          type="email"
-          name="email"
-          value={props.emailMessageText}
-          placeholder={props.emailPlaceholder}
-          aria-label={props.emailAriaText}
-          onInput={handleEmailInput}
-        />
-        <input
-          className="login-form__input"
-          type="password"
-          name="password"
-          value={props.passwordMessageText}
-          placeholder={props.passwordPlaceholder}
-          aria-label={props.passwordAriaText}
-          onInput={handlePasswordInput}
-        />
-        <button className="login-form__submit" type="submit">
-          {props.buttonSubmitText}
-        </button>
-      </form>
+      <Form
+        onSubmit={onSubmit}
+        render={(props) => {
+          return (
+            <form className="login-form" onSubmit={props.handleSubmit}>
+              <Field
+                className="login-form__input"
+                name="email"
+                component="input"
+                type="email"
+                placeholder="Please type your email"
+              />
+              <Field
+                className="login-form__input"
+                name="password"
+                component="input"
+                type="password"
+                placeholder="Please type your password"
+              />
+              <label className="login-form__label">
+                Remember me
+                <Field
+                  className="login-form__checkbox"
+                  name="isSave"
+                  component="input"
+                  type="checkbox"
+                />
+              </label>
+              <button className="login-form__submit" type="submit">
+                Log into your account
+              </button>
+            </form>
+          );
+        }}
+      />
     );
-  } else {
+  }
+  if (props.isAuthorized) {
     renderForm = (
       <div className="login-form">
         <NavLink className="login-form__submit" to={`/profile/${props.userId}`}>
-          {props.buttonSubmitText}
+          Log into your account
         </NavLink>
       </div>
     );
   }
-
   return <>{renderForm}</>;
 };
 
