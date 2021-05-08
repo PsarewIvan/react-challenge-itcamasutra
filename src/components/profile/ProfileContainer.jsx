@@ -6,13 +6,16 @@ import { withRouter } from 'react-router-dom';
 import {
   addPost,
   changePostMessage,
-  setUserProfile,
+  getUserProfile,
+  updateUserStatus,
+  getUserStatus,
 } from '../../redux/profile-reducer';
 import withAuthRedirect from './../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
   return {
     profile: state.profile.profile,
+    status: state.profile.status,
     posts: state.profile.posts,
     userPostText: state.profile.userPostText,
     postPlaceholder: state.profile.postPlaceholder,
@@ -20,13 +23,10 @@ const mapStateToProps = (state) => {
 };
 
 class ProfileContainer extends React.Component {
-  updateProfile() {
-    const userId = this.props.match.params.userId;
-    this.props.setUserProfile(userId);
-  }
-
   componentDidMount() {
-    this.updateProfile();
+    const userId = this.props.match.params.userId;
+    this.props.getUserProfile(userId);
+    this.props.getUserStatus(userId);
   }
 
   render() {
@@ -38,7 +38,9 @@ export default compose(
   connect(mapStateToProps, {
     addPost,
     changePostMessage,
-    setUserProfile,
+    getUserProfile,
+    updateUserStatus,
+    getUserStatus,
   }),
   withRouter,
   withAuthRedirect

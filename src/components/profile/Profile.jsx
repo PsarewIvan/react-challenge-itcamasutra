@@ -20,8 +20,10 @@ const Profile = (props) => {
         <div className="profile__header">
           <ProfileHeader
             photo={profile.photos.large}
-            about={profile.aboutMe}
             fullName={profile.fullName}
+            userId={profile.userId}
+            status={props.status}
+            updateStatus={props.updateUserStatus}
           />
         </div>
       </div>

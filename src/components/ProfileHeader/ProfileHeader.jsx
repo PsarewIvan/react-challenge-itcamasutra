@@ -1,4 +1,4 @@
-import ProfileStatusContainer from './../ProfileStatus/ProfileStatusContainer';
+import ProfileStatus from '../ProfileStatus/ProfileStatus';
 import ProfileEditButton from './../ProfileEditButton/ProfileEditButton';
 import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './ProfileHeader.css';
@@ -15,7 +15,10 @@ const ProfileHeader = (props) => {
         <p className="profile-header__user-name">{props.fullName}</p>
       </div>
       <div className="profile-header__about">
-        <ProfileStatusContainer about={props.about} />
+        <ProfileStatus
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
       </div>
       <div className="profile-header__edit">
         <ProfileEditButton type="settings" />
