@@ -1,41 +1,49 @@
+import { Form, Field } from 'react-final-form';
 import Avatar from '../Avatar/Avatar';
 import './PostForm.scss';
 
-const PostForm = (props) => {
-  const handleButtonClick = (evt) => {
-    evt.preventDefault();
-    props.addPost();
-  };
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const handleTextareaInput = (evt) => {
-    props.changePostMessage(evt.target.value);
-  };
+const onSubmit = async (values) => {
+  await sleep(300);
+  window.alert(JSON.stringify(values, 0, 2));
+};
 
+const PostFinalForm = () => {
   return (
-    <form className="post-form" name="user-post">
+    <Form
+      onSubmit={onSubmit}
+      render={(props) => {
+        return (
+          <form className="post-form__form" onSubmit={props.handleSubmit}>
+            <Field
+              className="post-form__post"
+              name="post"
+              component="textarea"
+              placeholder={`What's new, ${props.userName}?`}
+            />
+            <button className="post-form__button" type="submit">
+              Send
+            </button>
+          </form>
+        );
+      }}
+    />
+  );
+};
+
+const PostForm = (props) => {
+  return (
+    <div className="post-form">
       <div className="post-form__avatar">
         <Avatar
-          type="post-form"
+          type="post-input"
           userName={props.userName}
           photos={props.photos}
         />
       </div>
-      <textarea
-        className="post-form__post"
-        type="text"
-        name="post"
-        value={props.userPostText}
-        placeholder={`What's new, ${props.userName}?`}
-        onInput={handleTextareaInput}
-      ></textarea>
-      <button
-        className="post-form__button"
-        type="submit"
-        onClick={handleButtonClick}
-      >
-        Send
-      </button>
-    </form>
+      <PostFinalForm />
+    </div>
   );
 };
 
