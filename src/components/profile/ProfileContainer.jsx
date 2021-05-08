@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
   addPost,
-  changePostMessage,
   getUserProfile,
   updateUserStatus,
   getUserStatus,
@@ -17,7 +16,6 @@ const mapStateToProps = (state) => {
     profile: state.profile.profile,
     status: state.profile.status,
     posts: state.profile.posts,
-    userPostText: state.profile.userPostText,
   };
 };
 
@@ -36,7 +34,6 @@ class ProfileContainer extends React.Component {
 export default compose(
   connect(mapStateToProps, {
     addPost,
-    changePostMessage,
     getUserProfile,
     updateUserStatus,
     getUserStatus,
