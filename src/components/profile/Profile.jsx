@@ -1,6 +1,6 @@
 import ProfileHeader from './../ProfileHeader/ProfileHeader';
 import NavContainer from './../Nav/NavContainer';
-import PostInput from '../PostInput/PostInput';
+import PostForm from '../PostForm/PostForm';
 import Posts from '../Posts/Posts';
 import ProfileJob from './../ProfileJob/ProfileJob';
 import ProfileSocials from './../ProfileSocials/ProfileSocials';
@@ -45,18 +45,17 @@ const Profile = (props) => {
           </div>
           <div className="profile__content">
             <div className="profile__message">
-              <PostInput
-                userName={props.userName}
+              <PostForm
+                userName={props.profile.fullName}
                 photos={props.photos}
                 userPostText={props.userPostText}
-                postPlaceholder={props.postPlaceholder}
                 changePostMessage={props.changePostMessage}
                 addPost={props.addPost}
               />
             </div>
             <div className="profile__posts">
               <Posts
-                userName={props.userName}
+                userName={props.profile.fullName}
                 posts={props.posts}
                 photos={props.photos}
               />

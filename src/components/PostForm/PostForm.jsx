@@ -1,7 +1,7 @@
 import Avatar from '../Avatar/Avatar';
-import './PostInput.css';
+import './PostForm.scss';
 
-const PostInput = (props) => {
+const PostForm = (props) => {
   const handleButtonClick = (evt) => {
     evt.preventDefault();
     props.addPost();
@@ -12,24 +12,24 @@ const PostInput = (props) => {
   };
 
   return (
-    <form className="post-input" name="user-post">
-      <div className="post-input__avatar">
+    <form className="post-form" name="user-post">
+      <div className="post-form__avatar">
         <Avatar
-          type="post-input"
+          type="post-form"
           userName={props.userName}
           photos={props.photos}
         />
       </div>
       <textarea
-        className="post-input__post"
+        className="post-form__post"
         type="text"
         name="post"
         value={props.userPostText}
-        placeholder={`${props.postPlaceholder}${props.userName}?`}
+        placeholder={`What's new, ${props.userName}?`}
         onInput={handleTextareaInput}
       ></textarea>
       <button
-        className="post-input__button"
+        className="post-form__button"
         type="submit"
         onClick={handleButtonClick}
       >
@@ -39,4 +39,4 @@ const PostInput = (props) => {
   );
 };
 
-export default PostInput;
+export default PostForm;
