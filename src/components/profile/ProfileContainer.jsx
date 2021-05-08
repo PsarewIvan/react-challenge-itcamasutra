@@ -18,7 +18,6 @@ const mapStateToProps = (state) => {
     status: state.profile.status,
     posts: state.profile.posts,
     userPostText: state.profile.userPostText,
-    postPlaceholder: state.profile.postPlaceholder,
   };
 };
 

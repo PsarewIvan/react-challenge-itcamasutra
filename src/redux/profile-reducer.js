@@ -9,7 +9,6 @@ const initialState = {
   profile: null,
   status: '',
   userPostText: '',
-  postPlaceholder: "What's new, ",
   posts: [
     { id: 1, message: 'First post', likeCount: '5' },
     { id: 2, message: 'Second post', likeCount: '1' },
