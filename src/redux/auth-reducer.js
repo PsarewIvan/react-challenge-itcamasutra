@@ -6,15 +6,8 @@ const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
 const SET_USER_ID = 'SET_USER_ID';
 
 const initialState = {
-  isAuthorized: false,
+  isAuthorized: null,
   userId: null,
-  emailAriaText: 'Please type your email',
-  emailPlaceholder: 'Email',
-  passwordAriaText: 'Please type your password',
-  buttonSubmitText: 'Log into your account',
-  passwordPlaceholder: 'Password',
-  emailMessageText: '',
-  passwordMessageText: '',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -60,6 +53,9 @@ const authMe = () => {
       if (data.resultCode === 0) {
         dispatch(changeAuthorize(true));
         dispatch(setUserId(data.data.id));
+      }
+      if (data.resultCode === 1) {
+        dispatch(changeAuthorize(false));
       }
     });
   };
