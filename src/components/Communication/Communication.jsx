@@ -1,6 +1,6 @@
 import DialogMessages from './../DialogMessages/DialogMessages';
 import Dialogs from './../Dialogs/Dialogs';
-import MessageInput from '../MessageInput/MessageInput';
+import MessageForm from '../MessageForm/MessageForm';
 import './Communication.css';
 
 const Communication = (props) => {
@@ -18,12 +18,7 @@ const Communication = (props) => {
         <Dialogs dialogs={props.dialogs} />
       </div>
       <div className="communication__message-input">
-        <MessageInput
-          userMessageText={props.userMessageText}
-          messagePlaceholder={props.messagePlaceholder}
-          addMessage={props.addMessage}
-          changeNewMessage={props.changeNewMessage}
-        />
+        <MessageForm addMessage={props.addMessage} />
       </div>
     </div>
   );

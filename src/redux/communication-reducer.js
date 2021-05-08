@@ -1,9 +1,6 @@
-const CHANGE_NEW_MESSAGE = 'CHANGE-NEW-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 
 const initialState = {
-  userMessageText: '',
-  messagePlaceholder: 'Write a message...',
   dialogs: [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Anna Bell' },
@@ -23,12 +20,6 @@ const initialState = {
 
 const communicationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_NEW_MESSAGE:
-      return {
-        ...state,
-        userMessageText: action.newMessage,
-      };
-
     case ADD_MESSAGE:
       const newMessage = {
         id: state.messages[state.messages.length - 1].id + 1,
@@ -45,17 +36,10 @@ const communicationReducer = (state = initialState, action) => {
   }
 };
 
-const changeNewMessage = (message) => {
-  return {
-    type: CHANGE_NEW_MESSAGE,
-    newMessage: message,
-  };
-};
-
 const addMessage = () => {
   return {
     type: ADD_MESSAGE,
   };
 };
 
-export { communicationReducer, changeNewMessage, addMessage };
+export { communicationReducer, addMessage };
