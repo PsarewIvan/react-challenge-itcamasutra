@@ -16,7 +16,10 @@ const Home = (props) => {
             This is Itcamasutra Social Network
           </p>
           <div className="home__login-form">
-            <LoginForm />
+            <LoginForm
+              isAuthorized={props.isAuthorized}
+              userId={props.userId}
+            />
           </div>
           <div className="home__nav">
             <NavContainer type="home" />
