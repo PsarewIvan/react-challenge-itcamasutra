@@ -1,7 +1,5 @@
 import { AuthAPI } from './../api/api';
 
-const CHANGE_EMAIL = 'CHANGE_EMAIL';
-const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
 const SET_USER_ID = 'SET_USER_ID';
 
@@ -12,12 +10,6 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_EMAIL:
-      return { ...state, emailMessageText: action.email };
-
-    case CHANGE_PASSWORD:
-      return { ...state, passwordMessageText: action.pass };
-
     case CHANGE_AUTHORIZE:
       return { ...state, isAuthorized: action.isAuthorized };
 
@@ -27,14 +19,6 @@ const authReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-const changeEmailText = (email) => {
-  return { type: CHANGE_EMAIL, email };
-};
-
-const changePasswordText = (pass) => {
-  return { type: CHANGE_PASSWORD, pass };
 };
 
 const changeAuthorize = (isAuthorized) => {
@@ -61,4 +45,4 @@ const authMe = () => {
   };
 };
 
-export { authReducer, changeEmailText, changePasswordText, authMe };
+export { authReducer, authMe };
