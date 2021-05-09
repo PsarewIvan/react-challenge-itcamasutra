@@ -12,6 +12,14 @@ const AuthAPI = {
   authMe() {
     return axiosInstance.get(`auth/me`).then((response) => response.data);
   },
+  login({ email, password, isRemember }) {
+    return axiosInstance
+      .post(`auth/login`, { email, password, isRemember })
+      .then((response) => response.data);
+  },
+  logout() {
+    return axiosInstance.delete('auth/login').then((response) => response.data);
+  },
 };
 
 const UsersAPI = {
