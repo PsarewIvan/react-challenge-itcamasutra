@@ -20,6 +20,7 @@ const Home = (props) => {
               isAuthorized={props.isAuthorized}
               userId={props.userId}
               login={props.login}
+              authError={props.authError}
             />
           </div>
           <div className="home__nav">
