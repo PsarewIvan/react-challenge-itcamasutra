@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Form, Field } from 'react-final-form';
 import Loader from './../Loader/Loader';
+import { required } from './../../common/formValidator';
 import './LoginForm.scss';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -8,6 +9,25 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const onSubmit = async (values) => {
   await sleep(300);
   window.alert(JSON.stringify(values, 0, 2));
+};
+
+const CustomField = ({ type, placeholder }) => ({ input, meta }) => {
+  return (
+    <div className="login-form__input-wrapper">
+      <input
+        className={
+          `login-form__input` +
+          (meta.error && meta.touched ? ` login-form__input--error` : '')
+        }
+        {...input}
+        type={type}
+        placeholder={placeholder}
+      />
+      {meta.error && meta.touched && (
+        <span className="login-form__error">{meta.error}</span>
+      )}
+    </div>
+  );
 };
 
 const LoginForm = (props) => {
@@ -19,38 +39,39 @@ const LoginForm = (props) => {
     renderForm = (
       <Form
         onSubmit={onSubmit}
-        render={(props) => {
-          return (
-            <form className="login-form" onSubmit={props.handleSubmit}>
+        subscription={{ submitting: true, pristine: true }}
+        render={({ handleSubmit, submitting }) => (
+          <form className="login-form" onSubmit={handleSubmit}>
+            <Field name="email" validate={required}>
+              {CustomField({
+                type: 'email',
+                placeholder: 'Please type your email',
+              })}
+            </Field>
+            <Field name="password" validate={required}>
+              {CustomField({
+                type: 'password',
+                placeholder: 'Please type your password',
+              })}
+            </Field>
+            <label className="login-form__label">
+              Remember me
               <Field
-                className="login-form__input"
-                name="email"
+                className="login-form__checkbox"
+                name="isSave"
                 component="input"
-                type="email"
-                placeholder="Please type your email"
+                type="checkbox"
               />
-              <Field
-                className="login-form__input"
-                name="password"
-                component="input"
-                type="password"
-                placeholder="Please type your password"
-              />
-              <label className="login-form__label">
-                Remember me
-                <Field
-                  className="login-form__checkbox"
-                  name="isSave"
-                  component="input"
-                  type="checkbox"
-                />
-              </label>
-              <button className="login-form__submit" type="submit">
-                Log into your account
-              </button>
-            </form>
-          );
-        }}
+            </label>
+            <button
+              className="login-form__submit"
+              type="submit"
+              disabled={submitting}
+            >
+              Log into your account
+            </button>
+          </form>
+        )}
       />
     );
   }
