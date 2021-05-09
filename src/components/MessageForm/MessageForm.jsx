@@ -1,4 +1,5 @@
 import { Form, Field } from 'react-final-form';
+import { required } from './../../common/formValidator';
 import './MessageForm.scss';
 
 const MessageForm = (props) => {
@@ -17,6 +18,7 @@ const MessageForm = (props) => {
             <Field
               className="message-form__input"
               component="textarea"
+              validate={required}
               name={MESSAGE_NAME}
               placeholder="Write a message..."
             />
