@@ -1,5 +1,6 @@
 import { Form, Field } from 'react-final-form';
 import Avatar from '../Avatar/Avatar';
+import { required } from './../../common/formValidator';
 import './PostForm.scss';
 
 const PostFinalForm = (props) => {
@@ -13,16 +14,19 @@ const PostFinalForm = (props) => {
     <Form
       onSubmit={onSubmit}
       userName={props.userName}
-      render={(props) => {
+      render={({ handleSubmit, submitting }) => {
         return (
-          <form className="post-form__form" onSubmit={props.handleSubmit}>
-            <Field
-              className="post-form__post"
-              name={POST_NAME}
-              component="textarea"
-              placeholder={`What's new, ${props.userName}?`}
-            />
-            <button className="post-form__button" type="submit">
+          <form className="post-form__form" onSubmit={handleSubmit}>
+            <Field name={POST_NAME} validate={required}>
+              {({ input }) => (
+                <textarea
+                  className="post-form__input"
+                  {...input}
+                  placeholder={`What's new, ${props.userName}?`}
+                ></textarea>
+              )}
+            </Field>
+            <button className="post-form__button" disabled={submitting}>
               Send
             </button>
           </form>
