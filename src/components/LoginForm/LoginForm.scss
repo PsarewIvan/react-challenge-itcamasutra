@@ -10,15 +10,30 @@
     background-color: #fff;
     border: 1px solid #e7edf2;
     line-height: 2;
+  }
 
-    &:first-of-type {
+  &__input-wrapper {
+    position: relative;
+
+    &:first-child input {
       border-radius: 12px 12px 0 0;
     }
 
-    &:last-of-type {
+    &:nth-child(2) {
       margin-bottom: 20px;
-      border-radius: 0 0 12px 12px;
+
+      input {
+        border-radius: 0 0 12px 12px;
+      }
     }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: red;
   }
 
   &__label {
@@ -63,6 +78,12 @@
     &:hover {
       background-color: #9c51e9;
       background-position: right center;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      background-color: grey;
+      background-image: none;
     }
   }
 }
