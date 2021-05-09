@@ -1,5 +1,6 @@
 import Home from './Home';
 import { connect } from 'react-redux';
+import { login } from './../../redux/auth-reducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -8,4 +9,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, { login })(Home);

@@ -19,6 +19,7 @@ const Home = (props) => {
             <LoginForm
               isAuthorized={props.isAuthorized}
               userId={props.userId}
+              login={props.login}
             />
           </div>
           <div className="home__nav">
