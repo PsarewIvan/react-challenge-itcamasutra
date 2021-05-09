@@ -2,10 +2,12 @@ import { AuthAPI } from './../api/api';
 
 const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
 const SET_USER_ID = 'SET_USER_ID';
+const SET_AUTH_ERROR = 'SET_AUTH_ERROR';
 
 const initialState = {
   isAuthorized: null,
   userId: null,
+  authError: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -20,6 +22,12 @@ const authReducer = (state = initialState, action) => {
         isAuthorized: action.isAuthorized,
       };
 
+    case SET_AUTH_ERROR:
+      return {
+        ...state,
+        authError: action.error,
+      };
+
     default:
       return state;
   }
@@ -31,6 +39,10 @@ const changeAuthorize = (isAuthorized) => {
 
 const setUserId = (userId, isAuthorized = false) => {
   return { type: SET_USER_ID, userId, isAuthorized };
+};
+
+const setAuthError = (error) => {
+  return { type: SET_AUTH_ERROR, error };
 };
 
 // thunks
@@ -54,7 +66,9 @@ const login = (loginState) => {
     AuthAPI.login(loginState).then((data) => {
       if (data.resultCode === 0) {
         dispatch(authMe());
-      } else if (data.resultCode === 1) {
+      }
+      if (data.resultCode === 1) {
+        dispatch(setAuthError(data.messages[0]));
       }
     });
   };
