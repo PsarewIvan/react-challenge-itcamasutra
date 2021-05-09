@@ -2,7 +2,6 @@ import Post from '../Post/Post';
 import './Posts.css';
 
 const Posts = (props) => {
-  console.log(props.posts);
   const postElement = props.posts
     .map((post) => {
       return (
