@@ -1,14 +1,13 @@
 import { Form, Field } from 'react-final-form';
 import './MessageForm.scss';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const onSubmit = async (values) => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
-
 const MessageForm = (props) => {
+  const MESSAGE_NAME = 'message';
+
+  const onSubmit = (values) => {
+    props.addMessage(values[MESSAGE_NAME]);
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -18,7 +17,7 @@ const MessageForm = (props) => {
             <Field
               className="message-form__input"
               component="textarea"
-              name="message"
+              name={MESSAGE_NAME}
               placeholder="Write a message..."
             />
             <button className="message-form__button" type="submit">
