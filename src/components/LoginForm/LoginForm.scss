@@ -55,6 +55,7 @@
   }
 
   &__submit {
+    position: relative;
     width: 100%;
     min-height: 2.5rem;
     padding: 1rem 2rem 1rem;
@@ -85,5 +86,22 @@
       background-color: grey;
       background-image: none;
     }
+  }
+
+  &__submit-error {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 18px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff50;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.8rem;
+    color: darkred;
   }
 }
