@@ -19,13 +19,12 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       const newPost = {
         id: state.posts[state.posts.length - 1].id + 1,
-        message: state.userPostText,
+        message: action.post,
         likeCount: 0,
       };
       return {
         ...state,
         posts: [...state.posts, newPost],
-        userPostText: '',
       };
 
     case SET_PROFILE:
@@ -45,8 +44,9 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-const addPost = () => ({
+const addPost = (post) => ({
   type: ADD_POST,
+  post,
 });
 
 const setProfile = (profile) => ({

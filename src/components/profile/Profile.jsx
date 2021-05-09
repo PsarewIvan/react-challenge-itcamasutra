@@ -48,6 +48,7 @@ const Profile = (props) => {
               <PostForm
                 userName={props.profile.fullName}
                 photos={props.photos}
+                addPost={props.addPost}
               />
             </div>
             <div className="profile__posts">

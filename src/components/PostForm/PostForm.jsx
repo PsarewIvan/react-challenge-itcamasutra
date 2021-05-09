@@ -2,14 +2,13 @@ import { Form, Field } from 'react-final-form';
 import Avatar from '../Avatar/Avatar';
 import './PostForm.scss';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const onSubmit = async (values) => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
-
 const PostFinalForm = (props) => {
+  const POST_NAME = 'post';
+
+  const onSubmit = (values) => {
+    props.addPost(values[POST_NAME]);
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -19,7 +18,7 @@ const PostFinalForm = (props) => {
           <form className="post-form__form" onSubmit={props.handleSubmit}>
             <Field
               className="post-form__post"
-              name="post"
+              name={POST_NAME}
               component="textarea"
               placeholder={`What's new, ${props.userName}?`}
             />
@@ -43,7 +42,7 @@ const PostForm = (props) => {
           photos={props.photos}
         />
       </div>
-      <PostFinalForm userName={props.userName} />
+      <PostFinalForm userName={props.userName} addPost={props.addPost} />
     </div>
   );
 };
