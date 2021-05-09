@@ -14,7 +14,11 @@ const authReducer = (state = initialState, action) => {
       return { ...state, isAuthorized: action.isAuthorized };
 
     case SET_USER_ID:
-      return { ...state, userId: action.userId };
+      return {
+        ...state,
+        userId: action.userId,
+        isAuthorized: action.isAuthorized,
+      };
 
     default:
       return state;
@@ -25,8 +29,8 @@ const changeAuthorize = (isAuthorized) => {
   return { type: CHANGE_AUTHORIZE, isAuthorized };
 };
 
-const setUserId = (userId) => {
-  return { type: SET_USER_ID, userId };
+const setUserId = (userId, isAuthorized = false) => {
+  return { type: SET_USER_ID, userId, isAuthorized };
 };
 
 // thunks
@@ -36,7 +40,7 @@ const authMe = () => {
     AuthAPI.authMe().then((data) => {
       if (data.resultCode === 0) {
         dispatch(changeAuthorize(true));
-        dispatch(setUserId(data.data.id));
+        dispatch(setUserId(data.data.id, true));
       }
       if (data.resultCode === 1) {
         dispatch(changeAuthorize(false));
@@ -45,4 +49,25 @@ const authMe = () => {
   };
 };
 
-export { authReducer, authMe };
+const login = (loginState) => {
+  return (dispatch) => {
+    AuthAPI.login(loginState).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(authMe());
+      } else if (data.resultCode === 1) {
+      }
+    });
+  };
+};
+
+const logout = () => {
+  return (dispatch) => {
+    AuthAPI.logout().then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(setUserId(null, false));
+      }
+    });
+  };
+};
+
+export { authReducer, authMe, login, logout };
