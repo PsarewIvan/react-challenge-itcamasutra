@@ -4,13 +4,6 @@ import Loader from './../Loader/Loader';
 import { required } from './../../common/formValidator';
 import './LoginForm.scss';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const onSubmit = async (values) => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
-
 const CustomField = ({ type, placeholder }) => ({ input, meta }) => {
   return (
     <div className="login-form__input-wrapper">
@@ -31,7 +24,12 @@ const CustomField = ({ type, placeholder }) => ({ input, meta }) => {
 };
 
 const LoginForm = (props) => {
+  const onSubmit = (formState) => {
+    props.login(formState);
+  };
+
   let renderForm;
+
   if (props.isAuthorized === null) {
     renderForm = <Loader />;
   }
@@ -58,7 +56,7 @@ const LoginForm = (props) => {
               Remember me
               <Field
                 className="login-form__checkbox"
-                name="isSave"
+                name="isRemember"
                 component="input"
                 type="checkbox"
               />
