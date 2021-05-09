@@ -67,6 +67,11 @@ const LoginForm = (props) => {
               disabled={submitting}
             >
               Log into your account
+              {props.authError && (
+                <span className="login-form__submit-error">
+                  {props.authError}
+                </span>
+              )}
             </button>
           </form>
         )}
