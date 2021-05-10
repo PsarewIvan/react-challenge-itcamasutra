@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './NavItem.css';
+import './NavItem.scss';
 
 const NavItem = (props) => {
   const Icon = props.icon;
@@ -9,15 +9,22 @@ const NavItem = (props) => {
   }
 
   return (
-    <li className={`nav-item${classMod}`}>
-      <NavLink
-        className="nav-item__link"
-        activeClassName="nav-item__link--active"
-        to={props.href}
-      >
-        <Icon className="nav-item__icon" aria-hidden="true" />
-        {props.name}
-      </NavLink>
+    <li className={`nav-item nav-item${classMod}`}>
+      {props.logout ? (
+        <button className="nav-item__link" onClick={props.logout}>
+          <Icon className="nav-item__icon" aria-hidden="true" />
+          {props.name}
+        </button>
+      ) : (
+        <NavLink
+          className="nav-item__link"
+          activeClassName="nav-item__link--active"
+          to={props.href}
+        >
+          <Icon className="nav-item__icon" aria-hidden="true" />
+          {props.name}
+        </NavLink>
+      )}
     </li>
   );
 };

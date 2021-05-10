@@ -46,12 +46,15 @@ const Nav = (props) => {
           icon={MusicIcon}
           type={props.type}
         />
-        <NavItem
-          name="Settings"
-          href="/content/settings"
-          icon={SettingsIcon}
-          type={props.type}
-        />
+        {props.isAuthorized && (
+          <NavItem
+            name="Logout"
+            href="/content/settings"
+            icon={SettingsIcon}
+            type={props.type}
+            logout={props.logout}
+          />
+        )}
       </ul>
     </nav>
   );

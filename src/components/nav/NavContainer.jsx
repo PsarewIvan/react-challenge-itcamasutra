@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { logout } from './../../redux/auth-reducer';
 import Nav from './Nav';
 
 const mapStateToProps = (state) => {
@@ -8,4 +9,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, { logout })(Nav);
