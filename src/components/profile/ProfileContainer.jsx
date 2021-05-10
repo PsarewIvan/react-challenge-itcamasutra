@@ -22,6 +22,10 @@ const mapStateToProps = (state) => {
 class ProfileContainer extends React.Component {
   componentDidMount() {
     const userId = this.props.match.params.userId;
+    if (!userId) {
+      this.props.history.push('/');
+    }
+
     this.props.getUserProfile(userId);
     this.props.getUserStatus(userId);
   }
