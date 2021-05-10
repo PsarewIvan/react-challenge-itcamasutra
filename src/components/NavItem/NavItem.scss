@@ -1,0 +1,50 @@
+.nav-item {
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 97px;
+    min-height: 84px;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #838ca8;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &--active {
+      color: #8224e3;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+
+    g {
+      fill: #838ca8;
+    }
+  }
+
+  &__link--active .nav-item__icon g {
+    fill: #8224e3;
+  }
+}
+
+/* Home */
+
+.nav-item--home .nav-item__link {
+  color: #fff;
+}
+
+.nav-item--home .nav-item__icon g {
+  fill: #fff;
+}
