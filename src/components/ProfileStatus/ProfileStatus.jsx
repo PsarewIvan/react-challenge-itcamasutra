@@ -1,75 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfileStatus.css';
 
-class ProfileStatus extends React.Component {
-  state = {
-    isStatusChanging: false,
-    status: this.props.status,
+const ProfileStatus = (props) => {
+  const [isStatusChanging, toggleStatusView] = useState(false);
+  const [status, setStatus] = useState(props.status);
+
+  const handleStatusEditOpen = () => {
+    toggleStatusView(true);
   };
 
-  onStartChange = () => {
-    this.setState({ isStatusChanging: true });
-  };
-
-  onEndChange = () => {
-    this.setState({ isStatusChanging: false });
-  };
-
-  onUpdateStatus = () => {
-    if (this.props.status !== this.state.status) {
-      this.props.updateStatus(this.state.status);
+  const handleStatusSubmit = (evt) => {
+    evt.preventDefault();
+    if (props.status !== status) {
+      props.updateStatus(status);
     }
-    this.setState({ isStatusChanging: false });
+    toggleStatusView(false);
   };
 
-  onStatusChange = (evt) => {
-    this.setState({
-      status: evt.target.value,
-    });
+  const handleStatusEditClose = () => {
+    toggleStatusView(false);
   };
 
-  componentDidUpdate() {
-    if (this.state.status !== this.props.status) {
-      this.setState({ status: this.props.status });
-    }
-  }
+  const handleStatusChange = (evt) => {
+    setStatus(evt.target.value);
+  };
 
-  render() {
-    return (
-      <div className="profile-status">
-        {!this.state.isStatusChanging && (
-          <div className="profile-status__text" onClick={this.onStartChange}>
-            {this.props.status || 'Change me'}
-          </div>
-        )}
-        {this.state.isStatusChanging && (
-          <div className="profile-status__editor">
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
+
+  return (
+    <div className="profile-status">
+      {!isStatusChanging && (
+        <div className="profile-status__text" onClick={handleStatusEditOpen}>
+          {props.status || 'Change me'}
+        </div>
+      )}
+      {isStatusChanging && (
+        <div className="profile-status__editor">
+          <form onSubmit={handleStatusSubmit}>
             <input
               className="profile-status__input"
               type="text"
-              value={this.state.status}
+              value={status}
               autoFocus={true}
-              onChange={this.onStatusChange}
+              onChange={handleStatusChange}
             />
-            <button
-              className="profile-status__button"
-              type="button"
-              onClick={this.onUpdateStatus}
-            >
+            <button className="profile-status__button" type="submit">
               Change status
             </button>
             <button
               className="profile-status__button profile-status__button--cancel"
               type="button"
-              onClick={this.onEndChange}
+              onClick={handleStatusEditClose}
             >
               Close
             </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default ProfileStatus;
