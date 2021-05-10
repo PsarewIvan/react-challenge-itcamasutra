@@ -49,7 +49,7 @@ const setAuthError = (error) => {
 
 const authMe = () => {
   return (dispatch) => {
-    AuthAPI.authMe().then((data) => {
+    return AuthAPI.authMe().then((data) => {
       if (data.resultCode === 0) {
         dispatch(changeAuthorize(true));
         dispatch(setUserId(data.data.id, true));
