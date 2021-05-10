@@ -28,13 +28,11 @@ const LoginForm = (props) => {
     props.login(formState);
   };
 
-  let renderForm;
-
   if (props.isAuthorized === null) {
-    renderForm = <Loader />;
+    return <Loader />;
   }
   if (props.isAuthorized === false) {
-    renderForm = (
+    return (
       <Form
         onSubmit={onSubmit}
         subscription={{ submitting: true, pristine: true }}
@@ -79,7 +77,7 @@ const LoginForm = (props) => {
     );
   }
   if (props.isAuthorized) {
-    renderForm = (
+    return (
       <div className="login-form">
         <NavLink className="login-form__submit" to={`/profile/${props.userId}`}>
           Log into your account
@@ -87,7 +85,6 @@ const LoginForm = (props) => {
       </div>
     );
   }
-  return <>{renderForm}</>;
 };
 
 export default LoginForm;
