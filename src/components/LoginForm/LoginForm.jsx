@@ -4,10 +4,9 @@ import Loader from './../Loader/Loader';
 import { required } from './../../common/formValidator';
 import './LoginForm.scss';
 
-const CustomField =
-  ({ type, placeholder }) =>
-  ({ input, meta }) => {
-    return (
+const CustomField = ({ type, name, placeholder }) => (
+  <Field name={name} validate={required}>
+    {({ input, meta }) => (
       <div className="login-form__input-wrapper">
         <input
           className={
@@ -22,8 +21,10 @@ const CustomField =
           <span className="login-form__error">{meta.error}</span>
         )}
       </div>
-    );
-  };
+    )}
+  </Field>
+);
+// };
 
 const LoginForm = ({ login, isAuthorized, authError, userId }) => {
   const onSubmit = (formState) => {
@@ -40,18 +41,16 @@ const LoginForm = ({ login, isAuthorized, authError, userId }) => {
         subscription={{ submitting: true, pristine: true }}
         render={({ handleSubmit, submitting }) => (
           <form className="login-form" onSubmit={handleSubmit}>
-            <Field name="email" validate={required}>
-              {CustomField({
-                type: 'email',
-                placeholder: 'Please type your email',
-              })}
-            </Field>
-            <Field name="password" validate={required}>
-              {CustomField({
-                type: 'password',
-                placeholder: 'Please type your password',
-              })}
-            </Field>
+            {CustomField({
+              type: 'email',
+              name: 'email',
+              placeholder: 'Please type your email',
+            })}
+            {CustomField({
+              type: 'password',
+              name: 'password',
+              placeholder: 'Please type your password',
+            })}
             <label className="login-form__label">
               Remember me
               <Field
