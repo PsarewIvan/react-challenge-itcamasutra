@@ -102,7 +102,7 @@ const toggleFollowingUsers = (isRequestInProgress, userId) => ({
 
 // helpers
 
-const followUnfollow = async ({ dispatch, id, apiMethod, actionCreator }) => {
+const followUnfollow = async (dispatch, id, apiMethod, actionCreator) => {
   dispatch(toggleFollowingUsers(true, id));
   const data = await apiMethod(id);
   if (data.resultCode === 0) {
@@ -115,12 +115,12 @@ const followUnfollow = async ({ dispatch, id, apiMethod, actionCreator }) => {
 
 const followUser = (id) => async (dispatch) => {
   const apiMethod = FollowAPI.follow.bind(FollowAPI);
-  followUnfollow({ dispatch, id, apiMethod, follow });
+  followUnfollow(dispatch, id, apiMethod, follow);
 };
 
 const unfollowUser = (id) => async (dispatch) => {
   const apiMethod = FollowAPI.unFollow.bind(FollowAPI);
-  followUnfollow({ dispatch, id, apiMethod, unFollow });
+  followUnfollow(dispatch, id, apiMethod, unFollow);
 };
 
 const getUsers = (pageNumber, pageSize) => async (dispatch) => {
