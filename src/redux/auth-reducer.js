@@ -1,8 +1,8 @@
 import { AuthAPI } from './../api/api';
 
-const CHANGE_AUTHORIZE = 'CHANGE_AUTHORIZE';
-const SET_USER_ID = 'SET_USER_ID';
-const SET_AUTH_ERROR = 'SET_AUTH_ERROR';
+const CHANGE_AUTHORIZE = 'auth/CHANGE_AUTHORIZE';
+const SET_USER_ID = 'auth/SET_USER_ID';
+const SET_AUTH_ERROR = 'auth/SET_AUTH_ERROR';
 
 const initialState = {
   isAuthorized: null,

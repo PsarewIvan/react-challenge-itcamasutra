@@ -1,8 +1,8 @@
 import { ProfileAPI } from './../api/api';
 
-const ADD_POST = 'ADD_POST';
-const SET_PROFILE = 'SET_PROFILE';
-const SET_STATUS = 'SET_STATUS';
+const ADD_POST = 'profile/ADD_POST';
+const SET_PROFILE = 'profile/SET_PROFILE';
+const SET_STATUS = 'profile/SET_STATUS';
 
 const initialState = {
   profile: null,
