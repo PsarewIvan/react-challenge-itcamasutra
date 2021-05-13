@@ -8,6 +8,8 @@ const CHANGE_CURRENT_PAGE = 'users/CHANGE_CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 const TOGGLE_FOLLOWING_USERS = 'users/TOGGLE_FOLLOWING_USERS';
 
+// reducer helpers
+
 const followingUser = (users, id, isFollow) =>
   users.map((user) => {
     if (user.id === id) {
@@ -15,6 +17,8 @@ const followingUser = (users, id, isFollow) =>
     }
     return user;
   });
+
+// reducer
 
 const initialState = {
   users: [],
@@ -73,6 +77,8 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
+// action-creators
+
 const follow = (id) => ({ type: FOLLOW, id });
 const unFollow = (id) => ({ type: UN_FOLLOW, id });
 const setUsers = (users) => ({ type: SET_USERS, users });
@@ -94,24 +100,27 @@ const toggleFollowingUsers = (isRequestInProgress, userId) => ({
   isRequestInProgress,
 });
 
-// thunks
+// helpers
 
-const followUser = (id) => async (dispatch) => {
+const followUnfollow = async ({ dispatch, id, apiMethod, actionCreator }) => {
   dispatch(toggleFollowingUsers(true, id));
-  const data = await FollowAPI.follow(id);
+  const data = await apiMethod(id);
   if (data.resultCode === 0) {
-    dispatch(follow(id));
+    dispatch(actionCreator(id));
     dispatch(toggleFollowingUsers(false, id));
   }
 };
 
+// thunks
+
+const followUser = (id) => async (dispatch) => {
+  const apiMethod = FollowAPI.follow.bind(FollowAPI);
+  followUnfollow({ dispatch, id, apiMethod, follow });
+};
+
 const unfollowUser = (id) => async (dispatch) => {
-  dispatch(toggleFollowingUsers(true, id));
-  const data = await FollowAPI.unFollow(id);
-  if (data.resultCode === 0) {
-    dispatch(unFollow(id));
-    dispatch(toggleFollowingUsers(false, id));
-  }
+  const apiMethod = FollowAPI.unFollow.bind(FollowAPI);
+  followUnfollow({ dispatch, id, apiMethod, unFollow });
 };
 
 const getUsers = (pageNumber, pageSize) => async (dispatch) => {
