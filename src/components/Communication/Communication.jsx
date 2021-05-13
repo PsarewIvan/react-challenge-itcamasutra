@@ -3,22 +3,29 @@ import Dialogs from './../Dialogs/Dialogs';
 import MessageForm from '../MessageForm/MessageForm';
 import './Communication.css';
 
-const Communication = (props) => {
+const Communication = ({
+  messages,
+  currentUserId,
+  users,
+  photos,
+  dialogs,
+  addMessage,
+}) => {
   return (
     <div className="communication">
       <div className="communication__messages">
         <DialogMessages
-          messages={props.messages}
-          currentUserId={props.currentUserId}
-          users={props.users}
-          photos={props.photos}
+          messages={messages}
+          currentUserId={currentUserId}
+          users={users}
+          photos={photos}
         />
       </div>
       <div className="communication__dialogs">
-        <Dialogs dialogs={props.dialogs} />
+        <Dialogs dialogs={dialogs} />
       </div>
       <div className="communication__message-input">
-        <MessageForm addMessage={props.addMessage} />
+        <MessageForm addMessage={addMessage} />
       </div>
     </div>
   );

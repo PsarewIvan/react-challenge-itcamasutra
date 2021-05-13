@@ -5,16 +5,27 @@ import UsersPaginationButton from './../UsersPaginationButton/UsersPaginationBut
 import Loader from './../Loader/Loader';
 import './Users.css';
 
-const Users = (props) => {
+const Users = ({
+  totalCount,
+  pageSize,
+  currentPage,
+  onChangePage,
+  followed,
+  onUnFollow,
+  onFollow,
+  isFetching,
+  users,
+  followingUsers,
+}) => {
   const paginationRender = () => {
-    const pageCount = Math.ceil(props.totalCount / props.pageSize);
+    const pageCount = Math.ceil(totalCount / pageSize);
     const buttons = [];
     for (let i = 1; i <= pageCount; i++) {
       if (
         i === 1 ||
-        i === props.currentPage - 1 ||
-        i === props.currentPage ||
-        i === props.currentPage + 1 ||
+        i === currentPage - 1 ||
+        i === currentPage ||
+        i === currentPage + 1 ||
         i === pageCount
       ) {
         buttons.push(i);
@@ -23,8 +34,8 @@ const Users = (props) => {
     return buttons.map((i) => (
       <UsersPaginationButton
         number={i}
-        currentPage={props.currentPage}
-        onChangePage={props.onChangePage}
+        currentPage={currentPage}
+        onChangePage={onChangePage}
         key={i}
       />
     ));
@@ -33,15 +44,12 @@ const Users = (props) => {
   return (
     <div className="users">
       <div className="users__sort">
-        <UsersSort
-          friendsCount={'this.props.friendsCount'}
-          usersCount={props.totalCount}
-        />
+        <UsersSort friendsCount={'this.friendsCount'} usersCount={totalCount} />
       </div>
       <div className="users__pagination">{paginationRender()}</div>
-      <div>{props.isFetching ? <Loader /> : null}</div>
+      <div>{isFetching ? <Loader /> : null}</div>
       <ul className="users__list">
-        {props.users.map((user) => (
+        {users.map((user) => (
           <li className="users__user" key={user.id}>
             <User
               userConnections={user.userConnections}
@@ -50,9 +58,9 @@ const Users = (props) => {
               followed={user.followed}
               photos={user.photos}
               id={user.id}
-              followingUsers={props.followingUsers}
-              onFollow={props.onFollow}
-              onUnFollow={props.onUnFollow}
+              followingUsers={followingUsers}
+              onFollow={onFollow}
+              onUnFollow={onUnFollow}
             />
           </li>
         ))}

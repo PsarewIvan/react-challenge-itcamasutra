@@ -1,10 +1,10 @@
 import './UserConnection.css';
 
-const UserConnection = (props) => {
+const UserConnection = ({ number, name }) => {
   return (
     <div className="user-connection">
-      <span className="user-connection__count">{props.number}</span>
-      <span className="user-connection__name">{props.name}</span>
+      <span className="user-connection__count">{number}</span>
+      <span className="user-connection__name">{name}</span>
     </div>
   );
 };

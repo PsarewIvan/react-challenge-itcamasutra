@@ -2,9 +2,9 @@ import { Form, Field } from 'react-final-form';
 import { required } from './../../common/formValidator';
 import './MessageForm.scss';
 
-const MessageForm = (props) => {
-  const MESSAGE_NAME = 'message';
+const MESSAGE_NAME = 'message';
 
+const MessageForm = (props) => {
   const onSubmit = (values) => {
     props.addMessage(values[MESSAGE_NAME]);
   };

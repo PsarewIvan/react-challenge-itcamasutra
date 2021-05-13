@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ProfileStatus.css';
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({ status, updateStatus }) => {
   const [isStatusChanging, toggleStatusView] = useState(false);
-  const [status, setStatus] = useState(props.status);
+  const [thisStatus, setStatus] = useState(status);
 
   const handleStatusEditOpen = () => {
     toggleStatusView(true);
@@ -11,8 +11,8 @@ const ProfileStatus = (props) => {
 
   const handleStatusSubmit = (evt) => {
     evt.preventDefault();
-    if (props.status !== status) {
-      props.updateStatus(status);
+    if (status !== thisStatus) {
+      updateStatus(thisStatus);
     }
     toggleStatusView(false);
   };
@@ -26,14 +26,14 @@ const ProfileStatus = (props) => {
   };
 
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(status);
+  }, [status]);
 
   return (
     <div className="profile-status">
       {!isStatusChanging && (
         <div className="profile-status__text" onClick={handleStatusEditOpen}>
-          {props.status || 'Change me'}
+          {status || 'Change me'}
         </div>
       )}
       {isStatusChanging && (
@@ -42,7 +42,7 @@ const ProfileStatus = (props) => {
             <input
               className="profile-status__input"
               type="text"
-              value={status}
+              value={thisStatus}
               autoFocus={true}
               onChange={handleStatusChange}
             />

@@ -1,21 +1,20 @@
 import './UsersPaginationButton.css';
 
-const UsersPagination = (props) => {
+const UsersPagination = ({ onChangePage, number, currentPage }) => {
   const handleButtonClick = () => {
-    props.onChangePage(props.number);
+    onChangePage(number);
   };
-  const isThisCurrentPageButton = props.currentPage === props.number;
+  const isThisCurrentPageButton = currentPage === number;
 
   return (
     <button
       className={`users-pagination-button ${
-        props.currentPage === props.number &&
-        'users-pagination-button--selected'
+        currentPage === number && 'users-pagination-button--selected'
       }`}
       disabled={isThisCurrentPageButton ? true : false}
       onClick={handleButtonClick}
     >
-      {props.number}
+      {number}
     </button>
   );
 };

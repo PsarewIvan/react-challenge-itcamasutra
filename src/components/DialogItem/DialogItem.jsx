@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-const DialogItem = (props) => {
-  return <NavLink to={`/communication/${props.id}`}>{props.name}</NavLink>;
+const DialogItem = ({ id, name }) => {
+  return <NavLink to={`/communication/${id}`}>{name}</NavLink>;
 };
 
 export default DialogItem;

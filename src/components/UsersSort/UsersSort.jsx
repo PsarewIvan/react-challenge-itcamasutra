@@ -1,6 +1,6 @@
 import './UsersSort.css';
 
-const UsersSort = (props) => {
+const UsersSort = ({ usersCount, friendsCount }) => {
   return (
     <div className="users-sort">
       <button
@@ -8,11 +8,11 @@ const UsersSort = (props) => {
         type="button"
       >
         {`All member's `}
-        <span className="users-sort__count">{props.usersCount}</span>
+        <span className="users-sort__count">{usersCount}</span>
       </button>
       <button className="users-sort__button" type="button">
         {`My friends `}
-        <span className="users-sort__count">{props.friendsCount}</span>
+        <span className="users-sort__count">{friendsCount}</span>
       </button>
     </div>
   );

@@ -7,9 +7,9 @@ import { ReactComponent as NewsIcon } from './img/news.svg';
 import { ReactComponent as MusicIcon } from './img/music.svg';
 import { ReactComponent as SettingsIcon } from './img/settings.svg';
 
-const Nav = (props) => {
+const Nav = ({ type, userId, isAuthorized, logout }) => {
   let classMod = '';
-  if (props.type === 'home') {
+  if (type === 'home') {
     classMod = ' nav--home';
   }
 
@@ -18,41 +18,36 @@ const Nav = (props) => {
       <ul className="nav__list">
         <NavItem
           name="Profile"
-          href={`/profile/${props.userId}`}
+          href={`/profile/${userId}`}
           icon={ProfileIcon}
-          type={props.type}
+          type={type}
         />
         <NavItem
           name="Message"
           href="/content/communication"
           icon={MessageIcon}
-          type={props.type}
+          type={type}
         />
         <NavItem
           name="Users"
           href="/content/users"
           icon={UsersIcon}
-          type={props.type}
+          type={type}
         />
-        <NavItem
-          name="News"
-          href="/content/feed"
-          icon={NewsIcon}
-          type={props.type}
-        />
+        <NavItem name="News" href="/content/feed" icon={NewsIcon} type={type} />
         <NavItem
           name="Music"
           href="/content/music"
           icon={MusicIcon}
-          type={props.type}
+          type={type}
         />
-        {props.isAuthorized && (
+        {isAuthorized && (
           <NavItem
             name="Logout"
             href="/content/settings"
             icon={SettingsIcon}
-            type={props.type}
-            logout={props.logout}
+            type={type}
+            logout={logout}
           />
         )}
       </ul>

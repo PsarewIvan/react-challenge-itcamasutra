@@ -7,9 +7,14 @@ import ProfileSocials from './../ProfileSocials/ProfileSocials';
 import Loader from './../Loader/Loader';
 import './Profile.css';
 
-const Profile = (props) => {
-  const profile = props.profile;
-
+const Profile = ({
+  profile,
+  status,
+  updateUserStatus,
+  photos,
+  addPost,
+  posts,
+}) => {
   if (!profile) {
     return <Loader />;
   }
@@ -22,8 +27,8 @@ const Profile = (props) => {
             photo={profile.photos.large}
             fullName={profile.fullName}
             userId={profile.userId}
-            status={props.status}
-            updateStatus={props.updateUserStatus}
+            status={status}
+            updateStatus={updateUserStatus}
           />
         </div>
       </div>
@@ -46,16 +51,16 @@ const Profile = (props) => {
           <div className="profile__content">
             <div className="profile__message">
               <PostForm
-                userName={props.profile.fullName}
-                photos={props.photos}
-                addPost={props.addPost}
+                userName={profile.fullName}
+                photos={photos}
+                addPost={addPost}
               />
             </div>
             <div className="profile__posts">
               <Posts
-                userName={props.profile.fullName}
-                posts={props.posts}
-                photos={props.photos}
+                userName={profile.fullName}
+                posts={posts}
+                photos={photos}
               />
             </div>
           </div>

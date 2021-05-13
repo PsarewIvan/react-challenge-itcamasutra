@@ -1,11 +1,11 @@
 import UserMessage from '../UserMessage/UserMessage';
 import './DialogMessages.css';
 
-const DialogMessages = (props) => {
-  const messagesElement = props.messages.map((message) => {
-    let isCurrentUserMessage = props.currentUserId === message.id;
+const DialogMessages = ({ messages, currentUserId, users, photos }) => {
+  const messagesElement = messages.map((message) => {
+    let isCurrentUserMessage = currentUserId === message.id;
     let classMod = '';
-    if (message.id === props.currentUserId) {
+    if (message.id === currentUserId) {
       classMod = 'dialog-messages__message--self';
     }
     return (
@@ -16,9 +16,9 @@ const DialogMessages = (props) => {
         <UserMessage
           message={message.message}
           currentUser={isCurrentUserMessage}
-          users={props.users}
-          currentUserId={props.currentUserId}
-          photos={props.photos}
+          users={users}
+          currentUserId={currentUserId}
+          photos={photos}
         />
       </li>
     );

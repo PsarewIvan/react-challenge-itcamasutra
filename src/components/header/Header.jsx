@@ -3,7 +3,7 @@ import UserCard from '../UserCard/UserCard';
 import NavContainer from '../Nav/NavContainer';
 import './Header.css';
 
-const Header = (props) => {
+const Header = ({ userName, userStatus, userConnections, photos }) => {
   return (
     <header className="header">
       <div className="header__logo">
@@ -12,10 +12,10 @@ const Header = (props) => {
       <div className="header__profile-wrapper">
         <div className="header__profile">
           <UserCard
-            userName={props.userName}
-            userStatus={props.userStatus}
-            userConnections={props.userConnections}
-            photos={props.photos}
+            userName={userName}
+            userStatus={userStatus}
+            userConnections={userConnections}
+            photos={photos}
           />
         </div>
       </div>

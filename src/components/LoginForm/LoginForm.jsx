@@ -4,34 +4,36 @@ import Loader from './../Loader/Loader';
 import { required } from './../../common/formValidator';
 import './LoginForm.scss';
 
-const CustomField = ({ type, placeholder }) => ({ input, meta }) => {
-  return (
-    <div className="login-form__input-wrapper">
-      <input
-        className={
-          `login-form__input` +
-          (meta.error && meta.touched ? ` login-form__input--error` : '')
-        }
-        {...input}
-        type={type}
-        placeholder={placeholder}
-      />
-      {meta.error && meta.touched && (
-        <span className="login-form__error">{meta.error}</span>
-      )}
-    </div>
-  );
-};
-
-const LoginForm = (props) => {
-  const onSubmit = (formState) => {
-    props.login(formState);
+const CustomField =
+  ({ type, placeholder }) =>
+  ({ input, meta }) => {
+    return (
+      <div className="login-form__input-wrapper">
+        <input
+          className={
+            `login-form__input` +
+            (meta.error && meta.touched ? ` login-form__input--error` : '')
+          }
+          {...input}
+          type={type}
+          placeholder={placeholder}
+        />
+        {meta.error && meta.touched && (
+          <span className="login-form__error">{meta.error}</span>
+        )}
+      </div>
+    );
   };
 
-  if (props.isAuthorized === null) {
+const LoginForm = ({ login, isAuthorized, authError, userId }) => {
+  const onSubmit = (formState) => {
+    login(formState);
+  };
+
+  if (isAuthorized === null) {
     return <Loader />;
   }
-  if (props.isAuthorized === false) {
+  if (isAuthorized === false) {
     return (
       <Form
         onSubmit={onSubmit}
@@ -65,10 +67,8 @@ const LoginForm = (props) => {
               disabled={submitting}
             >
               Log into your account
-              {props.authError && (
-                <span className="login-form__submit-error">
-                  {props.authError}
-                </span>
+              {authError && (
+                <span className="login-form__submit-error">{authError}</span>
               )}
             </button>
           </form>
@@ -76,10 +76,10 @@ const LoginForm = (props) => {
       />
     );
   }
-  if (props.isAuthorized) {
+  if (isAuthorized) {
     return (
       <div className="login-form">
-        <NavLink className="login-form__submit" to={`/profile/${props.userId}`}>
+        <NavLink className="login-form__submit" to={`/profile/${userId}`}>
           Log into your account
         </NavLink>
       </div>

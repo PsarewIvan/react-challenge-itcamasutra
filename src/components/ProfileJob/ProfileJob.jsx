@@ -1,8 +1,8 @@
-const ProfileJob = (props) => {
+const ProfileJob = ({ lookingForAJob, lookingForAJobDescription }) => {
   return (
     <div className="profile-job">
-      <p>{props.lookingForAJob ? 'В поисках работы' : 'Уже работаю'}</p>
-      <p>{props.lookingForAJobDescription}</p>
+      <p>{lookingForAJob ? 'В поисках работы' : 'Уже работаю'}</p>
+      <p>{lookingForAJobDescription}</p>
     </div>
   );
 };

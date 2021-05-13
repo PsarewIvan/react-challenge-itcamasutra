@@ -2,13 +2,13 @@ import './ProfileEditButton.css';
 import editLogo from './img/edit.svg';
 import backgroundLogo from './img/background.svg';
 
-const ProfileEditButton = (props) => {
+const ProfileEditButton = ({ type }) => {
   let icon, altText;
-  if (props.type === 'settings') {
+  if (type === 'settings') {
     icon = editLogo;
     altText = 'Change settings';
   }
-  if (props.type === 'background') {
+  if (type === 'background') {
     icon = backgroundLogo;
     altText = 'Change background image';
   }

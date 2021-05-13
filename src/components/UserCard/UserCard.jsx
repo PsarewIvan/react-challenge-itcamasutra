@@ -2,7 +2,7 @@ import Avatar from '../Avatar/Avatar';
 import UserConnection from '../UserConnection/UserConnection';
 import './UserCard.css';
 
-const UserCard = (props) => {
+const UserCard = ({ userName, userStatus, lastActive, id, photos }) => {
   const userConnections = [
     { id: 1, name: 'Friends', count: 4 },
     { id: 2, name: 'Groups', count: 1 },
@@ -20,11 +20,11 @@ const UserCard = (props) => {
     <div className="user-card">
       <div className="user-card__avatar">
         <Avatar
-          userName={props.userName}
-          userStatus={props.userStatus}
-          lastActive={props.lastActive}
-          id={props.id}
-          photos={props.photos}
+          userName={userName}
+          userStatus={userStatus}
+          lastActive={lastActive}
+          id={id}
+          photos={photos}
         />
       </div>
       <div className="user-card__connection">

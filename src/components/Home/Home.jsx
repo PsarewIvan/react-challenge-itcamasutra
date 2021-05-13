@@ -3,7 +3,7 @@ import LoginForm from './../LoginForm/LoginForm';
 import NavContainer from './../Nav/NavContainer';
 import './Home.css';
 
-const Home = (props) => {
+const Home = ({ isAuthorized, userId, login, authError }) => {
   return (
     <div className="home">
       <div className="home__background-overlay">
@@ -17,10 +17,10 @@ const Home = (props) => {
           </p>
           <div className="home__login-form">
             <LoginForm
-              isAuthorized={props.isAuthorized}
-              userId={props.userId}
-              login={props.login}
-              authError={props.authError}
+              isAuthorized={isAuthorized}
+              userId={userId}
+              login={login}
+              authError={authError}
             />
           </div>
           <div className="home__nav">

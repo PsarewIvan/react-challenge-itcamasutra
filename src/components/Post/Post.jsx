@@ -2,17 +2,17 @@ import Avatar from '../Avatar/Avatar';
 import LikeButton from '../LikeButton/LikeButton';
 import './Post.css';
 
-const Post = (props) => {
+const Post = ({ userName, photos, message, likeCount }) => {
   return (
     <div className="post">
       <div className="post__header">
-        <Avatar type="post" userName={props.userName} photos={props.photos} />
+        <Avatar type="post" userName={userName} photos={photos} />
       </div>
       <div className="post__inner">
-        <p className="post__text">{props.message}</p>
+        <p className="post__text">{message}</p>
       </div>
       <div className="post__action">
-        <LikeButton likeCount={props.likeCount} />
+        <LikeButton likeCount={likeCount} />
       </div>
     </div>
   );

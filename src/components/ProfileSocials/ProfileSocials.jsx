@@ -1,8 +1,8 @@
 import './ProfileSocials.css';
 
-const ProfileSocials = (props) => {
+const ProfileSocials = ({ contacts }) => {
   const socials = [];
-  for (let contact in props.contacts) {
+  for (let contact in contacts) {
     socials.push(contact);
   }
 

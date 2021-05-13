@@ -1,16 +1,16 @@
 import Post from '../Post/Post';
 import './Posts.css';
 
-const Posts = (props) => {
-  const postElement = props.posts
+const Posts = ({ posts, userName, photos }) => {
+  const postElement = posts
     .map((post) => {
       return (
         <li className="posts__element" key={`posts-${post.id}`}>
           <Post
             message={post.message}
             likeCount={post.likeCount}
-            userName={props.userName}
-            photos={props.photos}
+            userName={userName}
+            photos={photos}
           />
         </li>
       );

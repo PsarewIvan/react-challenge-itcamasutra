@@ -3,22 +3,19 @@ import ProfileEditButton from './../ProfileEditButton/ProfileEditButton';
 import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './ProfileHeader.css';
 
-const ProfileHeader = (props) => {
+const ProfileHeader = ({ photo, fullName, status, updateStatus }) => {
   return (
     <div className="profile-header">
       <div className="profile-header__avatar">
         <img
           className="profile-header__avatar-img"
-          src={!props.photo ? userPhoto : props.photo}
+          src={!photo ? userPhoto : photo}
           alt="User's avatar"
         />
-        <p className="profile-header__user-name">{props.fullName}</p>
+        <p className="profile-header__user-name">{fullName}</p>
       </div>
       <div className="profile-header__about">
-        <ProfileStatus
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />
+        <ProfileStatus status={status} updateStatus={updateStatus} />
       </div>
       <div className="profile-header__edit">
         <ProfileEditButton type="settings" />

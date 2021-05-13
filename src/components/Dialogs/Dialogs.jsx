@@ -1,8 +1,8 @@
 import DialogItem from '../DialogItem/DialogItem';
 import './Dialogs.css';
 
-const Dialogs = (props) => {
-  const dialogItems = props.dialogs.map((dialog) => {
+const Dialogs = ({ dialogs }) => {
+  const dialogItems = dialogs.map((dialog) => {
     return (
       <li className="dialogs__element" key={`dialogs-element-${dialog.id}`}>
         <DialogItem name={dialog.name} id={dialog.id} />

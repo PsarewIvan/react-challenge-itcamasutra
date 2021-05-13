@@ -1,7 +1,7 @@
 import './LikeButton.css';
 import icon from './img/like.svg';
 
-const LikeButton = (props) => {
+const LikeButton = ({ likeCount }) => {
   return (
     <button className="like-button" type="button">
       <span className="like-button__wrapper">
@@ -12,7 +12,7 @@ const LikeButton = (props) => {
           aria-hidden="true"
         ></img>
         <span className="like-button__text">Like</span>
-        <span className="like-button__count">{props.likeCount}</span>
+        <span className="like-button__count">{likeCount}</span>
       </span>
     </button>
   );

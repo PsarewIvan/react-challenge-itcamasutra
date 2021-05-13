@@ -1,9 +1,15 @@
-const FollowButton = (props) => {
+const FollowButton = ({
+  followed,
+  onUnFollow,
+  onFollow,
+  id,
+  followingUsers,
+}) => {
   const handleButtonClick = () => {
-    if (props.followed) {
-      props.onUnFollow(props.id);
+    if (followed) {
+      onUnFollow(id);
     } else {
-      props.onFollow(props.id);
+      onFollow(id);
     }
   };
   return (
@@ -11,10 +17,10 @@ const FollowButton = (props) => {
       <button
         className="follow-button__button"
         type="button"
-        disabled={props.followingUsers.some((id) => id === props.id)}
+        disabled={followingUsers.some((currentId) => currentId === id)}
         onClick={handleButtonClick}
       >
-        {props.followed ? 'Unfollow' : 'Follow'}
+        {followed ? 'Unfollow' : 'Follow'}
       </button>
     </div>
   );

@@ -1,9 +1,15 @@
 import Avatar from '../Avatar/Avatar';
 import './UserMessage.css';
 
-const UserMassage = (props) => {
+const UserMassage = ({
+  currentUser,
+  users,
+  currentUserId,
+  photos,
+  message,
+}) => {
   let classMod = '';
-  if (props.currentUser) {
+  if (currentUser) {
     classMod = 'user-message--self';
   }
   return (
@@ -11,13 +17,13 @@ const UserMassage = (props) => {
       <div className="user-message__avatar">
         <Avatar
           type="post"
-          users={props.users}
-          currentUserId={props.currentUserId}
-          photos={props.photos}
+          users={users}
+          currentUserId={currentUserId}
+          photos={photos}
         />
       </div>
       <div className="user-message__message-wrapper">
-        <p className="user-message__message">{props.message}</p>
+        <p className="user-message__message">{message}</p>
       </div>
     </div>
   );
