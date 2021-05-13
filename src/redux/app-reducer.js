@@ -22,12 +22,10 @@ const initSuccess = () => {
 
 // thunks
 
-const initialize = () => {
-  return (dispatch) => {
-    dispatch(authMe()).then(() => {
-      dispatch(initSuccess());
-    });
-  };
+const initialize = () => async (dispatch) => {
+  dispatch(authMe()).then(() => {
+    dispatch(initSuccess());
+  });
 };
 
 export { appReducer, initialize };

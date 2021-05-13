@@ -98,39 +98,30 @@ const toggleFollowingUsers = (isRequestInProgress, userId) => ({
 
 // thunks
 
-const followUser = (id) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingUsers(true, id));
-    FollowAPI.follow(id).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(follow(id));
-        dispatch(toggleFollowingUsers(false, id));
-      }
-    });
-  };
+const followUser = (id) => async (dispatch) => {
+  dispatch(toggleFollowingUsers(true, id));
+  const data = await FollowAPI.follow(id);
+  if (data.resultCode === 0) {
+    dispatch(follow(id));
+    dispatch(toggleFollowingUsers(false, id));
+  }
 };
 
-const unfollowUser = (id) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingUsers(true, id));
-    FollowAPI.unFollow(id).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(unFollow(id));
-        dispatch(toggleFollowingUsers(false, id));
-      }
-    });
-  };
+const unfollowUser = (id) => async (dispatch) => {
+  dispatch(toggleFollowingUsers(true, id));
+  const data = await FollowAPI.unFollow(id);
+  if (data.resultCode === 0) {
+    dispatch(unFollow(id));
+    dispatch(toggleFollowingUsers(false, id));
+  }
 };
 
-const getUsers = (pageNumber, pageSize) => {
-  return (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    UsersAPI.getUsers(pageNumber, pageSize).then((data) => {
-      dispatch(toggleIsFetching(false));
-      dispatch(setTotalPageCount(data.totalCount));
-      dispatch(setUsers(data.items));
-    });
-  };
+const getUsers = (pageNumber, pageSize) => async (dispatch) => {
+  dispatch(toggleIsFetching(true));
+  const data = await UsersAPI.getUsers(pageNumber, pageSize);
+  dispatch(toggleIsFetching(false));
+  dispatch(setTotalPageCount(data.totalCount));
+  dispatch(setUsers(data.items));
 };
 
 export { usersReducer, changeCurrentPage, followUser, unfollowUser, getUsers };

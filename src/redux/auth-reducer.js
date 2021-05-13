@@ -47,41 +47,32 @@ const setAuthError = (error) => {
 
 // thunks
 
-const authMe = () => {
-  return (dispatch) => {
-    return AuthAPI.authMe().then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(changeAuthorize(true));
-        dispatch(setUserId(data.data.id, true));
-      }
-      if (data.resultCode === 1) {
-        dispatch(changeAuthorize(false));
-      }
-    });
-  };
+const authMe = () => async (dispatch) => {
+  const data = await AuthAPI.authMe();
+  if (data.resultCode === 0) {
+    dispatch(changeAuthorize(true));
+    dispatch(setUserId(data.data.id, true));
+  }
+  if (data.resultCode === 1) {
+    dispatch(changeAuthorize(false));
+  }
 };
 
-const login = (loginState) => {
-  return (dispatch) => {
-    AuthAPI.login(loginState).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(authMe());
-      }
-      if (data.resultCode === 1) {
-        dispatch(setAuthError(data.messages[0]));
-      }
-    });
-  };
+const login = (loginState) => async (dispatch) => {
+  const data = await AuthAPI.login(loginState);
+  if (data.resultCode === 0) {
+    dispatch(authMe());
+  }
+  if (data.resultCode === 1) {
+    dispatch(setAuthError(data.messages[0]));
+  }
 };
 
-const logout = () => {
-  return (dispatch) => {
-    AuthAPI.logout().then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(setUserId(null, false));
-      }
-    });
-  };
+const logout = () => async (dispatch) => {
+  const data = await AuthAPI.logout();
+  if (data.resultCode === 0) {
+    dispatch(setUserId(null, false));
+  }
 };
 
 export { authReducer, authMe, login, logout };

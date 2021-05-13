@@ -61,28 +61,20 @@ const setStatus = (status) => ({
 
 // thunks
 
-const getUserProfile = (userId) => {
-  return (dispatch) => {
-    ProfileAPI.getProfileInfo(userId).then((data) => {
-      dispatch(setProfile(data));
-    });
-  };
+const getUserProfile = (userId) => async (dispatch) => {
+  const data = await ProfileAPI.getProfileInfo(userId);
+  dispatch(setProfile(data));
 };
 
-const updateUserStatus = (status) => {
-  return (dispatch) => {
-    ProfileAPI.updateProfileStatus(status).then((_response) => {
-      dispatch(setStatus(status));
-    });
-  };
+const updateUserStatus = (status) => (dispatch) => {
+  ProfileAPI.updateProfileStatus(status).then((_response) => {
+    dispatch(setStatus(status));
+  });
 };
 
-const getUserStatus = (id) => {
-  return (dispatch) => {
-    ProfileAPI.getProfileStatus(id).then((data) => {
-      dispatch(setStatus(data));
-    });
-  };
+const getUserStatus = (id) => async (dispatch) => {
+  const data = await ProfileAPI.getProfileStatus(id);
+  dispatch(setStatus(data));
 };
 
 export {
