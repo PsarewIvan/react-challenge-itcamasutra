@@ -8,6 +8,14 @@ const CHANGE_CURRENT_PAGE = 'users/CHANGE_CURRENT_PAGE';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 const TOGGLE_FOLLOWING_USERS = 'users/TOGGLE_FOLLOWING_USERS';
 
+const followingUser = (users, id, isFollow) =>
+  users.map((user) => {
+    if (user.id === id) {
+      return { ...user, followed: isFollow };
+    }
+    return user;
+  });
+
 const initialState = {
   users: [],
   pageSize: 10,
@@ -21,23 +29,13 @@ const usersReducer = (state = initialState, action) => {
     case FOLLOW:
       return {
         ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.id) {
-            return { ...user, followed: true };
-          }
-          return user;
-        }),
+        users: followingUser(state.users, action.id, true),
       };
 
     case UN_FOLLOW:
       return {
         ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.id) {
-            return { ...user, followed: false };
-          }
-          return user;
-        }),
+        users: followingUser(state.users, action.id, false),
       };
 
     case SET_USERS:
