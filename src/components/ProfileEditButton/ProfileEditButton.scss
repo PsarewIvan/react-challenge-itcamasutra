@@ -14,14 +14,15 @@
   text-shadow: 0px 0px 3px rgb(0 0 0 / 60%);
   white-space: nowrap;
   cursor: pointer;
-  transition: 0.5s;
-}
+  transition: background-color 0.1s;
 
-.profile-edit-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 
-.profile-edit-button__icon {
-  width: 23px;
-  height: auto;
+  &__icon {
+    width: 23px;
+    height: auto;
+  }
 }

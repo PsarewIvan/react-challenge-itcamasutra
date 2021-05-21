@@ -1,4 +1,4 @@
-import './ProfileEditButton.css';
+import './ProfileEditButton.scss';
 import editLogo from './img/edit.svg';
 import backgroundLogo from './img/background.svg';
 
