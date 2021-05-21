@@ -1,0 +1,102 @@
+.profile-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 320px 4fr 1fr;
+  align-items: baseline;
+  width: 100%;
+  padding-bottom: 35px;
+
+  &__avatar {
+    position: absolute;
+    bottom: -75px;
+    width: 200px;
+    height: 250px;
+    transform: translateX(60px);
+  }
+
+  &__avatar-img {
+    width: 100%;
+    max-height: 200px;
+    border: solid 2px #fff;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  &__user-name {
+    font-size: 20px;
+    margin: 0 0 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+    color: #4f515b;
+  }
+
+  &__about {
+    grid-column: 2/3;
+  }
+
+  &__edit {
+    grid-column: 3/4;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  &__img-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+    transition: transform 0.1s;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.5s;
+    }
+  }
+
+  &__label-img {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 22px;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 225 225" preserveAspectRatio="xMidYMid meet" xmlns:v="https://vecta.io/nano"%3E%3Cpath d="M87.8 30.8C63.9 54.6 63 56 67 60c4.3 4.3 6.3 3.1 23.2-13.7L106 30.6v66c0 73.4-.3 70.4 6.5 70.4s6.5 3 6.5-70.4v-66l15.8 15.7C147.3 58.7 151.2 62 153.3 62c3.3 0 6.7-3.2 6.7-6.2C160 52.9 115.4 8 112.5 8c-1.2 0-10.6 8.6-24.7 22.8zM1.9 111.1c-2 2-2 2.8-1.7 37.7.3 33.9.4 36 2.5 41 4.6 11.4 13 19.5 25.2 24.4l5.6 2.3h79 79l5.6-2.3c12.1-4.8 20.3-12.8 25-24.2 2.3-5.3 2.4-6.6 2.7-40.7.3-34.4.3-35.2-1.7-37.2-2.4-2.4-5.9-2.7-8.7-.7-1.8 1.4-1.9 3.3-2.4 36.8-.5 34.4-.6 35.4-2.8 39.6-3.3 6.2-9.6 11.8-15.8 14.2-5.3 1.9-7.4 2-80.9 2-71.6 0-75.7-.1-80.5-1.9-6.9-2.6-12.1-7.1-15.6-13.3l-2.9-5.3-.3-33.5-.7-35.7c-1.2-5.2-6.8-7-10.6-3.2z"/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  &__input-img {
+    outline: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+}
