@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import userPhoto from './../../assets/img/avatar/avatar.jpeg';
+import mockPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './Avatar.css';
 
 const Avatar = ({ type, id, photos, userName, userStatus, lastActive }) => {
@@ -19,7 +19,7 @@ const Avatar = ({ type, id, photos, userName, userStatus, lastActive }) => {
       <NavLink className="avatar__link-img" to={`/profile/${id}`}>
         <img
           className="avatar__img"
-          src={!photos || photos.small === null ? userPhoto : photos.small}
+          src={!photos || photos.small === null ? mockPhoto : photos.small}
           alt="avatar"
         />
       </NavLink>
