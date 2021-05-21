@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 };
 
 class ProfileContainer extends React.Component {
-  componentDidMount() {
+  updateProfile() {
     const userId = this.props.match.params.userId;
     if (!userId) {
       this.props.history.push('/');
@@ -28,6 +28,16 @@ class ProfileContainer extends React.Component {
 
     this.props.getUserProfile(userId);
     this.props.getUserStatus(userId);
+  }
+
+  componentDidMount() {
+    this.updateProfile();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId) {
+      this.updateProfile();
+    }
   }
 
   render() {
