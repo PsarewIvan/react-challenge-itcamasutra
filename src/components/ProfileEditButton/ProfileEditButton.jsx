@@ -1,8 +1,10 @@
+import React from 'react';
 import './ProfileEditButton.scss';
 import editLogo from './img/edit.svg';
 import backgroundLogo from './img/background.svg';
 
 const ProfileEditButton = ({ type }) => {
+  console.log('render');
   let icon, altText;
   if (type === 'settings') {
     icon = editLogo;
@@ -19,4 +21,4 @@ const ProfileEditButton = ({ type }) => {
   );
 };
 
-export default ProfileEditButton;
+export default React.memo(ProfileEditButton);
