@@ -24,6 +24,7 @@ const ProfileHeader = ({ photo, fullName, status, updateStatus }) => {
             <input
               className="profile-header__input-img"
               type="file"
+              accept="image/*"
               aria-label="Загрузить фото для аватара"
               placeholder=""
               onChange={handelInputChange}
