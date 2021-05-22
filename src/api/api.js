@@ -60,6 +60,12 @@ const ProfileAPI = {
         return response.data;
       });
   },
+
+  updateProfile(newInfo) {
+    return axiosInstance.put(`profile`, newInfo).then((response) => {
+      return response.data;
+    });
+  },
 };
 
 const FollowAPI = {
