@@ -96,6 +96,16 @@ const changePhoto = (file) => async (dispatch) => {
   }
 };
 
+const updateProfileInfo = (info) => async (dispatch, getState) => {
+  const data = await ProfileAPI.updateProfile(info);
+  if (data.resultCode === 0) {
+    const userId = getState().auth.userId;
+    dispatch(getUserProfile(userId.toString()));
+  } else {
+    // console.log(data);
+  }
+};
+
 export {
   profileReducer,
   addPost,
@@ -103,4 +113,5 @@ export {
   updateUserStatus,
   getUserStatus,
   changePhoto,
+  updateProfileInfo,
 };
