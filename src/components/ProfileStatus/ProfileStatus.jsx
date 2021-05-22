@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './ProfileStatus.css';
 
-const ProfileStatus = ({ status, updateStatus }) => {
+const ProfileStatus = ({ updateStatus }) => {
+  // убрать status из передачи в пропсах
+  const status = useSelector((state) => state.profile.status);
+
   const [isStatusChanging, toggleStatusView] = useState(false);
   const [thisStatus, setStatus] = useState(status);
 

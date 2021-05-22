@@ -3,8 +3,7 @@ import './ProfileEditButton.scss';
 import editLogo from './img/edit.svg';
 import backgroundLogo from './img/background.svg';
 
-const ProfileEditButton = ({ type }) => {
-  console.log('render');
+const ProfileEditButton = ({ type, onClick }) => {
   let icon, altText;
   if (type === 'settings') {
     icon = editLogo;
@@ -14,10 +13,11 @@ const ProfileEditButton = ({ type }) => {
     icon = backgroundLogo;
     altText = 'Change background image';
   }
+
   return (
-    <a className="profile-edit-button" href="/mock-link/">
+    <button className="profile-edit-button" type="button" onClick={onClick}>
       <img className="profile-edit-button__icon" src={icon} alt={altText} />
-    </a>
+    </button>
   );
 };
 

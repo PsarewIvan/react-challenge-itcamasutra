@@ -5,7 +5,13 @@ import ProfileEditButton from './../ProfileEditButton/ProfileEditButton';
 import userPhoto from './../../assets/img/avatar/avatar.jpeg';
 import './ProfileHeader.scss';
 
-const ProfileHeader = ({ photo, fullName, status, updateStatus }) => {
+const ProfileHeader = ({
+  photo,
+  fullName,
+  status,
+  updateStatus,
+  openEditComponent,
+}) => {
   const dispatch = useDispatch();
   const handelInputChange = (evt) => {
     dispatch(changePhoto(evt.target.files[0]));
@@ -37,7 +43,7 @@ const ProfileHeader = ({ photo, fullName, status, updateStatus }) => {
         <ProfileStatus status={status} updateStatus={updateStatus} />
       </div>
       <div className="profile-header__edit">
-        <ProfileEditButton type="settings" />
+        <ProfileEditButton type="settings" onClick={openEditComponent} />
         <ProfileEditButton type="background" />
       </div>
     </div>

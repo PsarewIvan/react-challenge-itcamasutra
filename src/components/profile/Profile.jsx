@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProfileHeader from './../ProfileHeader/ProfileHeader';
 import NavContainer from './../Nav/NavContainer';
 import PostForm from '../PostForm/PostForm';
@@ -5,6 +6,7 @@ import Posts from '../Posts/Posts';
 import ProfileJob from './../ProfileJob/ProfileJob';
 import ProfileSocials from './../ProfileSocials/ProfileSocials';
 import Loader from './../Loader/Loader';
+import ProfileInfoForm from './../ProfileInfoForm/ProfileInfoForm';
 import './Profile.css';
 
 const Profile = ({
@@ -15,6 +17,16 @@ const Profile = ({
   addPost,
   posts,
 }) => {
+  const [isInfoEdit, setEditMod] = useState(false);
+
+  const openEditComponent = () => {
+    setEditMod(true);
+  };
+
+  const closeEditComponent = () => {
+    setEditMod(false);
+  };
+
   if (!profile) {
     return <Loader />;
   }
@@ -29,6 +41,7 @@ const Profile = ({
             userId={profile.userId}
             status={status}
             updateStatus={updateUserStatus}
+            openEditComponent={openEditComponent}
           />
         </div>
       </div>
@@ -49,20 +62,26 @@ const Profile = ({
             </div>
           </div>
           <div className="profile__content">
-            <div className="profile__message">
-              <PostForm
-                userName={profile.fullName}
-                photos={photos}
-                addPost={addPost}
-              />
-            </div>
-            <div className="profile__posts">
-              <Posts
-                userName={profile.fullName}
-                posts={posts}
-                photos={photos}
-              />
-            </div>
+            {isInfoEdit ? (
+              <ProfileInfoForm closeEditComponent={closeEditComponent} />
+            ) : (
+              <>
+                <div className="profile__message">
+                  <PostForm
+                    userName={profile.fullName}
+                    photos={photos}
+                    addPost={addPost}
+                  />
+                </div>
+                <div className="profile__posts">
+                  <Posts
+                    userName={profile.fullName}
+                    posts={posts}
+                    photos={photos}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
