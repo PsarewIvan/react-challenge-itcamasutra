@@ -1,13 +1,15 @@
-import { AuthAPI } from './../api/api';
+import { AuthAPI, SecurityAPI } from './../api/api';
 
 const CHANGE_AUTHORIZE = 'auth/CHANGE_AUTHORIZE';
 const SET_USER_ID = 'auth/SET_USER_ID';
 const SET_AUTH_ERROR = 'auth/SET_AUTH_ERROR';
+const SET_CAPTCHA = 'auth/SET_CAPTCHA';
 
 const initialState = {
   isAuthorized: null,
   userId: null,
   authError: null,
+  captchaURL: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -15,6 +17,7 @@ const authReducer = (state = initialState, action) => {
     case CHANGE_AUTHORIZE:
     case SET_USER_ID:
     case SET_AUTH_ERROR:
+    case SET_CAPTCHA:
       return {
         ...state,
         ...action.payload,
@@ -24,17 +27,25 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-const changeAuthorize = (isAuthorized) => {
-  return { type: CHANGE_AUTHORIZE, payload: { isAuthorized } };
-};
+const changeAuthorize = (isAuthorized) => ({
+  type: CHANGE_AUTHORIZE,
+  payload: { isAuthorized },
+});
 
-const setUserId = (userId, isAuthorized = false) => {
-  return { type: SET_USER_ID, payload: { userId, isAuthorized } };
-};
+const setUserId = (userId, isAuthorized = false) => ({
+  type: SET_USER_ID,
+  payload: { userId, isAuthorized },
+});
 
-const setAuthError = (error) => {
-  return { type: SET_AUTH_ERROR, payload: { error } };
-};
+const setAuthError = (error) => ({
+  type: SET_AUTH_ERROR,
+  payload: { error },
+});
+
+const setCaptcha = (captchaURL) => ({
+  type: SET_CAPTCHA,
+  payload: { captchaURL },
+});
 
 // thunks
 
@@ -53,8 +64,10 @@ const login = (loginState) => async (dispatch) => {
   const data = await AuthAPI.login(loginState);
   if (data.resultCode === 0) {
     dispatch(authMe());
-  }
-  if (data.resultCode === 1) {
+  } else {
+    if (data.resultCode === 10) {
+      dispatch(getCaptcha());
+    }
     dispatch(setAuthError(data.messages[0]));
   }
 };
@@ -64,6 +77,11 @@ const logout = () => async (dispatch) => {
   if (data.resultCode === 0) {
     dispatch(setUserId(null, false));
   }
+};
+
+const getCaptcha = () => async (dispatch) => {
+  const data = await SecurityAPI.getCaptcha();
+  dispatch(setCaptcha(data.url));
 };
 
 export { authReducer, authMe, login, logout };
