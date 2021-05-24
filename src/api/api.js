@@ -12,9 +12,9 @@ const AuthAPI = {
   authMe() {
     return axiosInstance.get(`auth/me`).then((response) => response.data);
   },
-  login({ email, password, isRemember }) {
+  login(formState) {
     return axiosInstance
-      .post(`auth/login`, { email, password, isRemember })
+      .post(`auth/login`, formState)
       .then((response) => response.data);
   },
   logout() {
@@ -84,4 +84,12 @@ const FollowAPI = {
   },
 };
 
-export { AuthAPI, UsersAPI, ProfileAPI, FollowAPI };
+const SecurityAPI = {
+  getCaptcha() {
+    return axiosInstance
+      .get(`security/get-captcha-url`)
+      .then((response) => response.data);
+  },
+};
+
+export { AuthAPI, UsersAPI, ProfileAPI, FollowAPI, SecurityAPI };
