@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Form, Field } from 'react-final-form';
 import Loader from './../Loader/Loader';
@@ -24,16 +25,18 @@ const CustomField = ({ type, name, placeholder }) => (
     )}
   </Field>
 );
-// };
 
 const LoginForm = ({ login, isAuthorized, authError, userId }) => {
+  const captchaURL = useSelector((state) => state.auth.captchaURL);
   const onSubmit = (formState) => {
+    console.log(formState);
     login(formState);
   };
 
   if (isAuthorized === null) {
     return <Loader />;
   }
+
   if (isAuthorized === false) {
     return (
       <Form
@@ -60,6 +63,18 @@ const LoginForm = ({ login, isAuthorized, authError, userId }) => {
                 type="checkbox"
               />
             </label>
+
+            {captchaURL && (
+              <>
+                <img src={captchaURL} alt="captcha" />
+                {CustomField({
+                  type: 'text',
+                  name: 'captcha',
+                  placeholder: 'Enter the characters from the picture',
+                })}
+              </>
+            )}
+
             <button
               className="login-form__submit"
               type="submit"
