@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   return {
     isAuthorized: state.auth.isAuthorized,
     userId: state.auth.userId,
-    authError: state.auth.authError,
+    authError: state.auth.error,
   };
 };
 
