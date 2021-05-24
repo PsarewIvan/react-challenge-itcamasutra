@@ -13,36 +13,27 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_AUTHORIZE:
-      return { ...state, isAuthorized: action.isAuthorized };
-
     case SET_USER_ID:
-      return {
-        ...state,
-        userId: action.userId,
-        isAuthorized: action.isAuthorized,
-      };
-
     case SET_AUTH_ERROR:
       return {
         ...state,
-        authError: action.error,
+        ...action.payload,
       };
-
     default:
       return state;
   }
 };
 
 const changeAuthorize = (isAuthorized) => {
-  return { type: CHANGE_AUTHORIZE, isAuthorized };
+  return { type: CHANGE_AUTHORIZE, payload: { isAuthorized } };
 };
 
 const setUserId = (userId, isAuthorized = false) => {
-  return { type: SET_USER_ID, userId, isAuthorized };
+  return { type: SET_USER_ID, payload: { userId, isAuthorized } };
 };
 
 const setAuthError = (error) => {
-  return { type: SET_AUTH_ERROR, error };
+  return { type: SET_AUTH_ERROR, payload: { error } };
 };
 
 // thunks
